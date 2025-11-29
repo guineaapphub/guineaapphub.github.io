@@ -13,6 +13,9 @@
           crossorigin="anonymous"></script>
   <!-- ✅ End AdSense verification script -->
 
+  <!-- ✅ Google Search Console site verification -->
+  <meta name="google-site-verification" content="FSjAX-8iMppXgSzcWB-IpDSVZdqr8F2_H61BSxneciE" />
+
   <link
     href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap"
     rel="stylesheet"
@@ -98,8 +101,6 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
     }
 
     .theme-mode-btn,
@@ -123,6 +124,12 @@
     .how-btn:hover {
       transform: translateY(-1px);
       box-shadow: 0 0 6px var(--primary-glow);
+    }
+
+    .community-label {
+      font-size: 13px;
+      opacity: 0.85;
+      margin-left: 6px;
     }
 
     .discord-icon-btn {
@@ -417,43 +424,7 @@
       transform: translateY(-1px);
     }
 
-    /* Footer + Discord button */
-    .footer-note {
-      font-size: 12px;
-      text-align: center;
-      opacity: 0.9;
-      margin-top: 18px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-    }
-    .footer-note span {
-      opacity: 0.85;
-    }
-    .discord-footer-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 8px 18px;
-      border-radius: 999px;
-      border: none;
-      background: #5865f2;
-      color: #ffffff;
-      font-weight: 600;
-      font-size: 13px;
-      text-decoration: none;
-      box-shadow: 0 4px 14px rgba(88, 101, 242, 0.55);
-      transition: transform 0.15s ease, box-shadow 0.15s ease,
-        background 0.15s ease;
-    }
-    .discord-footer-btn:hover {
-      background: #4753d5;
-      transform: translateY(-1px);
-      box-shadow: 0 6px 18px rgba(88, 101, 242, 0.7);
-    }
-
-    /* Modal (How to Use + Terms of Service + Privacy Policy) */
+    /* Modal (How to Use + Terms of Service + Privacy + Cookie Preferences) */
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -582,6 +553,66 @@
       opacity: 1;
     }
 
+    /* Cookie banner */
+    .cookie-banner {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 8px 14px;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      z-index: 130;
+      font-size: 12px;
+      background: #050712;
+      color: #f5f7ff;
+      border-top: 1px solid #333955;
+    }
+    body.light .cookie-banner {
+      background: #f7f7f9;
+      color: #0d0d0d;
+      border-top-color: #d0d0dd;
+    }
+    .cookie-banner.show {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .cookie-text {
+      flex: 1 1 220px;
+      opacity: 0.9;
+    }
+    .cookie-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .cookie-link-btn {
+      background: transparent;
+      border-radius: 999px;
+      border: 1px solid var(--border-light);
+      padding: 4px 10px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    body.dark .cookie-link-btn {
+      border-color: var(--border-dark);
+      color: #f5f7ff;
+    }
+    .cookie-accept-btn {
+      border-radius: 999px;
+      background: var(--primary);
+      color: #000;
+      font-size: 12px;
+      padding: 6px 14px;
+    }
+    .cookie-accept-btn:hover,
+    .cookie-link-btn:hover {
+      box-shadow: 0 0 6px var(--primary-glow);
+      transform: translateY(-1px);
+    }
+
     @media (max-width: 600px) {
       .top-bar {
         padding: 8px 10px;
@@ -612,6 +643,7 @@
       <button id="tosBtn" class="how-btn">Terms of Service</button>
       <button id="privacyBtn" class="how-btn">Privacy Policy</button>
 
+      <span class="community-label">Community</span>
       <a
         href="https://discord.gg/Y4GenJXgEn"
         class="discord-icon-btn"
@@ -692,7 +724,7 @@
     </div>
   </div>
 
-  <!-- ✅ TERMS OF SERVICE MODAL -->
+  <!-- TERMS OF SERVICE MODAL -->
   <div id="tosModal" class="modal-overlay">
     <div class="modal">
       <div class="modal-header">
@@ -712,7 +744,7 @@
 
         <p class="tos-section-title">1. No affiliation with Roblox</p>
         <p>
-          <strong>Roblox Rant Generator is not an official Roblox tool.</strong>
+          <strong>Roblox Rant Generator is not an official Roblox tool.</strong><br />
           We have no relationship, partnership, or endorsement from Roblox Corporation
           or any Roblox game, creator, or experience.
         </p>
@@ -789,7 +821,7 @@
     </div>
   </div>
 
-  <!-- ✅ PRIVACY POLICY MODAL -->
+  <!-- PRIVACY POLICY MODAL -->
   <div id="privacyModal" class="modal-overlay">
     <div class="modal">
       <div class="modal-header">
@@ -802,151 +834,129 @@
         </p>
 
         <p>
-          This Privacy Policy explains how we collect, use, and protect information when
-          you use the <strong>Roblox Rant Generator</strong> (“the Site”, “the App”),
-          available at <strong>https://guineaapphub.github.io/</strong>.
+          This Privacy Policy explains how the <strong>Roblox Rant Generator</strong>
+          (“the Site”, “we”, “us”) handles information when you use the app.
         </p>
 
-        <p class="tos-section-title">1. Who we are</p>
+        <p class="tos-section-title">1. Information we collect</p>
         <p class="tos-small">
-          The Roblox Rant Generator is a fan-made tool designed to help users create
-          rant-style scripts for entertainment and social media content.  
-          We are not affiliated with Roblox Corporation or any official Roblox product.
-        </p>
-
-        <p class="tos-section-title">2. Information we collect</p>
-        <p class="tos-small">
-          We do not ask you to create an account or manually submit personal details
-          to use the generator. However, some information may be collected automatically
-          or through third-party services:
+          This site does not ask you to create an account and does not directly collect
+          your name, address, or payment details. However, we may collect:
         </p>
         <ul class="tos-small">
           <li>
-            <strong>Log and usage data</strong> (e.g., browser type, device type, pages
-            visited, general interaction with the site).
+            <strong>Basic usage data</strong> – such as your browser type, device type,
+            and pages viewed (through tools like analytics, if enabled).
           </li>
           <li>
-            <strong>Cookies and similar technologies</strong> used by us or our partners
-            (for example, Google AdSense) to show ads and understand basic usage.
-          </li>
-          <li>
-            <strong>Third-party services</strong> such as analytics or advertising
-            networks may also collect data according to their own privacy policies.
+            <strong>Cookies & similar technologies</strong> – small files stored on your
+            device to remember preferences and help show relevant ads.
           </li>
         </ul>
 
-        <p class="tos-section-title">3. Cookies and Google AdSense</p>
+        <p class="tos-section-title">2. API key storage</p>
         <p class="tos-small">
-          This site may display ads served by <strong>Google AdSense</strong> or other
-          advertising partners.
+          If you add a <strong>Groq API key</strong> in the app, it is stored
+          <strong>only in your own browser’s local storage</strong>. It is never sent to
+          us for storage. You can clear it at any time using the “Clear” button in the
+          API section or by clearing your browser data.
+        </p>
+
+        <p class="tos-section-title">3. Cookies and ads</p>
+        <p class="tos-small">
+          This site may use cookies to:
         </p>
         <ul class="tos-small">
+          <li>Remember your dark/light theme preference.</li>
+          <li>Remember your cookie choices.</li>
+          <li>Help measure traffic and performance (analytics, if enabled).</li>
           <li>
-            Third-party vendors, including Google, use cookies to serve ads based on
-            your prior visits to this and other websites.
-          </li>
-          <li>
-            Google’s use of advertising cookies enables it and its partners to serve ads
-            to you based on your visit to this site and/or other sites on the Internet.
-          </li>
-          <li>
-            You may opt out of personalized advertising by visiting Google’s Ads Settings
-            or by using industry opt-out tools where available in your region.
+            Support <strong>Google AdSense</strong> in showing ads and preventing fraud.
           </li>
         </ul>
         <p class="tos-small">
-          If you continue to use this site with cookies enabled in your browser, you are
-          considered to have given consent where required by law.
+          Some cookies are <strong>strictly necessary</strong> for the site to function
+          (for example, remembering that you accepted cookies). Optional cookies relate
+          to ads and analytics and can be controlled via
+          <strong>Cookie Preferences</strong>.
         </p>
 
-        <p class="tos-section-title">4. How we use information</p>
+        <p class="tos-section-title">4. Google AdSense</p>
         <p class="tos-small">
-          Any data collected (directly or via partners) is mainly used to:
+          We use Google AdSense to display ads. Google may use cookies and similar
+          technologies to show relevant ads and to detect invalid traffic. These
+          cookies may allow Google and its partners to show ads based on your visits
+          to this and/or other sites.
+        </p>
+        <p class="tos-small">
+          You can learn more about how Google uses data in advertising by visiting
+          Google’s official policies and AdSense documentation.
+        </p>
+
+        <p class="tos-section-title">5. Third-party links</p>
+        <p class="tos-small">
+          The site may contain links to external websites (for example, Discord
+          communities or documentation). We are not responsible for the privacy
+          practices or content of those third-party sites.
+        </p>
+
+        <p class="tos-section-title">6. Your choices</p>
+        <p class="tos-small">
+          You can:
         </p>
         <ul class="tos-small">
-          <li>Operate and maintain the site.</li>
-          <li>Understand general usage patterns and improve features.</li>
-          <li>Display advertising that helps support the site.</li>
-        </ul>
-        <p class="tos-small">
-          We do <strong>not</strong> sell your personal information in the sense of
-          exchanging data directly for money.
-        </p>
-
-        <p class="tos-section-title">5. AI-generated content & user inputs</p>
-        <p class="tos-small">
-          The text you type into the rant generator (topic, pasted scripts, settings) is
-          sent to an AI provider (currently Groq, via your own API key) to generate output.
-        </p>
-        <ul class="tos-small">
-          <li>
-            Your API key is stored locally in your own browser (local storage) and is
-            not stored on our servers.
-          </li>
-          <li>
-            Any prompts or text you send to the AI are processed according to the
-            AI provider’s own terms and privacy policy.
-          </li>
-          <li>
-            We recommend avoiding sensitive personal information in your prompts.
-          </li>
+          <li>Change your cookie choices using the Cookie Preferences options.</li>
+          <li>Clear your browser cookies and local storage at any time.</li>
+          <li>Use ad-blocking or privacy tools in your browser if desired.</li>
         </ul>
 
-        <p class="tos-section-title">6. Links to other sites</p>
+        <p class="tos-section-title">7. Contact</p>
         <p class="tos-small">
-          This site may contain links to third-party websites (for example: Discord,
-          AI providers, or documentation).  
-          We are not responsible for the content or privacy practices of those sites.
-          You should review their policies separately.
-        </p>
-
-        <p class="tos-section-title">7. Children’s privacy</p>
-        <p class="tos-small">
-          This site is aimed at general audiences who create gaming content.  
-          We do not knowingly collect personal information from children under the
-          minimum age required in their region for online consent.  
-          If you believe information about a child has been submitted, you can contact us
-          so we can review and, if appropriate, remove it.
-        </p>
-
-        <p class="tos-section-title">8. Data retention</p>
-        <p class="tos-small">
-          We do not maintain user accounts or long-term databases of your generated
-          scripts. Any logs or metrics kept by hosting or analytics providers are
-          retained only as long as needed for security, performance, and basic reporting.
-        </p>
-
-        <p class="tos-section-title">9. Your choices and controls</p>
-        <p class="tos-small">
-          Depending on your region, you may have rights such as:
-        </p>
-        <ul class="tos-small">
-          <li>Requesting access to personal data held by third-party providers.</li>
-          <li>Requesting correction or deletion of certain data.</li>
-          <li>Limiting or objecting to the use of cookies and personalized ads.</li>
-        </ul>
-        <p class="tos-small">
-          You can manage cookies through your browser settings and use opt-out tools
-          provided by Google or other ad networks.
-        </p>
-
-        <p class="tos-section-title">10. Changes to this Privacy Policy</p>
-        <p class="tos-small">
-          We may update this Privacy Policy from time to time to reflect changes in
-          technology, law, or our services. The “Last updated” date at the top will
-          show when the latest version came into effect.
-        </p>
-
-        <p class="tos-section-title">11. Contact us</p>
-        <p class="tos-small">
-          If you have any questions about this Privacy Policy or how your information
-          is handled, you can contact us at:<br />
+          If you have questions about this Privacy Policy, you can email:<br />
           <strong>guineagamehub@gmail.com</strong>
         </p>
+      </div>
+    </div>
+  </div>
 
+  <!-- COOKIE PREFERENCES MODAL -->
+  <div id="cookieModal" class="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-title">Cookie Preferences</div>
+        <button id="cookieClose" class="modal-close">Close</button>
+      </div>
+      <div class="modal-body">
         <p class="tos-small">
-          By continuing to use this site, you agree to this Privacy Policy.
+          We use cookies to keep the app working, remember your settings, and help
+          support ads and basic analytics.
         </p>
+
+        <p class="tos-section-title">Essential cookies</p>
+        <p class="tos-small">
+          These are required for the site to function (for example, remembering your
+          theme and that you accepted cookies). They are always on.
+        </p>
+
+        <p class="tos-section-title">Optional cookies</p>
+        <label class="tos-small">
+          <input type="checkbox" id="cookieAnalytics" />
+          Allow basic analytics & performance cookies
+        </label>
+        <br />
+        <label class="tos-small">
+          <input type="checkbox" id="cookieAds" />
+          Allow advertising cookies (Google AdSense)
+        </label>
+
+        <p class="tos-small" style="margin-top: 8px;">
+          You can change these settings at any time. Some ad features may not work
+          if you disable advertising cookies.
+        </p>
+
+        <div style="margin-top: 12px; display:flex; gap:8px; justify-content:flex-end;">
+          <button id="cookieSaveBtn" class="btn-primary" style="font-size:12px; padding:6px 14px;">Save preferences</button>
+        </div>
       </div>
     </div>
   </div>
@@ -1088,17 +1098,16 @@
     </div>
 
     <div class="ad-box">Ad Placeholder — Footer Banner</div>
+  </div>
 
-    <!-- Footer Discord button -->
-    <div class="footer-note">
-      <span>For support & connect with other creators.</span>
-      <a
-        href="https://discord.gg/Y4GenJXgEn"
-        target="_blank"
-        class="discord-footer-btn"
-      >
-        Join our FREE Discord
-      </a>
+  <!-- COOKIE BANNER -->
+  <div id="cookieBanner" class="cookie-banner">
+    <div class="cookie-text">
+      This site uses cookies to keep things running, remember your settings, and help support ads.
+    </div>
+    <div class="cookie-actions">
+      <button id="cookiePrefsBtn" class="cookie-link-btn">Cookie Preferences</button>
+      <button id="cookieAcceptAllBtn" class="cookie-accept-btn">Accept</button>
     </div>
   </div>
 
@@ -1178,12 +1187,32 @@
       if (e.target === privacyModal) closePrivacy();
     });
 
+    /* COOKIE PREFERENCES MODAL */
+    const cookieModal = document.getElementById("cookieModal");
+    const cookieClose = document.getElementById("cookieClose");
+    const cookieAnalytics = document.getElementById("cookieAnalytics");
+    const cookieAds = document.getElementById("cookieAds");
+    const cookieSaveBtn = document.getElementById("cookieSaveBtn");
+
+    function openCookieModal() {
+      cookieModal.classList.add("open");
+    }
+    function closeCookieModal() {
+      cookieModal.classList.remove("open");
+    }
+
+    cookieClose.addEventListener("click", closeCookieModal);
+    cookieModal.addEventListener("click", (e) => {
+      if (e.target === cookieModal) closeCookieModal();
+    });
+
     /* ESC TO CLOSE MODALS */
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
         closeHow();
         closeTos();
         closePrivacy();
+        closeCookieModal();
       }
     });
 
@@ -1507,6 +1536,80 @@ Rules:
         () => {}
       );
     };
+
+    /* COOKIE CONSENT LOGIC */
+    const cookieBanner = document.getElementById("cookieBanner");
+    const cookieAcceptAllBtn = document.getElementById("cookieAcceptAllBtn");
+    const cookiePrefsBtn = document.getElementById("cookiePrefsBtn");
+    const COOKIE_KEY = "fsg-cookie-consent";
+
+    function getCookiePrefs() {
+      try {
+        const raw = localStorage.getItem(COOKIE_KEY);
+        return raw ? JSON.parse(raw) : null;
+      } catch {
+        return null;
+      }
+    }
+
+    function saveCookiePrefs(prefs) {
+      localStorage.setItem(COOKIE_KEY, JSON.stringify(prefs));
+    }
+
+    function applyCookieUIFromPrefs(prefs) {
+      // set checkboxes in modal
+      cookieAnalytics.checked = !!prefs.analytics;
+      cookieAds.checked = !!prefs.ads;
+    }
+
+    function maybeShowCookieBanner() {
+      const prefs = getCookiePrefs();
+      if (!prefs) {
+        cookieBanner.classList.add("show");
+      } else {
+        applyCookieUIFromPrefs(prefs);
+      }
+    }
+
+    // Accept all from banner
+    cookieAcceptAllBtn.addEventListener("click", () => {
+      const prefs = {
+        necessary: true,
+        analytics: true,
+        ads: true,
+        timestamp: Date.now(),
+      };
+      saveCookiePrefs(prefs);
+      applyCookieUIFromPrefs(prefs);
+      cookieBanner.classList.remove("show");
+    });
+
+    // Open preferences modal
+    cookiePrefsBtn.addEventListener("click", () => {
+      const prefs = getCookiePrefs() || {
+        necessary: true,
+        analytics: false,
+        ads: false,
+      };
+      applyCookieUIFromPrefs(prefs);
+      openCookieModal();
+    });
+
+    // Save preferences from modal
+    cookieSaveBtn.addEventListener("click", () => {
+      const prefs = {
+        necessary: true,
+        analytics: cookieAnalytics.checked,
+        ads: cookieAds.checked,
+        timestamp: Date.now(),
+      };
+      saveCookiePrefs(prefs);
+      cookieBanner.classList.remove("show");
+      closeCookieModal();
+    });
+
+    // On first load
+    maybeShowCookieBanner();
   </script>
 </body>
 </html>
