@@ -103,32 +103,6 @@
       gap: 10px;
     }
 
-    /* VSUB-style Community + Discord link */
-    .community-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 13px;
-      opacity: 0.9;
-      text-decoration: none;
-      color: inherit;
-      padding: 4px 0;
-      transition: 0.2s ease;
-    }
-    body.dark .community-link {
-      color: #f5f7ff;
-    }
-    .community-link svg {
-      width: 20px;
-      height: 20px;
-      fill: #5865f2; /* official Discord blurple */
-      display: block;
-    }
-    .community-link:hover {
-      opacity: 1;
-      transform: translateY(-1px);
-    }
-
     .theme-mode-btn,
     .how-btn {
       padding: 6px 14px;
@@ -148,6 +122,34 @@
     }
     .theme-mode-btn:hover,
     .how-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 6px var(--primary-glow);
+    }
+
+    /* Icon-only Discord button (right side) */
+    .community-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border-light);
+      background: #f6f6f6;
+      cursor: pointer;
+      text-decoration: none;
+      transition: 0.25s ease;
+    }
+    body.dark .community-link {
+      background: #14182a;
+      border-color: var(--border-dark);
+      color: #f5f7ff;
+    }
+    .community-link svg {
+      width: 20px;
+      height: 20px;
+      display: block;
+    }
+    .community-link:hover {
       transform: translateY(-1px);
       box-shadow: 0 0 6px var(--primary-glow);
     }
@@ -635,7 +637,7 @@
       <button id="tosBtn" class="how-btn">Terms of Service</button>
       <button id="privacyBtn" class="how-btn">Privacy Policy</button>
 
-      <!-- Community + official purple Discord icon (VSUB-style) -->
+      <!-- Icon-only official Discord button (far right) -->
       <a
         href="https://discord.gg/Y4GenJXgEn"
         class="community-link"
@@ -643,12 +645,12 @@
         rel="noopener noreferrer"
         title="Join our Discord community"
       >
-        <span>Community</span>
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path d="M20.317 4.3698C18.978 3.7778 17.543 3.3698 16.045 3.1648C15.81 3.5978 15.606 4.0588 15.438 4.5398C13.886 4.3068 12.315 4.3068 10.763 4.5398C10.595 4.0588 10.39 3.5978 10.155 3.1648C8.658 3.3698 7.223 3.7778 5.883 4.3698C2.955 8.8188 2.138 13.1368 2.501 17.4038C4.202 18.6438 6.066 19.6208 8.043 20.3058C8.508 19.6608 8.923 18.9828 9.284 18.2738C8.589 18.0128 7.926 17.6888 7.293 17.3088C7.458 17.1888 7.62 17.0648 7.778 16.9368C11.046 18.4338 14.94 18.4338 18.208 16.9368C18.367 17.0648 18.528 17.1888 18.693 17.3088C18.06 17.6888 17.397 18.0128 16.702 18.2738C17.063 18.9828 17.478 19.6608 17.943 20.3058C19.92 19.6208 21.784 18.6438 23.485 17.4038C23.957 12.6398 22.817 8.3478 20.317 4.3698ZM9.68101 14.4288C8.73101 14.4288 7.95601 13.6028 7.95601 12.5858C7.95601 11.5688 8.71301 10.7428 9.68101 10.7428C10.649 10.7428 11.424 11.5688 11.406 12.5858C11.406 13.6028 10.649 14.4288 9.68101 14.4288ZM14.319 14.4288C13.369 14.4288 12.594 13.6028 12.594 12.5858C12.594 11.5688 13.351 10.7428 14.319 10.7428C15.287 10.7428 16.062 11.5688 16.044 12.5858C16.044 13.6028 15.287 14.4288 14.319 14.4288Z"/>
+        <svg xmlns="http://www.w3.org/2000/svg"
+             width="20" height="20"
+             fill="#5865F2"
+             class="bi bi-discord"
+             viewBox="0 0 16 16">
+          <path d="M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032q.003.022.021.037a13.3 13.3 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019q.463-.63.818-1.329a.05.05 0 0 0-.01-.059l-.018-.011a9 9 0 0 1-1.248-.595.05.05 0 0 1-.02-.066l.015-.019q.127-.095.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .053.007q.121.1.248.195a.05.05 0 0 1-.004.085 8 8 0 0 1-1.249.594.05.05 0 0 0-.03.03.05.05 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.2 13.2 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.03.03 0 0 0-.02-.019m-8.198 7.307c-.789 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612"/>
         </svg>
       </a>
     </div>
