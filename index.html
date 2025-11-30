@@ -8,17 +8,19 @@
   />
   <title>Faceless Script Generator – Roblox Rant</title>
 
-  <!-- Google AdSense verification -->
+  <!-- ✅ Google AdSense verification script -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6610889405997257"
           crossorigin="anonymous"></script>
+  <!-- ✅ End AdSense verification script -->
 
-  <!-- Google Search Console site verification -->
+  <!-- ✅ Google Search Console site verification -->
   <meta name="google-site-verification" content="FSjAX-8iMppXgSzcWB-IpDSVZdqr8F2_H61BSxneciE" />
 
   <link
     href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap"
     rel="stylesheet"
   />
+
   <style>
     :root {
       --primary: #39ff14;
@@ -101,7 +103,7 @@
       gap: 10px;
     }
 
-    /* NEW — VSUB-STYLE Community + Discord LINK */
+    /* VSUB-style Community + Discord link */
     .community-link {
       display: inline-flex;
       align-items: center;
@@ -110,22 +112,20 @@
       opacity: 0.9;
       text-decoration: none;
       color: inherit;
-      padding: 4px 8px;
-      border-radius: 999px;
+      padding: 4px 0;
       transition: 0.2s ease;
     }
     body.dark .community-link {
       color: #f5f7ff;
     }
     .community-link svg {
-      width: 18px;
-      height: 18px;
-      fill: #5865f2; /* Discord blurple */
+      width: 20px;
+      height: 20px;
+      fill: #5865f2; /* official Discord blurple */
+      display: block;
     }
     .community-link:hover {
-      background: rgba(88, 101, 242, 0.12);
       opacity: 1;
-      box-shadow: 0 0 6px rgba(88, 101, 242, 0.5);
       transform: translateY(-1px);
     }
 
@@ -325,6 +325,7 @@
       margin-top: 10px;
     }
 
+    /* API section */
     .api-header {
       display: flex;
       justify-content: space-between;
@@ -415,7 +416,7 @@
       transform: translateY(-1px);
     }
 
-    /* Modal */
+    /* Modal (How to Use + Terms of Service + Privacy + Cookie Preferences) */
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -496,7 +497,6 @@
       font-size: 12px;
       opacity: 0.9;
     }
-
     @keyframes fadeInUp {
       from {
         opacity: 0;
@@ -525,6 +525,7 @@
       opacity: 0.85;
     }
 
+    /* Home toast */
     .home-toast {
       position: fixed;
       top: 46px;
@@ -544,6 +545,7 @@
       opacity: 1;
     }
 
+    /* Cookie banner */
     .cookie-banner {
       position: fixed;
       left: 0;
@@ -615,10 +617,8 @@
 </head>
 
 <body class="light">
-
   <!-- TOP BAR -->
   <div class="top-bar">
-
     <!-- Home icon -->
     <button id="homeBtn" class="home-btn" title="Home">
       <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -629,14 +629,13 @@
       </svg>
     </button>
 
-    <!-- Right side controls -->
     <div class="top-right">
       <button id="themeModeBtn" class="theme-mode-btn">🌙 Dark</button>
       <button id="howToBtn" class="how-btn">How to Use</button>
       <button id="tosBtn" class="how-btn">Terms of Service</button>
       <button id="privacyBtn" class="how-btn">Privacy Policy</button>
 
-      <!-- ⭐ NEW VSUB-style Community + Discord icon -->
+      <!-- Community + official purple Discord icon (VSUB-style) -->
       <a
         href="https://discord.gg/Y4GenJXgEn"
         class="community-link"
@@ -645,16 +644,13 @@
         title="Join our Discord community"
       >
         <span>Community</span>
-        <svg viewBox="0 0 245 240" aria-hidden="true">
-          <path
-            d="M104.4 104.9c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1.1-6.1-4.5-11.1-10.2-11.1zm36.2 0c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1s-4.5-11.1-10.2-11.1z"
-          />
-          <path
-            d="M189.5 20h-134C42.2 20 32 30.2 32 42.7v134.6c0 12.5 10.2 22.7 23.5 22.7h113.3l-5.3-18.5 12.8 11.9 12.1 11.3 21.5 19V42.7C209.8 30.2 199.6 20 186.3 20h3.2zm-39.2 135.2s-3.7-4.4-6.8-8.3c13.5-3.8 18.6-12.2 18.6-12.2-4.2 2.7-8.2 4.6-11.8 5.9-5.1 2.1-9.9 3.4-14.6 4.2-9.6 1.8-18.4 1.3-25.9-.1-5.7-1.1-10.6-2.6-14.7-4.2-2.3-.9-4.8-2-7.3-3.4-.3-.2-.6-.3-.9-.5-.2-.1-.3-.2-.4-.3-1.8-1-2.8-1.7-2.8-1.7s4.9 8.2 17.9 12.1c-3.1 3.9-6.9 8.5-6.9 8.5-22.8-.7-31.5-15.7-31.5-15.7 0-33.3 14.9-60.3 14.9-60.3 14.9-11.2 29.1-10.9 29.1-10.9l1 1.2c-18.7 5.4-27.3 13.7-27.3 13.7s2.3-1.3 6.1-3.1c11.1-4.9 19.9-6.2 23.5-6.5.6-.1 1.1-.2 1.7-.2 6.1-.8 13-1 20.2-.2 9.5 1.1 19.7 3.9 30.1 9.6 0 0-8.2-7.8-25.9-13.2l1.4-1.6s14.2-.3 29.1 10.9c0 0 14.9 27 14.9 60.3 0 0-8.8 15-31.6 15.7z"
-          />
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M20.317 4.3698C18.978 3.7778 17.543 3.3698 16.045 3.1648C15.81 3.5978 15.606 4.0588 15.438 4.5398C13.886 4.3068 12.315 4.3068 10.763 4.5398C10.595 4.0588 10.39 3.5978 10.155 3.1648C8.658 3.3698 7.223 3.7778 5.883 4.3698C2.955 8.8188 2.138 13.1368 2.501 17.4038C4.202 18.6438 6.066 19.6208 8.043 20.3058C8.508 19.6608 8.923 18.9828 9.284 18.2738C8.589 18.0128 7.926 17.6888 7.293 17.3088C7.458 17.1888 7.62 17.0648 7.778 16.9368C11.046 18.4338 14.94 18.4338 18.208 16.9368C18.367 17.0648 18.528 17.1888 18.693 17.3088C18.06 17.6888 17.397 18.0128 16.702 18.2738C17.063 18.9828 17.478 19.6608 17.943 20.3058C19.92 19.6208 21.784 18.6438 23.485 17.4038C23.957 12.6398 22.817 8.3478 20.317 4.3698ZM9.68101 14.4288C8.73101 14.4288 7.95601 13.6028 7.95601 12.5858C7.95601 11.5688 8.71301 10.7428 9.68101 10.7428C10.649 10.7428 11.424 11.5688 11.406 12.5858C11.406 13.6028 10.649 14.4288 9.68101 14.4288ZM14.319 14.4288C13.369 14.4288 12.594 13.6028 12.594 12.5858C12.594 11.5688 13.351 10.7428 14.319 10.7428C15.287 10.7428 16.062 11.5688 16.044 12.5858C16.044 13.6028 15.287 14.4288 14.319 14.4288Z"/>
         </svg>
       </a>
-
     </div>
   </div>
 
@@ -662,6 +658,7 @@
   <div id="homeToast" class="home-toast">
     More faceless generators coming soon.
   </div>
+
   <!-- HOW TO USE MODAL -->
   <div id="howModal" class="modal-overlay">
     <div class="modal">
@@ -671,18 +668,49 @@
       </div>
       <div class="modal-body">
         <ol>
-          <li><strong>Type a Topic / Theme</strong> in the box (e.g., “school”, “strict parents”, “laggy servers”, “memes”).</li>
-          <li><strong>Pick an opening style</strong> (or leave it on Random) to choose how the rant starts.</li>
-          <li><strong>Set Rant Meltdown</strong> to choose the tone (Very chill → Full meltdown).</li>
-          <li><strong>Choose how many paragraphs</strong> you want (1–60) to control the length.</li>
-          <li><strong>Pick a Narrator</strong> – male, gender-neutral, or female.</li>
-          <li><strong>Optional toggles:</strong> include slang and allow swearing for a stronger script.</li>
-          <li><strong>Optional:</strong> paste any rant to rewrite, shuffle, or make it more unique.</li>
-          <li>Click <strong>Generate Rant</strong>, <strong>Rewrite</strong>, <strong>Shuffle</strong>, or <strong>Make Unique</strong>.</li>
-          <li>Edit the script inside the box if you want, then hit <strong>Copy</strong>.</li>
-          <li>Add your <strong>Groq API key</strong> in the API section.</li>
+          <li>
+            <strong>Type a Topic / Theme</strong> in the box (e.g., “school”, “strict
+            parents”, “laggy servers”, “memes”).
+          </li>
+          <li>
+            <strong>Pick an opening style</strong> (or leave it on Random) to choose how
+            the rant starts.
+          </li>
+          <li>
+            <strong>Set Rant Meltdown</strong> to choose the tone (Very chill → Full
+            meltdown).
+          </li>
+          <li>
+            <strong>Choose how many paragraphs</strong> you want (1–60) to control the
+            length.
+          </li>
+          <li>
+            <strong>Pick a Narrator</strong> – male, gender-neutral, or female.
+          </li>
+          <li>
+            <strong>Optional toggles:</strong> include slang and allow swearing
+            if you want a stronger script.
+          </li>
+          <li>
+            <strong>Optional:</strong> paste any rant into the box to rewrite, shuffle,
+            or make it more unique.
+          </li>
+          <li>
+            Click <strong>Generate Rant</strong>, <strong>Rewrite</strong>,
+            <strong>Shuffle</strong>, or <strong>Make Unique</strong> to create a script.
+          </li>
+          <li>
+            Edit the script directly in the box if you want, then hit
+            <strong>Copy</strong> when you’re happy with it.
+          </li>
+          <li>
+            Make sure you’ve added your <strong>Groq API key</strong> in the API section
+            so the AI can work.
+          </li>
         </ol>
-        <div class="modal-tip">Tip: Clear, simple topics usually give the strongest rants.</div>
+        <div class="modal-tip">
+          Tip: Clear, simple topics usually give the strongest, most relatable rants.
+        </div>
       </div>
     </div>
   </div>
@@ -695,36 +723,84 @@
         <button id="tosClose" class="modal-close">Close</button>
       </div>
       <div class="modal-body">
-        <p class="tos-small">Last updated: 29 November 2025</p>
+        <p class="tos-small">
+          Last updated: 29 November 2025
+        </p>
 
-        <p>Welcome to the <strong>Roblox Rant Generator</strong>. By accessing or using this website, you agree to these Terms.</p>
+        <p>
+          Welcome to the <strong>Roblox Rant Generator</strong> (“the Site”, “the App”).
+          By accessing or using this website, you agree to these Terms of Service.
+          If you do not agree, please do not use the site.
+        </p>
 
         <p class="tos-section-title">1. No affiliation with Roblox</p>
-        <p><strong>This site is not affiliated with Roblox Corporation.</strong></p>
-        <p>We only provide a tool for creating entertainment scripts.</p>
+        <p>
+          <strong>Roblox Rant Generator is not an official Roblox tool.</strong><br />
+          We have no relationship, partnership, or endorsement from Roblox Corporation
+          or any Roblox game, creator, or experience.
+        </p>
+        <p>
+          We only support Roblox users who want to create fun rant-style scripts for
+          entertainment and social media content.
+        </p>
 
         <p class="tos-section-title">2. Purpose of the site</p>
-        <p>This site generates AI-based rant scripts for entertainment.</p>
+        <p>
+          This site provides AI-generated rant scripts for entertainment and content
+          creation purposes only. Scripts are generated automatically based on your
+          inputs and settings, and may not always be accurate, appropriate, or
+          suitable for every audience.
+        </p>
 
         <p class="tos-section-title">3. Acceptable use</p>
+        <p>You agree that you will NOT use this site or its generated content to:</p>
         <ul class="tos-small">
-          <li>No harassment or bullying.</li>
-          <li>No hate speech.</li>
-          <li>No adult or illegal content.</li>
-          <li>No impersonation of Roblox staff.</li>
+          <li>Harass, bully, or threaten other people.</li>
+          <li>Promote hate speech, discrimination, or slurs.</li>
+          <li>Share illegal, extremely violent, or adult-only content.</li>
+          <li>Impersonate Roblox staff or claim this tool is official Roblox software.</li>
+        </ul>
+        <p>
+          You are fully responsible for how you use any script you generate, including
+          what you post on platforms like YouTube, TikTok, or other social media.
+        </p>
+
+        <p class="tos-section-title">4. AI content and no guarantees</p>
+        <p>
+          All scripts are generated by AI based on your prompts and choices.
+          We do not guarantee that:
+        </p>
+        <ul class="tos-small">
+          <li>The output will be error-free or factually correct.</li>
+          <li>The output will be suitable for monetization or advertiser-friendly.</li>
+          <li>Platforms like YouTube, TikTok, or others will accept or approve your content.</li>
         </ul>
 
-        <p class="tos-section-title">4. AI content</p>
-        <p>AI output is not guaranteed to be accurate or monetizable.</p>
-
         <p class="tos-section-title">5. No liability</p>
-        <p class="tos-small">You are responsible for how you use generated content.</p>
+        <p class="tos-small">
+          We are not liable for any loss, strike, demonetization, account issues,
+          or other consequences that may arise from using scripts generated by this site.
+          You use the site at your own risk and are responsible for reviewing and editing
+          any script before posting it publicly.
+        </p>
 
-        <p class="tos-section-title">6. Changes</p>
-        <p class="tos-small">We may update or modify the service anytime.</p>
+        <p class="tos-section-title">6. Changes to the site</p>
+        <p class="tos-small">
+          We are constantly updating and improving the Roblox Rant Generator to make it
+          easier for users to create better scripts. Features, prompts, and designs may
+          change at any time, and we may pause or stop the service without notice.
+        </p>
 
         <p class="tos-section-title">7. Contact</p>
-        <p class="tos-small">Questions: <strong>guineagamehub@gmail.com</strong></p>
+        <p class="tos-small">
+          For questions about these Terms, or to contact the site owner, you can email:<br />
+          <strong>guineagamehub@gmail.com</strong>
+        </p>
+
+        <p class="tos-small">
+          By continuing to use this site, you confirm that you have read and agreed to
+          these Terms of Service.
+        </p>
       </div>
     </div>
   </div>
@@ -737,36 +813,92 @@
         <button id="privacyClose" class="modal-close">Close</button>
       </div>
       <div class="modal-body">
-        <p class="tos-small">Last updated: 29 November 2025</p>
+        <p class="tos-small">
+          Last updated: 29 November 2025
+        </p>
 
-        <p>This Privacy Policy explains how the site handles information.</p>
+        <p>
+          This Privacy Policy explains how the <strong>Roblox Rant Generator</strong>
+          (“the Site”, “we”, “us”) handles information when you use the app.
+        </p>
 
         <p class="tos-section-title">1. Information we collect</p>
+        <p class="tos-small">
+          This site does not ask you to create an account and does not directly collect
+          your name, address, or payment details. However, we may collect:
+        </p>
         <ul class="tos-small">
-          <li>Basic usage data (browser, device, pages viewed).</li>
-          <li>Cookies for ads, preferences, performance.</li>
+          <li>
+            <strong>Basic usage data</strong> – such as your browser type, device type,
+            and pages viewed (through tools like analytics, if enabled).
+          </li>
+          <li>
+            <strong>Cookies & similar technologies</strong> – small files stored on your
+            device to remember preferences and help show relevant ads.
+          </li>
         </ul>
 
         <p class="tos-section-title">2. API key storage</p>
-        <p class="tos-small">Groq API keys are only stored locally in your browser.</p>
+        <p class="tos-small">
+          If you add a <strong>Groq API key</strong> in the app, it is stored
+          <strong>only in your own browser’s local storage</strong>. It is never sent to
+          us for storage. You can clear it at any time using the “Clear” button in the
+          API section or by clearing your browser data.
+        </p>
 
         <p class="tos-section-title">3. Cookies and ads</p>
-        <p class="tos-small">Used for theme, ads, analytics (if enabled).</p>
+        <p class="tos-small">
+          This site may use cookies to:
+        </p>
+        <ul class="tos-small">
+          <li>Remember your dark/light theme preference.</li>
+          <li>Remember your cookie choices.</li>
+          <li>Help measure traffic and performance (analytics, if enabled).</li>
+          <li>
+            Support <strong>Google AdSense</strong> in showing ads and preventing fraud.
+          </li>
+        </ul>
+        <p class="tos-small">
+          Some cookies are <strong>strictly necessary</strong> for the site to function
+          (for example, remembering that you accepted cookies). Optional cookies relate
+          to ads and analytics and can be controlled via
+          <strong>Cookie Preferences</strong>.
+        </p>
 
         <p class="tos-section-title">4. Google AdSense</p>
-        <p class="tos-small">Ads may use cookies for personalization and fraud prevention.</p>
+        <p class="tos-small">
+          We use Google AdSense to display ads. Google may use cookies and similar
+          technologies to show relevant ads and to detect invalid traffic. These
+          cookies may allow Google and its partners to show ads based on your visits
+          to this and/or other sites.
+        </p>
+        <p class="tos-small">
+          You can learn more about how Google uses data in advertising by visiting
+          Google’s official policies and AdSense documentation.
+        </p>
 
         <p class="tos-section-title">5. Third-party links</p>
-        <p class="tos-small">We are not responsible for external websites.</p>
+        <p class="tos-small">
+          The site may contain links to external websites (for example, Discord
+          communities or documentation). We are not responsible for the privacy
+          practices or content of those third-party sites.
+        </p>
 
         <p class="tos-section-title">6. Your choices</p>
+        <p class="tos-small">
+          You can:
+        </p>
         <ul class="tos-small">
-          <li>Change cookie preferences anytime.</li>
-          <li>Clear cookies or local storage.</li>
+          <li>Change your cookie choices using the Cookie Preferences options.</li>
+          <li>Clear your browser cookies and local storage at any time.</li>
+          <li>Use ad-blocking or privacy tools in your browser if desired.</li>
         </ul>
 
         <p class="tos-section-title">7. Contact</p>
-        <p class="tos-small"><strong>guineagamehub@gmail.com</strong></p>
+        <p class="tos-small">
+          If you have questions about this Privacy Policy, you can email:<br />
+          <strong>guineagamehub@gmail.com</strong>
+        </p>
       </div>
     </div>
   </div>
@@ -779,19 +911,32 @@
         <button id="cookieClose" class="modal-close">Close</button>
       </div>
       <div class="modal-body">
-        <p class="tos-small">We use cookies for app functionality, ads, and analytics.</p>
+        <p class="tos-small">
+          We use cookies to keep the app working, remember your settings, and help
+          support ads and basic analytics.
+        </p>
 
         <p class="tos-section-title">Essential cookies</p>
-        <p class="tos-small">Always enabled (theme, preferences).</p>
+        <p class="tos-small">
+          These are required for the site to function (for example, remembering your
+          theme and that you accepted cookies). They are always on.
+        </p>
 
         <p class="tos-section-title">Optional cookies</p>
         <label class="tos-small">
-          <input type="checkbox" id="cookieAnalytics" /> Allow analytics cookies
+          <input type="checkbox" id="cookieAnalytics" />
+          Allow basic analytics & performance cookies
         </label>
         <br />
         <label class="tos-small">
-          <input type="checkbox" id="cookieAds" /> Allow advertising cookies (AdSense)
+          <input type="checkbox" id="cookieAds" />
+          Allow advertising cookies (Google AdSense)
         </label>
+
+        <p class="tos-small" style="margin-top: 8px;">
+          You can change these settings at any time. Some ad features may not work
+          if you disable advertising cookies.
+        </p>
 
         <div style="margin-top: 12px; display:flex; gap:8px; justify-content:flex-end;">
           <button id="cookieSaveBtn" class="btn-primary" style="font-size:12px; padding:6px 14px;">Save preferences</button>
@@ -800,32 +945,46 @@
     </div>
   </div>
 
-  <!-- MAIN CONTENT -->
   <div class="container">
     <h1>Roblox Rant Generator</h1>
-    <div class="subtitle">Type Your Theme. Create Your Rant. Bye-Bye Noob.</div>
+    <div class="subtitle">
+      Type Your Theme. Create Your Rant. Bye-Bye Noob.
+    </div>
 
     <div class="ad-box">Ad Placeholder — Top Banner</div>
 
     <!-- RANT CONTROLS -->
     <div class="panel">
       <label for="topicInput">Topic / Theme</label>
-      <input id="topicInput" type="text" placeholder="e.g. school, laggy servers, strict parents, memes" />
+      <input
+        id="topicInput"
+        type="text"
+        placeholder="e.g. school, laggy servers, strict parents, annoying friends, memes"
+      />
 
       <label for="introSelect">Opening Line Style</label>
       <select id="introSelect">
         <option value="random">Random (let AI choose style)</option>
         <option value="I'm starting to realize...">I'm starting to realize...</option>
-        <option value="Tell me why this keeps happening...">Tell me why this keeps happening...</option>
-        <option value="Bro, don't even get me started...">Bro, don't even get me started...</option>
+        <option value="Tell me why this keeps happening...">
+          Tell me why this keeps happening...
+        </option>
+        <option value="Bro, don't even get me started...">
+          Bro, don't even get me started...
+        </option>
         <option value="Lately I've been noticing...">Lately I've been noticing...</option>
         <option value="You ever notice how...">You ever notice how...</option>
         <option value="Honestly, at this point...">Honestly, at this point...</option>
-        <option value="Ain't no way this just happened...">Ain't no way this just happened...</option>
+        <option value="Ain't no way this just happened...">
+          Ain't no way this just happened...
+        </option>
       </select>
 
       <label for="pasteInput">Paste Your Rant Script Here (optional)</label>
-      <textarea id="pasteInput" placeholder="Paste any rant to rewrite, shuffle, or make more unique..."></textarea>
+      <textarea
+        id="pasteInput"
+        placeholder="Paste any rant to rewrite, shuffle, or make more unique..."
+      ></textarea>
 
       <label for="narratorSelect">Narrator Style</label>
       <select id="narratorSelect">
@@ -840,17 +999,26 @@
           <input id="intensitySlider" type="range" min="1" max="4" value="2" />
           <div id="intensityLabel" class="slider-value">Cool / casual</div>
         </div>
-
         <div class="col">
-          <div class="slider-label">Paragraphs <span id="paraCountLabel">(4)</span></div>
+          <div class="slider-label">
+            Paragraphs <span id="paraCountLabel">(4)</span>
+          </div>
           <input id="paragraphSlider" type="range" min="1" max="60" value="4" />
-          <div class="slider-value">More paragraphs = longer script.</div>
+          <div class="slider-value">
+            More paragraphs = longer script (approx. up to 60 seconds).
+          </div>
         </div>
       </div>
 
       <div class="toggles">
-        <label><input id="includeSlang" type="checkbox" checked /> Include slang</label>
-        <label><input id="softSwears" type="checkbox" /> Allow swearing</label>
+        <label>
+          <input id="includeSlang" type="checkbox" checked />
+          Include slang
+        </label>
+        <label>
+          <input id="softSwears" type="checkbox" />
+          Allow swearing
+        </label>
       </div>
 
       <div class="button-row">
@@ -858,7 +1026,10 @@
         <button id="rewriteBtn" class="btn-secondary">Rewrite</button>
         <button id="shuffleBtn" class="btn-secondary">Shuffle</button>
         <button id="uniqueBtn" class="btn-secondary">Make Unique</button>
-        <button id="copyBtn" class="btn-secondary">Copy <span id="copyFlash" class="copy-flash">Copied!</span></button>
+        <button id="copyBtn" class="btn-secondary">
+          Copy
+          <span id="copyFlash" class="copy-flash">Copied!</span>
+        </button>
       </div>
     </div>
 
@@ -867,7 +1038,10 @@
     <!-- OUTPUT -->
     <div class="panel">
       <label for="output">Generated Rant Script</label>
-      <textarea id="output" placeholder="Your rant will appear here..."></textarea>
+      <textarea
+        id="output"
+        placeholder="Your rant will appear here. You can edit it before copying..."
+      ></textarea>
     </div>
 
     <!-- API SETTINGS -->
@@ -880,7 +1054,11 @@
       <div id="apiBody" class="api-body">
         <label for="apiKeyInput">Your Groq API key</label>
         <div class="api-row">
-          <input id="apiKeyInput" type="password" placeholder="Paste your Groq API key here" />
+          <input
+            id="apiKeyInput"
+            type="password"
+            placeholder="Paste your Groq API key here"
+          />
           <button id="toggleKeyBtn" class="btn-secondary api-eye-btn" type="button"></button>
           <button id="saveKeyBtn" class="btn-secondary" type="button">Save</button>
           <button id="clearKeyBtn" class="btn-secondary" type="button">Clear</button>
@@ -889,17 +1067,16 @@
         <div id="apiStatus" class="api-status">No API key saved yet.</div>
 
         <div class="api-help">
-          This app uses <strong>Groq</strong> to generate scripts.<br />
-          Your key stays only in your browser.<br />
+          This app uses <strong>Groq</strong> to generate your rant scripts.<br />
+          Your API key is stored only in your browser (local storage).<br />
+          You can create a free key here:
         </div>
 
         <a
           class="groq-link-btn"
           href="https://console.groq.com/keys"
           target="_blank"
-        >
-          👉 Get your Groq API key
-        </a>
+        >👉 Get your Groq API key</a>
       </div>
     </div>
 
@@ -916,6 +1093,7 @@
       <button id="cookieAcceptAllBtn" class="cookie-accept-btn">Accept</button>
     </div>
   </div>
+
   <script>
     /* THEME TOGGLE */
     const themeBtn = document.getElementById("themeModeBtn");
@@ -1084,7 +1262,7 @@
       return localStorage.getItem("fsg-user-api-key") || "";
     }
 
-    /* ICON SVGs */
+    // SVGs for light & dark mode
     const LIGHT_EYE =
       '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0003 3C17.3924 3 21.8784 6.87976 22.8189 12C21.8784 17.1202 17.3924 21 12.0003 21C6.60812 21 2.12215 17.1202 1.18164 12C2.12215 6.87976 6.60812 3 12.0003 3ZM12.0003 19C16.2359 19 19.8603 16.052 20.7777 12C19.8603 7.94803 16.2359 5 12.0003 5C7.7646 5 4.14022 7.94803 3.22278 12C4.14022 16.052 7.7646 19 12.0003 19ZM12.0003 16.5C9.51498 16.5 7.50026 14.4853 7.50026 12C7.50026 9.51472 9.51498 7.5 12.0003 7.5C14.4855 7.5 16.5003 9.51472 16.5003 12C16.5003 14.4853 14.4855 16.5 12.0003 16.5ZM12.0003 14.5C13.381 14.5 14.5003 13.3807 14.5003 12C14.5003 10.6193 13.381 9.5 12.0003 9.5C10.6196 9.5 9.50026 10.6193 9.50026 12C9.50026 13.3807 10.6196 14.5 12.0003 14.5Z"></path></svg>';
 
@@ -1092,12 +1270,11 @@
       '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.8827 19.2968C16.1814 20.3755 14.1638 21.0002 12.0003 21.0002C6.60812 21.0002 2.12215 17.1204 1.18164 12.0002C1.61832 9.62282 2.81932 7.5129 4.52047 5.93457L1.39366 2.80777L2.80788 1.39355L22.6069 21.1925L21.1927 22.6068L17.8827 19.2968ZM5.9356 7.3497C4.60673 8.56015 3.6378 10.1672 3.22278 12.0002C4.14022 16.0521 7.7646 19.0002 12.0003 19.0002C13.5997 19.0002 15.112 18.5798 16.4243 17.8384L14.396 15.8101C13.7023 16.2472 12.8808 16.5002 12.0003 16.5002C9.51498 16.5002 7.50026 14.4854 7.50026 12.0002C7.50026 11.1196 7.75317 10.2981 8.19031 9.60442L5.9356 7.3497ZM12.9139 14.328L9.67246 11.0866C9.5613 11.3696 9.50026 11.6777 9.50026 12.0002C9.50026 13.3809 10.6196 14.5002 12.0003 14.5002C12.3227 14.5002 12.6309 14.4391 12.9139 14.328ZM20.8068 16.5925L19.376 15.1617C20.0319 14.2268 20.5154 13.1586 20.7777 12.0002C19.8603 7.94818 16.2359 5.00016 12.0003 5.00016C11.1544 5.00016 10.3329 5.11773 9.55249 5.33818L7.97446 3.76015C9.22127 3.26959 10.5793 3.00016 12.0003 3.00016C17.3924 3.00016 21.8784 6.87992 22.8189 12.0002C22.5067 13.6998 21.8038 15.2628 20.8068 16.5925ZM11.7229 7.50857C11.8146 7.50299 11.9071 7.50016 12.0003 7.50016C14.4855 7.50016 16.5003 9.51488 16.5003 12.0002C16.5003 12.0933 16.4974 12.1858 16.4919 12.2775L11.7229 7.50857Z"></path></svg>';
 
     const DARK_EYE =
-      '<svg xmlns="http://www.w3.org/XMLSchema-instance" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /></svg>';
+      '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /></svg>';
 
     const DARK_EYE_OFF =
-      '<svg xmlns="http://www.w3.org/XMLSchema-instance" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" /></svg>';
+      '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" /></svg>';
 
-    /* Update the eye icon */
     function updateEyeIcon() {
       const isDark = document.body.classList.contains("dark");
       const isVisible = apiKeyInput.type === "text";
@@ -1108,7 +1285,7 @@
       }
     }
 
-    // Initialize API key field
+    // initialize API key field
     apiKeyInput.value = getApiKey();
     apiKeyInput.type = "password";
     updateEyeIcon();
@@ -1179,35 +1356,42 @@
       if (introChoice === "random") {
         openingBlock = `
 OPENING LINE:
-- Choose ONE opening line that fits the topic.
-- Pick from: "${openingList.join('", "')}" (or similar).`;
+- Choose ONE natural-sounding opening line that fits the topic and tone.
+- You can choose from lines like: "${openingList.join(
+          '" , "'
+        )}" or a very similar variant.
+- Do NOT use multiple different openings, only one.`;
       } else {
         openingBlock = `
 OPENING LINE:
-- Start with this exact line: "${introChoice}"`;
+- Start the script with this exact text (then continue the rant): "${introChoice}"`;
       }
 
       let swearsBlock = "";
       if (soft) {
         swearsBlock = `
 SWEARING:
-- Mild PG-13 swears allowed ("crap", "damn", "freaking").
-- Never use strong profanity.`;
+- Mild PG-13 swears are allowed, like: "crap", "damn", "freaking", "heck", "hell".
+- Never use extreme profanity such as the f-word, s-word, or any slurs.`;
       } else {
         swearsBlock = `
 SWEARING:
-- No swearing at all.`;
+- Do NOT use any swear words at all. Keep the language clean and YouTube-safe.`;
       }
 
       const styleBlock = `
 VOICE: ${narrators[narrator]}
-TONE: ${intensities[intensity - 1]}
-PARAGRAPHS: ~${paragraphCount} short paragraphs.
-SLANG: ${slang ? "Use slang naturally." : "Avoid slang."}
+RANT MELTDOWN: ${intensities[intensity - 1]}
+PARAGRAPHS: write about ${paragraphCount} short paragraphs (each 1–3 sentences).
+SLANG: ${
+        slang
+          ? "Use slang naturally when it fits the topic."
+          : "Use almost no slang. Keep it simple and clear."
+      }
 ${swearsBlock}
 ${openingBlock}
 
-STYLE REFERENCES (for pacing, never copy):
+STYLE REFERENCES (for vibe / pacing only, never copy scripts):
 - @kittyrantsroblox
 - @burpster
 - @RoRants
@@ -1220,29 +1404,37 @@ STYLE REFERENCES (for pacing, never copy):
 `;
 
       const baseInstructions = `
-Write a viral-style rant script for a Roblox or meme gameplay video.
+You are writing a viral-style rant script for a short-form video (TikTok / YouTube Shorts) over Roblox or meme gameplay.
 
 Rules:
-* Use a strong opening line.
-* Tone: relatable, funny, emotional, or chaotic.
-* Use short sentences and hooks.
-* Build up intensity.
-* End with a funny or self-aware twist.
-* No emojis, hashtags, or AI disclaimers.
-* 100% original.`;
+* Use a strong opening line (as described above), then flow straight into the rant.
+* Tone: fast-paced, natural, like someone venting to the camera.
+* Style: short sentences, humor, irony, rhythm, and strong hooks.
+* Content: focus on something funny, relatable, or painfully true.
+* Build-up: gradually increase frustration or emotion.
+* Ending: finish with a funny or self-aware twist that feels satisfying.
+* No emojis, no hashtags, no AI disclaimers.
+* Everything must be original. Do not copy lines from any existing videos or channels.
+`;
 
+      let task = "";
       const baseTopic =
         topic || "a painfully relatable real-life situation or annoyance";
 
-      let task = "";
       if (mode === "generate") {
-        task = `Write a rant about: "${baseTopic}".`;
+        task = `Write one viral-style rant script about: "${baseTopic}".`;
       } else if (mode === "rewrite") {
-        task = `Rewrite this into a better rant:\n"""${pasted || currentOutput}"""`;
+        task = `Rewrite the following rant into a stronger, more viral script, keeping the same main idea and emotion:\n"""${
+          pasted || currentOutput
+        }"""`;
       } else if (mode === "shuffle") {
-        task = `Create a different variation:\n"""${pasted || currentOutput || baseTopic}"""`;
+        task = `Using the same general idea and topic, create a different rant script variation.\nIf there is text below, treat it as the previous version and make a new one that feels fresh but stays on the same core topic:\n"""${
+          pasted || currentOutput || baseTopic
+        }"""`;
       } else if (mode === "unique") {
-        task = `Make this rant unique:\n"""${pasted || currentOutput}"""`;
+        task = `Take the following rant script and make a unique version of it. Keep the core topic but change the wording, pacing, and jokes so it feels fresh and different:\n"""${
+          pasted || currentOutput
+        }"""`;
       }
 
       return baseInstructions + styleBlock + "\n" + task;
@@ -1250,6 +1442,7 @@ Rules:
 
     async function callAI(prompt) {
       const apiKey = getApiKey();
+
       if (!apiKey) {
         showStatus("Add your Groq API key first.", "err");
         throw new Error("Missing key");
@@ -1327,7 +1520,7 @@ Rules:
       );
     };
 
-    /* COOKIE CONSENT */
+    /* COOKIE CONSENT LOGIC */
     const cookieBanner = document.getElementById("cookieBanner");
     const cookieAcceptAllBtn = document.getElementById("cookieAcceptAllBtn");
     const cookiePrefsBtn = document.getElementById("cookiePrefsBtn");
@@ -1347,6 +1540,7 @@ Rules:
     }
 
     function applyCookieUIFromPrefs(prefs) {
+      // set checkboxes in modal
       cookieAnalytics.checked = !!prefs.analytics;
       cookieAds.checked = !!prefs.ads;
     }
@@ -1360,6 +1554,7 @@ Rules:
       }
     }
 
+    // Accept all from banner
     cookieAcceptAllBtn.addEventListener("click", () => {
       const prefs = {
         necessary: true,
@@ -1372,6 +1567,7 @@ Rules:
       cookieBanner.classList.remove("show");
     });
 
+    // Open preferences modal
     cookiePrefsBtn.addEventListener("click", () => {
       const prefs = getCookiePrefs() || {
         necessary: true,
@@ -1382,6 +1578,7 @@ Rules:
       openCookieModal();
     });
 
+    // Save preferences from modal
     cookieSaveBtn.addEventListener("click", () => {
       const prefs = {
         necessary: true,
@@ -1394,6 +1591,7 @@ Rules:
       closeCookieModal();
     });
 
+    // On first load
     maybeShowCookieBanner();
   </script>
 </body>
