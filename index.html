@@ -698,8 +698,7 @@
             parents”, “laggy servers”, “memes”).
           </li>
           <li>
-            <strong>Pick an opening style</strong> (or leave it on Random) to choose how
-            the rant starts, or use the Custom Intro box.
+            <strong>Pick an opening style</strong> (Random, Custom, Throwback, or a template).
           </li>
           <li>
             <strong>Set Rant Meltdown</strong> to choose the tone (Very chill → Full
@@ -713,12 +712,12 @@
             <strong>Pick a Narrator</strong> – male, gender-neutral, or female.
           </li>
           <li>
-            <strong>Optional toggles:</strong> include slang and allow swearing
-            if you want a stronger script.
+            <strong>Optional:</strong> paste any rant into the box to rewrite, shuffle,
+            or use as style inspiration.
           </li>
           <li>
-            <strong>Optional:</strong> paste any rant into the box to rewrite, shuffle,
-            or make it more unique (the AI will use it only as style inspiration, not copy it).
+            <strong>Optional:</strong> adjust the Similarity Level slider to control
+            how close or how different your new script is compared to the pasted one.
           </li>
           <li>
             Click <strong>Generate Rant</strong>, <strong>Rewrite</strong>,
@@ -726,7 +725,7 @@
           </li>
           <li>
             Edit the script directly in the box if you want, then hit
-            <strong>Copy</strong> or <strong>Save Rant</strong> when you’re happy with it.
+            <strong>Copy</strong> or <strong>Save Rant</strong>.
           </li>
           <li>
             Make sure you’ve added your <strong>Groq API key</strong> in the API section
@@ -1031,7 +1030,7 @@
       <input
         id="customIntroInput"
         type="text"
-        placeholder="Type your own opening line here (optional)..."
+        placeholder="Type your own opening line here (this will be used exactly as written)..."
       />
 
       <label for="pasteInput">Paste Your Rant Script Here (optional)</label>
@@ -1039,6 +1038,10 @@
         id="pasteInput"
         placeholder="Paste any rant to rewrite, shuffle, or use as style inspiration..."
       ></textarea>
+
+      <label for="similaritySlider">Similarity Level (1 = very similar, 3 = more different)</label>
+      <input id="similaritySlider" type="range" min="1" max="3" value="2" />
+      <div id="similarityLabel" class="slider-value">Balanced</div>
 
       <label for="narratorSelect">Narrator Style</label>
       <select id="narratorSelect">
@@ -1364,6 +1367,8 @@
     const paragraphSlider = document.getElementById("paragraphSlider");
     const intensityLabel = document.getElementById("intensityLabel");
     const paraCountLabel = document.getElementById("paraCountLabel");
+    const similaritySlider = document.getElementById("similaritySlider");
+    const similarityLabel = document.getElementById("similarityLabel");
 
     function updateIntensityLabel() {
       const v = Number(intensitySlider.value);
@@ -1380,10 +1385,23 @@
       const v = Number(paragraphSlider.value);
       paraCountLabel.textContent = `(${v})`;
     }
+    function updateSimilarityLabel() {
+      const v = Number(similaritySlider.value);
+      similarityLabel.textContent =
+        v === 1
+          ? "Very similar (same concept, fresh wording)"
+          : v === 2
+          ? "Balanced"
+          : "More different (same concept, new story)";
+    }
+
     intensitySlider.addEventListener("input", updateIntensityLabel);
     paragraphSlider.addEventListener("input", updateParagraphLabel);
+    similaritySlider.addEventListener("input", updateSimilarityLabel);
+
     updateIntensityLabel();
     updateParagraphLabel();
+    updateSimilarityLabel();
 
     /* COLLAPSIBLE API PANEL */
     const apiHeader = document.getElementById("apiHeader");
@@ -1478,6 +1496,7 @@
       const introChoice = introSelect.value;
       const customIntro = customIntroInput.value.trim();
       const currentOutput = outputEl.value.trim();
+      const similarity = Number(similaritySlider.value);
 
       const narrators = {
         male: "a male Roblox-style rant narrator",
@@ -1504,17 +1523,20 @@
         "Where are these popular memes now? First up,",
       ];
 
+      // Custom intro ALWAYS wins if selected and not empty
       if (introChoice === "custom" && customIntro) {
         openingBlock = `
-OPENING LINE:
-- Start the script with this exact text (then continue the rant): "${customIntro}"`;
+OPENING LINE (CUSTOM):
+- The very first characters of your output MUST be exactly:
+"${customIntro}"
+- Do NOT rewrite, change, or replace this line.
+- After this line, continue the rant naturally.`;
       } else if (introChoice === "throwback") {
         openingBlock = `
 OPENING LINE (THROWBACK STYLE):
-- Create a storytime-style opening that starts with something like:
-  "Throwback to [year], when [viral meme, trend, or event] had everyone acting crazy..."
+- Start with a line like: "Throwback to [year], when [viral meme/trend/event] had everyone acting crazy..."
 - Choose a realistic year between 2010 and 2023.
-- Reference a well-known meme / trend / event from that era (e.g. big viral challenges, TikTok trends, legendary memes), but keep the wording original.
+- Reference a well-known meme / trend / event from that era (e.g. viral challenges, TikTok trends, legendary memes), but keep the wording original.
 - Do not copy any specific script you've seen online; keep it fresh.`;
       } else if (introChoice === "random") {
         openingBlock = `
@@ -1525,10 +1547,13 @@ OPENING LINE:
         )}" or a very similar variant.
 - Do NOT use multiple different openings, only one.`;
       } else {
-        // use the dropdown text as a fixed opening
+        // template from dropdown (e.g. "Where are these popular memes now? First up,")
         openingBlock = `
-OPENING LINE:
-- Start the script with this exact text (then continue the rant): "${introChoice}"`;
+OPENING LINE (TEMPLATE):
+- The very first characters of your output MUST be exactly:
+"${introChoice}"
+- Do NOT rewrite, change, or replace this template.
+- After this line, continue the rant.`;
       }
 
       let swearsBlock = "";
@@ -1543,6 +1568,27 @@ SWEARING:
 - Do NOT use any swear words at all. Keep the language clean and YouTube-safe.`;
       }
 
+      let similarityBlock = "";
+      if (pasted) {
+        if (similarity === 1) {
+          similarityBlock = `
+SIMILARITY LEVEL: 1 (very similar)
+- Keep the same overall concept, structure, and emotional beats as the pasted script.
+- Rewrite in your own words so sentences are different, but the story feels very close.
+- Do NOT copy long phrases or lines word-for-word.`;
+        } else if (similarity === 2) {
+          similarityBlock = `
+SIMILARITY LEVEL: 2 (balanced)
+- Keep the same topic and vibe, but change pacing, examples, and some structure.
+- Add new details and a few fresh twists so the script clearly feels like a new version.`;
+        } else {
+          similarityBlock = `
+SIMILARITY LEVEL: 3 (more different)
+- Use the pasted script mainly as inspiration for the type of story and energy.
+- Keep the same core concept, but create a noticeably fresh story with different details and flow.`;
+        }
+      }
+
       const styleBlock = `
 VOICE: ${narrators[narrator]}
 RANT MELTDOWN: ${intensities[intensity - 1]}
@@ -1554,6 +1600,7 @@ SLANG: ${
       }
 ${swearsBlock}
 ${openingBlock}
+${similarityBlock}
 
 STYLE REFERENCES (for vibe / pacing only, never copy scripts):
 - Make it feel like a mix of viral Roblox rant channels and storytime YouTubers.
@@ -1571,8 +1618,8 @@ Rules:
 * Content: focus on something funny, relatable, or painfully true about the topic.
 * Build-up: gradually increase frustration or emotion.
 * Ending: finish with a funny or self-aware twist that feels satisfying.
-* If a script is pasted in, treat it as style inspiration only.
-* Do NOT copy long sentences or specific story details from any input; rewrite them in your own words so the new script feels original.
+* If a script is pasted in, treat it as style and concept inspiration only.
+* Do NOT copy long sentences or specific story details from any input; rewrite them so the new script feels original.
 * No emojis, no hashtags, no AI disclaimers.
 `;
 
@@ -1583,11 +1630,12 @@ Rules:
 
       if (mode === "generate") {
         if (pasted) {
-          task = `Use the pasted rant below as style inspiration ONLY (tone, pacing, energy), but write a completely new rant about the topic: "${baseTopic}".
+          task = `Use the pasted rant below as inspiration for style, pacing, and overall concept.
 
-Keep the vibe similar, but change the story details, examples, and wording so it feels fresh and not like a copy.
+- The core topic/title you should focus on is: "${baseTopic}".
+- Keep the same type of story and energy, but make sure the details, wording, and some events are changed.
 
-PASTED SCRIPT (STYLE REFERENCE):
+PASTED SCRIPT (STYLE + CONCEPT REFERENCE):
 """${pasted}"""`;
         } else {
           task = `Write one viral-style rant script about: "${baseTopic}".`;
