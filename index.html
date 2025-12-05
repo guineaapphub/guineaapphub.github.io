@@ -630,12 +630,41 @@
       padding: 4px 8px;
     }
 
+    /* Footer contact */
+    .footer {
+      max-width: 900px;
+      margin: 0 auto 32px;
+      padding: 0 16px;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      opacity: 0.85;
+    }
+    .footer svg {
+      width: 14px;
+      height: 14px;
+    }
+    .footer a {
+      color: inherit;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
     @media (max-width: 600px) {
       .top-bar {
         padding: 8px 10px;
       }
       .button-row {
         flex-direction: column;
+      }
+      .footer {
+        flex-direction: column;
+        text-align: center;
       }
     }
   </style>
@@ -712,8 +741,16 @@
             <strong>Pick a Narrator</strong> – male, gender-neutral, or female.
           </li>
           <li>
+            <strong>Choose a Language</strong> in the Language dropdown.
+            The rant will be written directly in that language.
+          </li>
+          <li>
+            <strong>Custom Intro stays exactly as you type it.</strong><br />
+            It is never translated, even if the rant is in another language.
+          </li>
+          <li>
             <strong>Optional:</strong> paste any rant into the box to rewrite, shuffle,
-            or use as style inspiration.
+            or use as style inspiration (the AI understands non-English too).
           </li>
           <li>
             <strong>Optional:</strong> adjust the Similarity Level slider to control
@@ -733,7 +770,10 @@
           </li>
         </ol>
         <div class="modal-tip">
-          Tip: Clear, simple topics usually give the strongest, most relatable rants.
+          🌍 <strong>Languages:</strong> The interface and this help text are in English,
+          but you can generate rants in many languages (Spanish, French, Portuguese,
+          Hindi, etc.) using the Language dropdown.  
+          If you type or paste in French, Spanish, etc., the AI still understands it.
         </div>
       </div>
     </div>
@@ -818,7 +858,7 @@
         <p class="tos-section-title">7. Contact</p>
         <p class="tos-small">
           For questions about these Terms, or to contact the site owner, you can email:<br />
-          <strong>guineagamehub@gmail.com</strong>
+          <strong>contact@viral-script-ai.com</strong>
         </p>
 
         <p class="tos-small">
@@ -921,7 +961,7 @@
         <p class="tos-section-title">7. Contact</p>
         <p class="tos-small">
           If you have questions about this Privacy Policy, you can email:<br />
-          <strong>guineagamehub@gmail.com</strong>
+          <strong>contact@viral-script-ai.com</strong>
         </p>
       </div>
     </div>
@@ -1050,6 +1090,44 @@
         <option value="female">Female Narrator</option>
       </select>
 
+      <!-- NEW LANGUAGE DROPDOWN -->
+      <label for="languageSelect">Language</label>
+      <select id="languageSelect">
+        <!-- High-demand creator languages -->
+        <option value="English" selected>English</option>
+        <option value="Spanish">Spanish (Español)</option>
+        <option value="Portuguese">Portuguese (Português)</option>
+        <option value="French">French (Français)</option>
+        <option value="German">German (Deutsch)</option>
+        <option value="Hindi">Hindi (हिन्दी)</option>
+        <option value="Chinese">Chinese (中文)</option>
+        <option value="Japanese">Japanese (日本語)</option>
+        <option value="Korean">Korean (한국어)</option>
+
+        <!-- Growing creator markets -->
+        <option value="Indonesian">Indonesian (Bahasa Indonesia)</option>
+        <option value="Filipino">Filipino (Tagalog)</option>
+        <option value="Turkish">Turkish (Türkçe)</option>
+        <option value="Arabic">Arabic (العربية)</option>
+
+        <!-- Niche + AI-friendly markets -->
+        <option value="Dutch">Dutch (Nederlands)</option>
+        <option value="Swedish">Swedish (Svenska)</option>
+        <option value="Danish">Danish (Dansk)</option>
+        <option value="Slovak">Slovak (Slovenčina)</option>
+        <option value="Greek">Greek (Ελληνικά)</option>
+        <option value="Finnish">Finnish (Suomi)</option>
+        <option value="Croatian">Croatian (Hrvatski)</option>
+        <option value="Ukrainian">Ukrainian (Українська)</option>
+        <option value="Romanian">Romanian (Română)</option>
+        <option value="Bulgarian">Bulgarian (Български)</option>
+        <option value="Malay">Malay (Bahasa Melayu)</option>
+        <option value="Tamil">Tamil (தமிழ்)</option>
+      </select>
+      <div class="slider-value" style="margin-top:-4px;">
+        The rant will be generated fully in the selected language. Custom Intro stays exactly as written.
+      </div>
+
       <div class="row">
         <div class="col">
           <div class="slider-label">Rant Meltdown</div>
@@ -1151,6 +1229,18 @@
       <button id="cookiePrefsBtn" class="cookie-link-btn">Cookie Preferences</button>
       <button id="cookieAcceptAllBtn" class="cookie-accept-btn">Accept</button>
     </div>
+  </div>
+
+  <!-- FOOTER CONTACT -->
+  <div class="footer">
+    <span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+        <rect x="3" y="5" width="18" height="14" rx="2" ry="2" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+    <span>Contact:</span>
+    <a href="mailto:contact@viral-script-ai.com">contact@viral-script-ai.com</a>
   </div>
 
   <script>
@@ -1484,6 +1574,7 @@
     const includeSlang = document.getElementById("includeSlang");
     const softSwears = document.getElementById("softSwears");
     const outputEl = document.getElementById("output");
+    const languageSelect = document.getElementById("languageSelect");
 
     function buildPrompt(mode) {
       const topic = topicInput.value.trim();
@@ -1497,12 +1588,14 @@
       const customIntro = customIntroInput.value.trim();
       const currentOutput = outputEl.value.trim();
       const similarity = Number(similaritySlider.value);
+      const language = languageSelect.value;
 
       const narrators = {
         male: "a male Roblox-style rant narrator",
-        neutral: "a gender-neutral rant narrator",
+        neutral: "a gender-neutral narrator",
         female: "a female narrator with a slightly sassy tone",
       };
+
       const intensities = [
         "very chill, low-energy commentary",
         "casual but energetic rant tone",
@@ -1510,6 +1603,7 @@
         "full meltdown, dramatic but still PG-13",
       ];
 
+      // OPENING LINE
       let openingBlock = "";
       const openingList = [
         "I'm starting to realize...",
@@ -1520,74 +1614,100 @@
         "Honestly, at this point...",
         "Ain't no way this just happened...",
         "Throwback to [year], when something wild happened...",
-        "Where are these popular memes now? First up,",
+        "Where are these popular memes now? First up,"
       ];
 
-      // Custom intro ALWAYS wins if selected and not empty
       if (introChoice === "custom" && customIntro) {
         openingBlock = `
 OPENING LINE (CUSTOM):
-- The very first characters of your output MUST be exactly:
+- The first characters of the rant MUST be exactly:
 "${customIntro}"
-- Do NOT rewrite, change, or replace this line.
-- After this line, continue the rant naturally.`;
+- Do NOT translate or modify this line.
+- Continue the rant in ${language} after this line.`;
       } else if (introChoice === "throwback") {
         openingBlock = `
 OPENING LINE (THROWBACK STYLE):
-- Start with a line like: "Throwback to [year], when [viral meme/trend/event] had everyone acting crazy..."
-- Choose a realistic year between 2010 and 2023.
-- Reference a well-known meme / trend / event from that era (e.g. viral challenges, TikTok trends, legendary memes), but keep the wording original.
-- Do not copy any specific script you've seen online; keep it fresh.`;
+- Write a natural throwback-style opening.
+- Choose a realistic year between 2010–2023.
+- Reference a viral meme/trend/event from that era.
+- Write this opening directly in ${language}.`;
       } else if (introChoice === "random") {
         openingBlock = `
-OPENING LINE:
-- Choose ONE natural-sounding opening line that fits the topic and tone.
-- You can choose from lines like: "${openingList.join(
-          '" , "'
-        )}" or a very similar variant.
-- Do NOT use multiple different openings, only one.`;
+OPENING LINE (RANDOM):
+- Choose one natural-sounding opening line.
+- You may use similar forms to:
+"${openingList.join('" , "')}"
+
+- Translate the chosen line naturally into ${language}
+  (unless the language is English).`;
       } else {
-        // template from dropdown (e.g. "Where are these popular memes now? First up,")
+        // Template intro (e.g. "Where are these popular memes now? First up,")
         openingBlock = `
 OPENING LINE (TEMPLATE):
 - The very first characters of your output MUST be exactly:
 "${introChoice}"
-- Do NOT rewrite, change, or replace this template.
-- After this line, continue the rant.`;
+- Do NOT rewrite, translate, or change this template.
+- Continue the rest of the rant in ${language}.`;
       }
 
-      let swearsBlock = "";
-      if (soft) {
-        swearsBlock = `
+      // SWEARING
+      const swearsBlock = soft
+        ? `
 SWEARING:
-- Mild PG-13 swears are allowed, like: "crap", "damn", "freaking", "heck", "hell".
-- Avoid heavy profanity or any slurs. Keep it advertiser-friendly but still expressive.`;
-      } else {
-        swearsBlock = `
+- Mild PG-13 swears allowed ("crap", "damn", "heck").
+- Translate swear intensity appropriately for ${language}.
+- No heavy profanity or slurs.`
+        : `
 SWEARING:
-- Do NOT use any swear words at all. Keep the language clean and YouTube-safe.`;
-      }
+- Do NOT use any swearing.
+- Keep the language fully clean.`;
 
+      // SIMILARITY
       let similarityBlock = "";
       if (pasted) {
         if (similarity === 1) {
           similarityBlock = `
-SIMILARITY LEVEL: 1 (very similar)
-- Keep the same overall concept, structure, and emotional beats as the pasted script.
-- Rewrite in your own words so sentences are different, but the story feels very close.
-- Do NOT copy long phrases or lines word-for-word.`;
+SIMILARITY LEVEL 1:
+- Keep the same structure & emotional beats.
+- Rewrite into fresh wording in ${language}.
+- Do NOT copy sentences from the pasted text.`;
         } else if (similarity === 2) {
           similarityBlock = `
-SIMILARITY LEVEL: 2 (balanced)
-- Keep the same topic and vibe, but change pacing, examples, and some structure.
-- Add new details and a few fresh twists so the script clearly feels like a new version.`;
+SIMILARITY LEVEL 2:
+- Maintain the same concept & vibe.
+- Add new pacing & examples.
+- Write completely in ${language}.`;
         } else {
           similarityBlock = `
-SIMILARITY LEVEL: 3 (more different)
-- Use the pasted script mainly as inspiration for the type of story and energy.
-- Keep the same core concept, but create a noticeably fresh story with different details and flow.`;
+SIMILARITY LEVEL 3:
+- Use pasted script ONLY as inspiration.
+- Create new story details & pacing.
+- Write entirely in ${language}.`;
         }
       }
+
+      // LANGUAGE BLOCK
+      const languageBlock = `
+LANGUAGE:
+- Write the FULL rant in: ${language}.
+- Do NOT translate the user's Custom Intro (if used).
+- If no custom intro is used, generate the opening naturally in ${language}.
+- Maintain slang, tone, pacing, narrator style, and emotional energy — but adapted naturally to ${language}.
+- Avoid robotic literal translation. Make it sound like a native speaker wrote the rant.`;
+
+      const baseInstructions = `
+You are writing a viral-style rant script for a short-form video (TikTok / YouTube Shorts) over Roblox or meme gameplay.
+
+Rules:
+* Aim for high-quality storytelling.
+* Use a strong opening line, then flow straight into the rant.
+* Tone: fast-paced, natural, like someone venting to the camera.
+* Style: short sentences, humor, irony, rhythm, and strong hooks.
+* Content: focus on something funny, relatable, or painfully true about the topic.
+* Build-up: gradually increase frustration or emotion.
+* Ending: finish with a funny or self-aware twist that feels satisfying.
+* If a script is pasted in, treat it as style and concept inspiration only.
+* No emojis, no hashtags, no AI disclaimers.`;
 
       const styleBlock = `
 VOICE: ${narrators[narrator]}
@@ -1601,26 +1721,7 @@ SLANG: ${
 ${swearsBlock}
 ${openingBlock}
 ${similarityBlock}
-
-STYLE REFERENCES (for vibe / pacing only, never copy scripts):
-- Make it feel like a mix of viral Roblox rant channels and storytime YouTubers.
-- Fast pace, strong hooks, and punchy lines.
-`;
-
-      const baseInstructions = `
-You are writing a viral-style rant script for a short-form video (TikTok / YouTube Shorts) over Roblox or meme gameplay.
-
-Rules:
-* Aim for high-quality storytelling (GPT-4-style pacing and structure).
-* Use a strong opening line (as described above), then flow straight into the rant.
-* Tone: fast-paced, natural, like someone venting or telling a crazy story to the camera.
-* Style: short sentences, humor, irony, rhythm, and strong hooks.
-* Content: focus on something funny, relatable, or painfully true about the topic.
-* Build-up: gradually increase frustration or emotion.
-* Ending: finish with a funny or self-aware twist that feels satisfying.
-* If a script is pasted in, treat it as style and concept inspiration only.
-* Do NOT copy long sentences or specific story details from any input; rewrite them so the new script feels original.
-* No emojis, no hashtags, no AI disclaimers.
+${languageBlock}
 `;
 
       const baseTopic =
@@ -1630,48 +1731,57 @@ Rules:
 
       if (mode === "generate") {
         if (pasted) {
-          task = `Use the pasted rant below as inspiration for style, pacing, and overall concept.
+          task = `
+TASK: Generate a FULLY NEW rant in ${language}, based on the concept of the pasted rant.
 
-- The core topic/title you should focus on is: "${baseTopic}".
-- Keep the same type of story and energy, but make sure the details, wording, and some events are changed.
+TOPIC:
+"${baseTopic}"
 
-PASTED SCRIPT (STYLE + CONCEPT REFERENCE):
+PASTED SCRIPT (style inspiration only):
 """${pasted}"""`;
         } else {
-          task = `Write one viral-style rant script about: "${baseTopic}".`;
+          task = `
+TASK: Write a completely original viral rant in ${language}.
+
+TOPIC:
+"${baseTopic}"`;
         }
       } else if (mode === "rewrite") {
         const source = pasted || currentOutput || baseTopic;
-        task = `Rewrite the following rant into a stronger, more viral script.
+        task = `
+TASK: Rewrite the following rant into a stronger version.
 
-- Keep the same core idea and emotional tone.
-- Change the phrasing, pacing, and some details so it feels like a fresh version, not a word-for-word copy.
-- If a topic is provided, use it as the title/context: "${baseTopic}".
+- Maintain the idea & tone.
+- Rewrite entirely in ${language}.
+- Keep any Custom Intro line unchanged.
 
-TEXT TO REWRITE:
+TEXT:
 """${source}"""`;
       } else if (mode === "shuffle") {
         const source = pasted || currentOutput || baseTopic;
-        task = `Using the same general idea and topic, create a different rant script variation.
+        task = `
+TASK: Create a different variation of the rant.
 
-- Keep the same overall theme, but change the angle, examples, and punchlines.
-- You can rearrange the structure and add new jokes, as long as it stays on topic.
-- Use the following as the previous version / idea source:
+- Keep topic the same.
+- Change pacing, examples, angle.
+- Write in ${language}.
+
+PREVIOUS VERSION:
 """${source}"""`;
       } else if (mode === "unique") {
         const source = pasted || currentOutput || baseTopic;
-        task = `Take the following rant script and make a more unique version of it.
+        task = `
+TASK: Make a more unique version of this rant.
 
-- Keep the core topic and vibe.
-- Change the wording, pacing, and some story details so it feels clearly different.
-- Avoid reusing long phrases exactly.
-- Topic/context: "${baseTopic}".
+- Keep core topic.
+- New story details.
+- Fully in ${language}.
 
 SCRIPT:
 """${source}"""`;
       }
 
-      return baseInstructions + styleBlock + "\n" + task;
+      return baseInstructions + "\n" + styleBlock + "\n" + task;
     }
 
     async function callAI(prompt) {
@@ -1774,7 +1884,6 @@ SCRIPT:
     }
 
     function applyCookieUIFromPrefs(prefs) {
-      // set checkboxes in modal
       cookieAnalytics.checked = !!prefs.analytics;
       cookieAds.checked = !!prefs.ads;
     }
@@ -1788,7 +1897,6 @@ SCRIPT:
       }
     }
 
-    // Accept all from banner
     cookieAcceptAllBtn.addEventListener("click", () => {
       const prefs = {
         necessary: true,
@@ -1801,7 +1909,6 @@ SCRIPT:
       cookieBanner.classList.remove("show");
     });
 
-    // Open preferences modal
     cookiePrefsBtn.addEventListener("click", () => {
       const prefs = getCookiePrefs() || {
         necessary: true,
@@ -1812,7 +1919,6 @@ SCRIPT:
       openCookieModal();
     });
 
-    // Save preferences from modal
     cookieSaveBtn.addEventListener("click", () => {
       const prefs = {
         necessary: true,
@@ -1825,7 +1931,6 @@ SCRIPT:
       closeCookieModal();
     });
 
-    // On first load
     maybeShowCookieBanner();
   </script>
 </body>
