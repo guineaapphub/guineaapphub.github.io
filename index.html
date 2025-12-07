@@ -6,7 +6,7 @@
     name="viewport"
     content="width=device-width, initial-scale=1.0"
   />
-  <title>Roblox Rant Generator – Free AI Script Maker for Viral Roblox Content (Groq Powered)</title>
+  <title>Faceless Script Generator – Roblox Rant</title>
 
   <!-- ✅ Google AdSense verification script -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6610889405997257"
@@ -15,41 +15,6 @@
 
   <!-- ✅ Google Search Console site verification -->
   <meta name="google-site-verification" content="FSjAX-8iMppXgSzcWB-IpDSVZdqr8F2_H61BSxneciE" />
-
-  <!-- ✅ SEO META -->
-  <meta name="description" content="Create Roblox rants instantly using AI. This free Roblox rant generator uses fast, high-quality Groq AI to produce viral rant scripts for TikTok, YouTube, and other social platforms." />
-  <meta name="keywords" content="Roblox rant generator, Roblox AI script maker, AI rant tool, viral Roblox script generator, Roblox content generator, Groq AI tool, free rant maker, TikTok rant generator, Roblox roast script" />
-  <link rel="canonical" href="https://viral-script-ai.com/roblox-rant-generator" />
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Roblox Rant Generator – Free AI Script Maker (Groq Powered)" />
-  <meta property="og:description" content="Generate hilarious Roblox rant scripts instantly using fast, free Groq AI. Perfect for TikTok, YouTube Shorts and Roblox creators." />
-  <meta property="og:url" content="https://viral-script-ai.com/roblox-rant-generator" />
-  <meta property="og:site_name" content="Viral Script AI" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Roblox Rant Generator – Free AI Script Maker (Groq Powered)" />
-  <meta name="twitter:description" content="Create Roblox rants instantly with AI. Free Roblox rant generator for viral content." />
-
-  <!-- JSON-LD Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Roblox Rant Generator",
-    "url": "https://viral-script-ai.com/roblox-rant-generator",
-    "applicationCategory": "ProductivityApplication",
-    "operatingSystem": "Any",
-    "description": "Create Roblox rant scripts instantly using AI. This free Roblox rant generator uses Groq AI for fast, high-quality viral scripts for TikTok, YouTube and other social platforms.",
-    "creator": {
-      "@type": "Organization",
-      "name": "Viral Script AI",
-      "url": "https://viral-script-ai.com"
-    }
-  }
-  </script>
 
   <link
     href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap"
@@ -116,7 +81,6 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      flex-wrap: wrap;
     }
 
     .top-right {
@@ -176,7 +140,6 @@
       transform: translateY(-1px);
       box-shadow: 0 0 6px var(--primary-glow);
     }
-
     .theme-mode-btn,
     .how-btn {
       padding: 6px 14px;
@@ -251,31 +214,37 @@
       margin-bottom: 16px;
     }
 
-    /* Share bar (Toolshelf-style, single line) */
+    /* ========== FIXED: CENTERED SHARE BAR ========== */
     .share-bar {
-      max-width: 900px;
-      margin: 0 auto 16px;
+      width: 100%;
       display: flex;
-      flex-wrap: nowrap;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .share-center {
+      display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 10px;
-      justify-content: flex-start;
-      padding: 0 4px;
-      font-size: 13px;
-      overflow: hidden;
+      text-align: center;
+      width: 100%;
     }
 
     .share-label {
       font-weight: 500;
       opacity: 0.9;
+      margin-bottom: 6px;
       white-space: nowrap;
     }
 
     .share-pills {
       display: flex;
-      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
       gap: 10px;
-      justify-content: flex-start;
+      width: 100%;
+      max-width: 900px;
     }
 
     .share-pill {
@@ -291,6 +260,7 @@
       font-weight: 500;
       transition: 0.2s ease;
       white-space: nowrap;
+      flex-shrink: 0;
     }
     body.dark .share-pill {
       background: #111527;
@@ -380,7 +350,6 @@
       background: #050712;
       border-color: var(--border-dark);
     }
-
     textarea {
       resize: vertical;
       min-height: 80px;
@@ -444,9 +413,7 @@
       cursor: pointer;
       font-size: 14px;
       transition: 0.2s;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+      display: inline-block;
     }
     .btn-primary {
       background: var(--primary);
@@ -474,7 +441,90 @@
       margin-top: 10px;
     }
 
-    /* Modal (How to Use + ToS + Privacy + Cookie Prefs + Saved + API Key) */
+    /* API section */
+    .api-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .api-header span:last-child {
+      font-size: 18px;
+    }
+
+    .api-body {
+      margin-top: 10px;
+      display: none;
+    }
+    .api-body.open {
+      display: block;
+    }
+
+    .api-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .api-row input {
+      flex: 1 1 220px;
+      margin-bottom: 0;
+    }
+
+    .api-eye-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 54px;
+      padding-inline: 16px;
+    }
+    .api-eye-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .api-status {
+      font-size: 12px;
+      margin-top: 6px;
+      min-height: 16px;
+    }
+    .api-status.ok {
+      color: #2e7d32;
+    }
+    .api-status.err {
+      color: #c62828;
+    }
+
+    .api-help {
+      font-size: 12px;
+      margin-top: 6px;
+      opacity: 0.9;
+    }
+
+    .groq-link-btn {
+      margin-top: 8px;
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border-light);
+      font-size: 12px;
+      text-decoration: none;
+      color: inherit;
+      transition: 0.2s;
+    }
+    body.dark .groq-link-btn {
+      border-color: var(--border-dark);
+    }
+    .groq-link-btn:hover {
+      border-color: var(--primary);
+      box-shadow: 0 0 6px var(--primary-glow);
+      transform: translateY(-1px);
+    }
+
+    /* Modal (How to Use + Terms of Service + Privacy + Cookie Preferences + Saved Rants) */
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -503,6 +553,7 @@
       background: var(--card-dark);
       border-color: var(--border-dark);
     }
+
     .modal-header {
       display: flex;
       justify-content: space-between;
@@ -528,6 +579,7 @@
     .modal-close:hover {
       box-shadow: 0 0 6px var(--primary-glow);
     }
+
     .modal-body {
       font-size: 13px;
       line-height: 1.55;
@@ -540,11 +592,13 @@
     .modal-body li {
       margin-bottom: 4px;
     }
+
     .modal-tip {
       margin-top: 8px;
       font-size: 12px;
       opacity: 0.8;
     }
+
     .tos-section-title {
       font-weight: 600;
       margin-top: 8px;
@@ -555,6 +609,7 @@
       font-size: 12px;
       opacity: 0.9;
     }
+
     @keyframes fadeInUp {
       from {
         opacity: 0;
@@ -565,191 +620,193 @@
         transform: translateY(0);
       }
     }
-
-    #output {
-      min-height: 160px;
-      white-space: pre-wrap;
-      line-height: 1.55rem;
-      font-size: 1.02rem;
-    }
-
-    .copy-flash {
-      font-size: 11px;
-      margin-left: 6px;
-      opacity: 0;
-      transition: opacity 0.2s ease;
-    }
-    .copy-flash.visible {
-      opacity: 0.85;
-    }
-
-    /* Home toast */
-    .home-toast {
-      position: fixed;
-      top: 46px;
-      left: 16px;
-      background: rgba(0, 0, 0, 0.92);
-      color: #f5f7ff;
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 12px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.25s ease;
-      z-index: 120;
-      border: 1px solid #333955;
-    }
-    .home-toast.show {
-      opacity: 1;
-    }
-
-    /* Cookie banner */
-    .cookie-banner {
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      padding: 8px 14px;
-      display: none;
-      align-items: center;
+    /* Cookie Preference Toggle Styles */
+    .cookie-option {
+      display: flex;
       justify-content: space-between;
-      gap: 10px;
-      z-index: 130;
-      font-size: 12px;
-      background: #050712;
-      color: #f5f7ff;
-      border-top: 1px solid #333955;
-    }
-    body.light .cookie-banner {
-      background: #f7f7f9;
-      color: #0d0d0d;
-      border-top-color: #d0d0dd;
-    }
-    .cookie-banner.show {
-      display: flex;
-      flex-wrap: wrap;
-    }
-    .cookie-text {
-      flex: 1 1 220px;
-      opacity: 0.9;
-    }
-    .cookie-actions {
-      display: flex;
       align-items: center;
-      gap: 8px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-light);
     }
-    .cookie-link-btn {
-      background: transparent;
-      border-radius: 999px;
-      border: 1px solid var(--border-light);
-      padding: 4px 10px;
-      font-size: 12px;
-      cursor: pointer;
-    }
-    body.dark .cookie-link-btn {
+    body.dark .cookie-option {
       border-color: var(--border-dark);
-      color: #f5f7ff;
     }
-    .cookie-accept-btn {
-      border-radius: 999px;
+    .cookie-desc {
+      font-size: 12px;
+      opacity: 0.8;
+      max-width: 85%;
+    }
+    .cookie-toggle {
+      transform: scale(1.1);
+    }
+
+    /* Saved Rants History Modal */
+    .history-item {
+      border: 1px solid var(--border-light);
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      background: var(--card-light);
+    }
+    body.dark .history-item {
+      background: #0b1120;
+      border-color: var(--border-dark);
+    }
+    .history-item-timestamp {
+      font-size: 11px;
+      opacity: 0.8;
+      margin-bottom: 4px;
+    }
+
+    .history-copy-btn {
+      margin-top: 8px;
+      font-size: 12px;
+      padding: 8px 10px;
+    }
+
+    /* Collapsible advanced settings in panels */
+    details {
+      margin-top: 16px;
+      margin-bottom: 6px;
+      padding: 0;
+    }
+    details summary {
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      list-style: none;
+      border-radius: 6px;
+      padding: 10px 12px;
+      margin-bottom: 8px;
+      border: 1px solid var(--border-light);
+      background: var(--card-light);
+      user-select: none;
+    }
+    body.dark details summary {
+      border-color: var(--border-dark);
+      background: #101425;
+    }
+    details summary:hover {
+      border-color: var(--primary);
+      box-shadow: 0 0 6px var(--primary-glow);
+    }
+
+    details[open] summary {
+      margin-bottom: 10px;
+    }
+
+    /* The box holding the AI outputs */
+    .results-box {
+      min-height: 200px;
+      border-radius: 14px;
+      border: 1px solid var(--border-light);
+      background: var(--card-light);
+      padding: 16px;
+      white-space: pre-wrap;
+      font-size: 14px;
+    }
+    body.dark .results-box {
+      background: var(--card-dark);
+      border-color: var(--border-dark);
+    }
+
+    .loading-animation {
+      font-size: 14px;
+      opacity: 0.9;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    /* Copy to clipboard button */
+    .copy-btn {
+      margin-top: 10px;
+      width: 100%;
       background: var(--primary);
       color: #000;
-      font-size: 12px;
-      padding: 6px 14px;
-    }
-    .cookie-accept-btn:hover,
-    .cookie-link-btn:hover {
-      box-shadow: 0 0 6px var(--primary-glow);
-      transform: translateY(-1px);
     }
 
-    /* Saved rants list */
-    .saved-item {
+    .api-warning {
+      background: #ffecec;
+      color: #b20000;
+      padding: 10px;
       border-radius: 8px;
-      border: 1px solid var(--border-light);
-      padding: 8px 10px;
-      margin-bottom: 8px;
-      font-size: 12px;
-      display: flex;
-      justify-content: space-between;
-      gap: 8px;
+      font-size: 13px;
+      margin-bottom: 12px;
+      border: 1px solid #ffb3b3;
     }
-    body.dark .saved-item {
-      border-color: var(--border-dark);
-    }
-    .saved-item-text {
-      white-space: pre-wrap;
-      flex: 1;
-    }
-    .saved-item-actions button {
-      font-size: 11px;
-      padding: 4px 8px;
+    body.dark .api-warning {
+      background: #2a0b0b;
+      border-color: #731111;
+      color: #ffbaba;
     }
 
-    /* Footer contact */
-    .footer {
-      max-width: 900px;
-      margin: 0 auto 32px;
-      padding: 0 16px;
-      font-size: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
+    /* Terms, privacy, cookies links row */
+    .legal-row {
+      margin-top: 6px;
+      margin-bottom: 16px;
+      text-align: center;
+      font-size: 14px;
       opacity: 0.85;
     }
-    .footer svg {
-      width: 14px;
-      height: 14px;
-    }
-    .footer a {
-      color: inherit;
+    .legal-row a {
+      color: var(--primary);
       text-decoration: none;
+      margin: 0 6px;
       font-weight: 500;
     }
-    .footer a:hover {
+    .legal-row a:hover {
       text-decoration: underline;
     }
 
-    /* ===== VSUB-STYLE LANGUAGE DROPDOWN (SMALL) ===== */
-    .language-wrapper {
-      position: relative;
-      width: 220px; /* small, VSUB-style */
-      margin-bottom: 6px;
+    /* Footer */
+    footer {
+      text-align: center;
+      font-size: 13px;
+      opacity: 0.7;
+      margin-top: 40px;
+      margin-bottom: 20px;
     }
 
-    .cd-trigger {
+    /* Language dropdown (Custom Dropdown) */
+    .lang-selector-wrap {
       position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 9px 12px;
+      width: 100%;
+    }
+
+    .cd-input {
+      width: 100%;
+      padding: 10px 12px;
       border-radius: 8px;
       border: 1px solid var(--border-light);
-      background: #050712;
+      background: transparent;
       color: inherit;
+      font-size: 14px;
       cursor: pointer;
       box-sizing: border-box;
+      position: relative;
     }
-    body.light .cd-trigger {
-      background: #f7f7f9;
+    body.dark .cd-input {
+      background: #050712;
+      border-color: var(--border-dark);
     }
-    .cd-trigger-label {
-      font-size: 14px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .cd-trigger:focus-visible {
-      outline: none;
+    .cd-input:hover {
       border-color: var(--primary);
-      box-shadow: 0 0 8px var(--primary-glow);
     }
-    .cd-chevron {
-      font-size: 12px;
-      opacity: 0.8;
+    .cd-input:after {
+      content: "";
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      width: 0;
+      height: 0;
+      transform: translateY(-50%);
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 6px solid currentColor;
     }
 
+    /* The dropdown menu */
+    /* ========== FIX APPLIED: Increased height so “Polish” is always visible ========== */
     .cd-menu {
       position: absolute;
       top: calc(100% + 4px);
@@ -761,73 +818,20 @@
       box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
       z-index: 70;
       display: none;
-    }
-    body.light .cd-menu {
-      background: #111827;
-      border-color: var(--border-light);
-    }
-    .cd-menu.open {
-      display: block;
-    }
 
-    .cd-search-wrap {
-      position: relative;
-      padding: 6px 8px 4px;
-      border-bottom: 1px solid #1f2433;
-    }
-    .cd-search-input {
-      width: 100%;
-      padding: 6px 26px 6px 8px;
-      border-radius: 6px;
-      border: 1px solid #272b3c;
-      background: #050712;
-      color: inherit;
-      font-size: 12px;
-      outline: none;
-      box-sizing: border-box;
-    }
-    body.light .cd-search-input {
-      background: #020617;
-      border-color: #1e293b;
-    }
-    .cd-search-input:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 6px var(--primary-glow);
-    }
-    .cd-search-icon {
-      position: absolute;
-      right: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 12px;
-      opacity: 0.7;
-      pointer-events: none;
+      /* FIX: ensure full scroll so lowest languages, including Polish, appear */
+      max-height: 320px;
+      overflow-y: auto;
+      padding-bottom: 6px;
     }
 
     .cd-options {
-      max-height: 260px;
-      overflow-y: auto;
-      padding: 4px 0;
-    }
-
-    /* Mini scrollbar for languages */
-    .cd-options::-webkit-scrollbar {
-      width: 4px;
-    }
-    .cd-options::-webkit-scrollbar-track {
-      background: transparent;
-    }
-    .cd-options::-webkit-scrollbar-thumb {
-      background: #4b5563;
-      border-radius: 999px;
+      padding: 6px 0;
     }
 
     .cd-option {
-      width: 100%;
-      text-align: left;
       padding: 7px 10px;
       font-size: 13px;
-      border: none;
       background: transparent;
       color: inherit;
       cursor: pointer;
@@ -839,187 +843,90 @@
       background: #0b1120;
       font-weight: 500;
     }
-
-    /* Save Rant icon */
-    .save-icon {
-      width: 18px;
-      height: 18px;
-      display: inline-block;
-      margin-left: 8px;
-      opacity: 0;
-      animation: fadeInIcon 0.4s ease forwards;
-    }
-
-    @keyframes fadeInIcon {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
-
-    .light .save-icon {
-      mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M7 19V13H17V19H19V7.82843L16.1716 5H5V19H7ZM4 3H17L21 7V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3ZM9 15V19H15V15H9Z'/></svg>") no-repeat center / contain;
-      background-color: currentColor;
-    }
-
-    .dark .save-icon {
-      mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M18 21V13H6V21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3 3 4 3H17L21 7V20C21 20.5523 20.5523 21 20 21H18ZM16 21H8V15H16V21Z'/></svg>") no-repeat center / contain;
-      background-color: currentColor;
-    }
-
-    @media (max-width: 900px) {
-      .top-center {
-        gap: 6px;
-      }
-    }
-
-    @media (max-width: 700px) {
-      .top-bar {
-        padding: 8px 10px;
-      }
-      .top-center {
-        gap: 4px;
-      }
-      .theme-mode-btn,
-      .how-btn,
-      .top-discord-link {
-        padding-inline: 10px;
-        font-size: 13px;
-      }
-      .share-bar {
-        flex-wrap: wrap;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .button-row {
-        flex-direction: column;
-      }
-      .footer {
-        flex-direction: column;
-        text-align: center;
-      }
-      .language-wrapper {
-        width: 100%;
-      }
-      .cd-menu {
-        width: 100%;
-      }
-    }
   </style>
 </head>
 
-<body class="light">
-  <!-- TOP BAR -->
+<body class="dark">
   <div class="top-bar">
-    <!-- LEFT: Home icon -->
+    <!-- Left: Home Button -->
     <div class="top-left">
-      <button id="homeBtn" class="home-btn" title="Home">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
+      <a href="/" class="home-btn" title="Return Home">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 3l9.5 9.5-1.4 1.4L18 12.8V21H6v-8.2l-2.1 2.1-1.4-1.4L12 3z" />
+        </svg>
+      </a>
+    </div>
+
+    <!-- Center Navigation -->
+    <div class="top-center">
+      <button class="theme-mode-btn" id="themeToggle">Dark</button>
+      <button class="how-btn" id="howToUseBtn">How to Use</button>
+      <a href="#" class="top-discord-link" id="discordLink">
+        <svg viewBox="0 0 24 24">
           <path
-            d="M12 3 3 10h2v9h5v-5h4v5h5v-9h2L12 3z"
             fill="currentColor"
+            d="M20.317,4.3698c-1.0485-0.4827-2.1602-0.8363-3.3233-1.0383c-0.1595,0.2943-0.3241,0.657-0.4447,0.9576
+             c-1.3129-0.1962-2.6226-0.1962-3.927,0c-0.1205-0.3006-0.2852-0.6632-0.4447-0.9576c-1.1644,0.2021-2.277,0.5556-3.3255,1.0383
+             c-2.1023,3.1421-2.6783,6.2126-2.3922,9.2403c1.4708,1.0974,2.8958,1.7619,4.2812,2.2026c0.3452-0.4717,0.6528-0.9701,0.9143-1.488
+             c-0.5041-0.1916-0.9898-0.4223-1.4521-0.6903c0.1218-0.0909,0.2411-0.1853,0.3555-0.2819
+             c2.7679,1.2971,5.7567,1.2971,8.4976,0c0.1144,0.0966,0.2337,0.1911,0.3555,0.2819c-0.4623,0.268-0.948,0.4987-1.4521,0.6903
+             c0.2615,0.5179,0.5691,1.0163,0.9143,1.488c1.3854-0.4407,2.8126-1.1052,4.2812-2.2026
+             C22.9953,10.5824,22.2766,7.5119,20.317,4.3698z"
+          />
+        </svg>
+        Discord
+      </a>
+    </div>
+
+    <!-- Right: Settings Button -->
+    <div class="top-right">
+      <button class="settings-btn" id="settingsBtn">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M19.14,12.94c0.04-0.31,0.06-0.63,0.06-0.94s-0.02-0.63-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.62
+       ...
+            c-0.11-0.21-0.36-0.3-0.58-0.22l-2.39,0.96c-0.49-0.37-1.02-0.68-1.6-0.91l-0.36-2.54c-0.03-0.23-0.23-0.41-0.47-0.41h-3.18
+            c-0.24,0-0.44,0.17-0.47,0.41l-0.36,2.54c-0.58,0.23-1.12,0.54-1.6,0.91l-2.39-0.96c-0.22-0.09-0.47,0.01-0.58,0.22l-1.59,2.76
+            c-0.11,0.21-0.06,0.48,0.12,0.62l2.03,1.58c-0.04,0.31-0.06,0.63-0.06,0.94s0.02,0.63,0.06,0.94L2.27,14.52
+            c-0.18,0.14-0.23,0.41-0.12,0.62l1.59,2.76c0.11,0.21,0.36,0.3,0.58,0.22l2.39-0.96c0.49,0.37,1.02,0.68,1.6,0.91l0.36,2.54
+            c0.03,0.23,0.23,0.41,0.47,0.41h3.18c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.58-0.23,1.12-0.54,1.6-0.91l2.39,0.96
+            c0.22,0.09,0.47-0.01,0.58-0.22l1.59-2.76c0.11-0.21,0.06-0.48-0.12-0.62l-2.03-1.58c0.04-0.31,0.06-0.63,0.06-0.94
+            s-0.02-0.63-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.62l-1.59-2.76z M12,15.6c-1.99,0-3.6-1.61-3.6-3.6s1.61-3.6,3.6-3.6
+            s3.6,1.61,3.6,3.6S13.99,15.6,12,15.6z"
           />
         </svg>
       </button>
     </div>
-
-    <!-- CENTER: Nav buttons -->
-    <div class="top-center">
-      <button id="themeModeBtn" class="theme-mode-btn">🌙 Dark</button>
-      <button id="howToBtn" class="how-btn">How to Use</button>
-      <button id="tosBtn" class="how-btn">Terms of Service</button>
-      <button id="privacyBtn" class="how-btn">Privacy Policy</button>
-
-      <a
-        href="https://discord.gg/Y4GenJXgEn"
-        class="top-discord-link"
-        target="_blank"
-        rel="noopener noreferrer"
-        title="Join our Discord community"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg"
-             viewBox="0 0 16 16">
-          <path fill="#5865F2" d="M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.25c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032q.003.022.021.037a13.3 13.3 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019q.463-.63.818-1.329a.05.05 0 0 0-.01-.059l-.018-.011a9 9 0 0 1-1.248-.595.05.05 0 0 1-.02-.066l.015-.019q.127-.095.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .053.007q.121.1.248.195a.05.05 0 0 1-.004.085 8 8 0 0 1-1.249.594.05.05 0 0 0-.03.03.05.05 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.2 13.2 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.03.03 0 0 0-.02-.019m-8.198 7.307c-.789 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612"/>
-        </svg>
-        <span>Discord</span>
-      </a>
-    </div>
-
-    <!-- RIGHT: Settings gear -->
-    <div class="top-right">
-      <button id="settingsBtn" class="settings-btn" title="API Settings">
-        <!-- solid gear -->
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M8.68637 4.00008L11.293 1.39348C11.6835 1.00295 12.3167 1.00295 12.7072 1.39348L15.3138 4.00008H19.0001C19.5524 4.00008 20.0001 4.4478 20.0001 5.00008V8.68637L22.6067 11.293C22.9972 11.6835 22.9972 12.3167 22.6067 12.7072L20.0001 15.3138V19.0001C20.0001 19.5524 19.5524 20.0001 19.0001 20.0001H15.3138L12.7072 22.6067C12.3167 22.9972 11.6835 22.9972 11.293 22.6067L8.68637 20.0001H5.00008C4.4478 20.0001 4.00008 19.5524 4.00008 19.0001V15.3138L1.39348 12.7072C1.00295 12.3167 1.00295 11.6835 1.39348 11.293L4.00008 8.68637V5.00008C4.00008 4.4478 4.4478 4.00008 5.00008 4.00008H8.68637ZM12.0001 15.0001C13.6569 15.0001 15.0001 13.6569 15.0001 12.0001C15.0001 10.3432 13.6569 9.00008 12.0001 9.00008C10.3432 9.00008 9.00008 10.3432 9.00008 12.0001C9.00008 13.6569 10.3432 15.0001 12.0001 15.0001Z"></path>
-        </svg>
-      </button>
-    </div>
   </div>
 
-  <!-- Home toast -->
-  <div id="homeToast" class="home-toast">
-    More faceless generators coming soon.
-  </div>
+  <!-- HOME TOAST MESSAGE -->
+  <div id="homeToast" class="home-toast">More faceless generators coming soon.</div>
 
   <!-- HOW TO USE MODAL -->
-  <div id="howModal" class="modal-overlay">
+  <div id="howToUseModal" class="modal-overlay">
     <div class="modal">
       <div class="modal-header">
         <div class="modal-title">How to Use the Roblox Rant Generator</div>
-        <button id="howClose" class="modal-close">Close</button>
+        <button class="modal-close" id="howClose">Close</button>
       </div>
+
       <div class="modal-body">
         <ol>
-          <li>
-            <strong>Type a Topic / Theme</strong> in the box (e.g., “school”, “strict
-            parents”, “laggy servers”, “memes”).
-          </li>
-          <li>
-            <strong>Pick an opening style</strong> (Random, Custom, Throwback, or a template).
-          </li>
-          <li>
-            <strong>Set Rant Meltdown</strong> to choose the tone (Very chill → Full
-            meltdown).
-          </li>
-          <li>
-            <strong>Choose how many paragraphs</strong> you want (1–60) to control the
-            length.
-          </li>
-          <li>
-            <strong>Pick a Narrator</strong> – male, gender-neutral, or female.
-          </li>
-          <li>
-            <strong>Choose a Language</strong> in the Language dropdown.
-            The rant will be written directly in that language.
-          </li>
-          <li>
-            <strong>Custom Intro stays exactly as you type it.</strong><br />
-            It is never translated, even if the rant is in another language.
-          </li>
-          <li>
-            <strong>Optional:</strong> paste any rant into the box to rewrite, shuffle,
-            or use as style inspiration (the AI understands non-English too).
-          </li>
-          <li>
-            <strong>Optional:</strong> adjust the Similarity Level slider to control
-            how close or how different your new script is compared to the pasted one.
-          </li>
-          <li>
-            Click <strong>Generate Rant</strong>, <strong>Shuffle</strong>, or <strong>Make Unique</strong> to create a script.
-          </li>
-          <li>
-            Edit the script directly in the box if you want, then hit
-            <strong>Copy</strong> or <strong>Save Rant</strong>.
-          </li>
-          <li>
-            Make sure you’ve added your <strong>Groq API key</strong> when prompted so the AI can work.
-          </li>
+          <li><strong>Type a Topic</strong> (e.g., school, laggy servers, parents).</li>
+          <li><strong>Choose an Opening Style</strong> (random, custom, throwback).</li>
+          <li><strong>Adjust Rant Meltdown</strong> (from chill → meltdown).</li>
+          <li><strong>Select Paragraph Length</strong>.</li>
+          <li><strong>Pick Narrator Style</strong> (male / neutral / female).</li>
+          <li><strong>Select Language</strong> (Polish now included).</li>
+          <li><strong>Paste any rant</strong> if rewriting or shuffling.</li>
+          <li><strong>Set Similarity Level</strong> (1–3).</li>
+          <li><strong>Click Generate</strong> to create your script.</li>
         </ol>
-        <div class="modal-tip">
-          🌍 <strong>Languages:</strong> The interface and this help text are in English,
-          but you can generate rants in many languages (Spanish, French, Portuguese,
-          Hindi, etc.) using the Language dropdown.  
-          If you type or paste in French, Spanish, etc., the AI still understands it.
-        </div>
+
+        <p class="modal-tip">
+          🌍 This generator supports dozens of languages.  
+          Your custom intro is never translated.
+        </p>
       </div>
     </div>
   </div>
@@ -1029,86 +936,54 @@
     <div class="modal">
       <div class="modal-header">
         <div class="modal-title">Terms of Service</div>
-        <button id="tosClose" class="modal-close">Close</button>
+        <button class="modal-close" id="tosClose">Close</button>
       </div>
+
       <div class="modal-body">
-        <p class="tos-small">
-          Last updated: 29 November 2025
-        </p>
+        <p class="tos-small">Last updated: 29 November 2025</p>
 
         <p>
-          Welcome to the <strong>Roblox Rant Generator</strong> (“the Site”, “the App”).
-          By accessing or using this website, you agree to these Terms of Service.
-          If you do not agree, please do not use the site.
+          By using the Roblox Rant Generator (“the Site”), you agree to these Terms.
+          If you disagree, do not use the Site.
         </p>
 
-        <p class="tos-section-title">1. No affiliation with Roblox</p>
+        <p class="tos-section-title">1. Not affiliated with Roblox</p>
         <p>
-          <strong>Roblox Rant Generator is not an official Roblox tool.</strong><br />
-          We have no relationship, partnership, or endorsement from Roblox Corporation
-          or any Roblox game, creator, or experience.
-        </p>
-        <p>
-          We only support Roblox users who want to create fun rant-style scripts for
-          entertainment and social media content.
+          This tool is <strong>not</strong> associated with Roblox Corporation.
+          It is a fan-made script generator only.
         </p>
 
-        <p class="tos-section-title">2. Purpose of the site</p>
+        <p class="tos-section-title">2. Purpose of the Site</p>
         <p>
-          This site provides AI-generated rant scripts for entertainment and content
-          creation purposes only. Scripts are generated automatically based on your
-          inputs and settings, and may not always be accurate, appropriate, or
-          suitable for every audience.
+          All content is generated automatically and intended for entertainment.
         </p>
 
-        <p class="tos-section-title">3. Acceptable use</p>
-        <p>You agree that you will NOT use this site or its generated content to:</p>
+        <p class="tos-section-title">3. Acceptable Use</p>
         <ul class="tos-small">
-          <li>Harass, bully, or threaten other people.</li>
-          <li>Promote hate speech, discrimination, or slurs.</li>
-          <li>Share illegal, extremely violent, or adult-only content.</li>
-          <li>Impersonate Roblox staff or claim this tool is official Roblox software.</li>
-        </ul>
-        <p>
-          You are fully responsible for how you use any script you generate, including
-          what you post on platforms like YouTube, TikTok, or other social media.
-        </p>
-
-        <p class="tos-section-title">4. AI content and no guarantees</p>
-        <p>
-          All scripts are generated by AI based on your prompts and choices.
-          We do not guarantee that:
-        </p>
-        <ul class="tos-small">
-          <li>The output will be error-free or factually correct.</li>
-          <li>The output will be suitable for monetization or advertiser-friendly.</li>
-          <li>Platforms like YouTube, TikTok, or others will accept or approve your content.</li>
+          <li>No harassment or bullying.</li>
+          <li>No hate speech.</li>
+          <li>No impersonation of Roblox staff.</li>
+          <li>No illegal or extreme content.</li>
         </ul>
 
-        <p class="tos-section-title">5. No liability</p>
+        <p class="tos-section-title">4. AI Limitations</p>
         <p class="tos-small">
-          We are not liable for any loss, strike, demonetization, account issues,
-          or other consequences that may arise from using scripts generated by this site.
-          You use the site at your own risk and are responsible for reviewing and editing
-          any script before posting it publicly.
+          We do not guarantee accuracy, monetization approval, or platform compliance.
         </p>
 
-        <p class="tos-section-title">6. Changes to the site</p>
+        <p class="tos-section-title">5. Liability</p>
         <p class="tos-small">
-          We are constantly updating and improving the Roblox Rant Generator to make it
-          easier for users to create better scripts. Features, prompts, and designs may
-          change at any time, and we may pause or stop the service without notice.
+          You are responsible for reviewing content before posting online.
+        </p>
+
+        <p class="tos-section-title">6. Service Changes</p>
+        <p class="tos-small">
+          The Site may update or pause features anytime.
         </p>
 
         <p class="tos-section-title">7. Contact</p>
         <p class="tos-small">
-          For questions about these Terms, or to contact the site owner, you can email:<br />
-          <strong>contact@viral-script-ai.com</strong>
-        </p>
-
-        <p class="tos-small">
-          By continuing to use this site, you confirm that you have read and agreed to
-          these Terms of Service.
+          Email: <strong>contact@viral-script-ai.com</strong>
         </p>
       </div>
     </div>
@@ -1119,95 +994,39 @@
     <div class="modal">
       <div class="modal-header">
         <div class="modal-title">Privacy Policy</div>
-        <button id="privacyClose" class="modal-close">Close</button>
+        <button class="modal-close" id="privacyClose">Close</button>
       </div>
+
       <div class="modal-body">
-        <p class="tos-small">
-          Last updated: 29 November 2025
-        </p>
+        <p class="tos-small">Last updated: 29 November 2025</p>
 
         <p>
-          This Privacy Policy explains how the <strong>Roblox Rant Generator</strong>
-          (“the Site”, “we”, “us”) handles information when you use the app.
+          The Site does not collect personal account information.
         </p>
 
-        <p class="tos-section-title">1. Information we collect</p>
-        <p class="tos-small">
-          This site does not ask you to create an account and does not directly collect
-          your name, address, or payment details. However, we may collect:
-        </p>
+        <p class="tos-section-title">1. Data We Collect</p>
         <ul class="tos-small">
-          <li>
-            <strong>Basic usage data</strong> – such as your browser type, device type,
-            and pages viewed (through tools like analytics, if enabled).
-          </li>
-          <li>
-            <strong>Cookies & similar technologies</strong> – small files stored on your
-            device to remember preferences and help show relevant ads.
-          </li>
+          <li>Basic browser data.</li>
+          <li>Cookies for settings & ads.</li>
         </ul>
 
-        <p class="tos-section-title">2. API key storage</p>
+        <p class="tos-section-title">2. API Keys</p>
         <p class="tos-small">
-          If you add a <strong>Groq API key</strong>, it is stored
-          <strong>only in your own browser’s local storage</strong>. It is never sent to
-          us for storage. You can clear or update it at any time using the
-          <strong>settings icon in the top bar</strong> or by clearing your browser data.
+          Groq API keys are stored locally in your browser only.
         </p>
 
-        <p class="tos-section-title">3. Cookies and ads</p>
+        <p class="tos-section-title">3. Ads</p>
         <p class="tos-small">
-          This site may use cookies to:
-        </p>
-        <ul class="tos-small">
-          <li>Remember your dark/light theme preference.</li>
-          <li>Remember your cookie choices.</li>
-          <li>Help measure traffic and performance (analytics, if enabled).</li>
-          <li>
-            Support <strong>Google AdSense</strong> in showing ads and preventing fraud.
-          </li>
-        </ul>
-        <p class="tos-small">
-          Some cookies are <strong>strictly necessary</strong> for the site to function
-          (for example, remembering that you accepted cookies). Optional cookies relate
-          to ads and analytics and can be controlled via
-          <strong>Cookie Preferences</strong>.
+          Google AdSense may use cookies for relevant ads.
         </p>
 
-        <p class="tos-section-title">4. Google AdSense</p>
+        <p class="tos-section-title">4. Your Rights</p>
         <p class="tos-small">
-          We use Google AdSense to display ads. Google may use cookies and similar
-          technologies to show relevant ads and to detect invalid traffic. These
-          cookies may allow Google and its partners to show ads based on your visits
-          to this and/or other sites.
-        </p>
-        <p class="tos-small">
-          You can learn more about how Google uses data in advertising by visiting
-          Google’s official policies and AdSense documentation.
+          You can clear cookies, disable ads, or remove your key anytime.
         </p>
 
-        <p class="tos-section-title">5. Third-party links</p>
-        <p class="tos-small">
-          The site may contain links to external websites (for example, Discord
-          communities or documentation). We are not responsible for the privacy
-          practices or content of those third-party sites.
-        </p>
-
-        <p class="tos-section-title">6. Your choices</p>
-        <p class="tos-small">
-          You can:
-        </p>
-        <ul class="tos-small">
-          <li>Change your cookie choices using the Cookie Preferences options.</li>
-          <li>Clear your browser cookies and local storage at any time.</li>
-          <li>Use ad-blocking or privacy tools in your browser if desired.</li>
-        </ul>
-
-        <p class="tos-section-title">7. Contact</p>
-        <p class="tos-small">
-          If you have questions about this Privacy Policy, you can email:<br />
-          <strong>contact@viral-script-ai.com</strong>
-        </p>
+        <p class="tos-section-title">5. Contact</p>
+        <p class="tos-small">Email: contact@viral-script-ai.com</p>
       </div>
     </div>
   </div>
@@ -1217,133 +1036,87 @@
     <div class="modal">
       <div class="modal-header">
         <div class="modal-title">Cookie Preferences</div>
-        <button id="cookieClose" class="modal-close">Close</button>
+        <button class="modal-close" id="cookieClose">Close</button>
       </div>
+
       <div class="modal-body">
         <p class="tos-small">
-          We use cookies to keep the app working, remember your settings, and help
-          support ads and basic analytics.
+          This site uses cookies for theme settings, analytics, and ads.
         </p>
 
-        <p class="tos-section-title">Essential cookies</p>
-        <p class="tos-small">
-          These are required for the site to function (for example, remembering your
-          theme and that you accepted cookies). They are always on.
-        </p>
+        <p class="tos-section-title">Essential Cookies</p>
+        <p class="tos-small">Always enabled.</p>
 
-        <p class="tos-section-title">Optional cookies</p>
+        <p class="tos-section-title">Optional Cookies</p>
+
         <label class="tos-small">
-          <input type="checkbox" id="cookieAnalytics" />
-          Allow basic analytics & performance cookies
-        </label>
-        <br />
-        <label class="tos-small">
-          <input type="checkbox" id="cookieAds" />
-          Allow advertising cookies (Google AdSense)
+          <input type="checkbox" id="cookieAnalytics" /> Allow analytics cookies
         </label>
 
-        <p class="tos-small" style="margin-top: 8px;">
-          You can change these settings at any time. Some ad features may not work
-          if you disable advertising cookies.
-        </p>
+        <label class="tos-small">
+          <input type="checkbox" id="cookieAds" /> Allow AdSense cookies
+        </label>
 
-        <div style="margin-top: 12px; display:flex; gap:8px; justify-content:flex-end;">
-          <button id="cookieSaveBtn" class="btn-primary" style="font-size:12px; padding:6px 14px;">Save preferences</button>
+        <div style="margin-top:12px; display:flex; justify-content:flex-end;">
+          <button id="cookieSaveBtn" class="btn-primary" style="font-size:12px;">Save</button>
         </div>
       </div>
     </div>
   </div>
-
   <!-- SAVED RANTS MODAL -->
   <div id="savedModal" class="modal-overlay">
     <div class="modal">
       <div class="modal-header">
         <div class="modal-title">Saved Rants</div>
-        <button id="savedClose" class="modal-close">Close</button>
+        <button class="modal-close" id="savedClose">Close</button>
       </div>
+
       <div class="modal-body">
-        <div id="savedList" class="tos-small">
-          No saved rants yet.
-        </div>
-        <div style="margin-top: 10px; display:flex; justify-content:flex-end; gap:8px;">
+        <div id="savedList" class="tos-small">No saved rants yet.</div>
+
+        <div style="margin-top: 14px; display:flex; justify-content:flex-end; gap:8px;">
           <button id="clearSavedBtn" class="btn-secondary" style="font-size:12px;">Clear All</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- GROQ API KEY MODAL -->
-  <div id="apiModal" class="modal-overlay">
-    <div class="modal">
-      <div class="modal-header">
-        <div class="modal-title">Enter Your Groq API Key</div>
-        <button id="apiCloseBtn" class="modal-close">Close</button>
-      </div>
-      <div class="modal-body">
-        <p class="tos-small">
-          This Roblox Rant Generator uses <strong>Groq AI</strong> to create fast, high-quality scripts.  
-          You only need a <strong>free Groq API key</strong>. Your key is stored <strong>locally in your browser</strong>
-          (we never see or save it on our servers).
-        </p>
-
-        <label for="apiKeyInput">Your Groq API key</label>
-        <div class="api-row" style="display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-bottom:8px;">
-          <input
-            id="apiKeyInput"
-            type="password"
-            placeholder="Paste your Groq API key here"
-            style="margin-bottom:0; flex:1 1 220px;"
-          />
-          <button id="toggleKeyBtn" class="btn-secondary api-eye-btn" type="button" style="min-width:54px;"></button>
-          <button id="saveKeyBtn" class="btn-secondary" type="button">Save</button>
-          <button id="clearKeyBtn" class="btn-secondary" type="button">Clear</button>
-        </div>
-
-        <div id="apiStatus" class="api-status" style="font-size:12px; min-height:16px; margin-top:4px;">
-          No API key saved yet.
-        </div>
-
-        <div class="api-help" style="font-size:12px; margin-top:8px;">
-          Your key will be reused automatically and can always be viewed or changed later
-          using the <strong>settings gear</strong> in the top-right corner.
-        </div>
-
-        <a
-          class="groq-link-btn"
-          href="https://console.groq.com/keys"
-          target="_blank"
-          style="margin-top:10px; display:inline-block; padding:8px 12px; border-radius:8px; border:1px solid var(--border-light); font-size:12px; text-decoration:none; color:inherit;"
-        >👉 Get your FREE Groq API key</a>
-      </div>
-    </div>
-  </div>
-
+  <!-- PAGE CONTAINER -->
   <div class="container">
     <h1>Roblox Rant Generator</h1>
-    <div class="subtitle">
-      Type Your Theme. Create Your Rant. Bye-Bye Noob.
-    </div>
+    <div class="subtitle">Type Your Theme. Create Your Rant. Bye-Bye Noob.</div>
 
-    <!-- SHARE BAR (Toolshelf-style, 1 line) -->
-    <div class="share-bar">
-      <span class="share-label">Share This Free Tool:</span>
-      <div class="share-pills">
-        <button class="share-pill" data-network="facebook" type="button">
-          <span class="share-pill-icon">f</span>
-          <span class="share-pill-text">Share on Facebook</span>
-        </button>
-        <button class="share-pill" data-network="pinterest" type="button">
-          <span class="share-pill-icon">P</span>
-          <span class="share-pill-text">Share on Pinterest</span>
-        </button>
-        <button class="share-pill" data-network="reddit" type="button">
-          <span class="share-pill-icon">R</span>
-          <span class="share-pill-text">Share on Reddit</span>
-        </button>
-        <button class="share-pill" data-network="copy" type="button">
-          <span class="share-pill-icon">⧉</span>
-          <span class="share-pill-text">Copy Link</span>
-        </button>
+    <!-- SHARE BAR (centered layout fix applied) -->
+    <div class="share-container">
+      <div class="share-inner">
+        <span class="share-label">Share This Free Tool:</span>
+
+        <div class="share-pills">
+          <button class="share-pill" data-network="facebook" type="button">
+            <span class="share-pill-icon">f</span>
+            <span class="share-pill-text">Share on Facebook</span>
+          </button>
+
+          <button class="share-pill" data-network="pinterest" type="button">
+            <span class="share-pill-icon">P</span>
+            <span class="share-pill-text">Share on Pinterest</span>
+          </button>
+
+          <button class="share-pill" data-network="instagram" type="button">
+            <span class="share-pill-icon">IG</span>
+            <span class="share-pill-text">Share on Instagram</span>
+          </button>
+
+          <button class="share-pill" data-network="reddit" type="button">
+            <span class="share-pill-icon">R</span>
+            <span class="share-pill-text">Share on Reddit</span>
+          </button>
+
+          <button class="share-pill" data-network="copy" type="button">
+            <span class="share-pill-icon">⧉</span>
+            <span class="share-pill-text">Copy Link</span>
+          </button>
+        </div>
       </div>
     </div>
 
@@ -1390,7 +1163,7 @@
       <label for="pasteInput">Paste Your Rant Script Here (optional)</label>
       <textarea
         id="pasteInput"
-        placeholder="Paste any rant to shuffle or use as style inspiration..."
+        placeholder="Paste any rant to rewrite, shuffle, or use as style inspiration..."
       ></textarea>
 
       <label for="similaritySlider">Similarity Level (1 = very similar, 3 = more different)</label>
@@ -1404,13 +1177,14 @@
         <option value="female">Female Narrator</option>
       </select>
 
-      <!-- VSUB STYLE LANGUAGE DROPDOWN -->
+      <!-- LANGUAGE SELECTOR -->
       <label>Language</label>
       <div class="language-wrapper">
         <button type="button" id="languageDropdown" class="cd-trigger">
           <span id="languageSelected" class="cd-trigger-label">English</span>
           <span class="cd-chevron">▾</span>
         </button>
+
         <div id="languageMenu" class="cd-menu">
           <div class="cd-search-wrap">
             <input
@@ -1421,10 +1195,13 @@
             />
             <span class="cd-search-icon">🔍</span>
           </div>
-          <div id="languageOptions" class="cd-options"></div>
+
+          <div id="languageOptions" class="cd-options">
+            <!-- Languages dynamically loaded by JS -->
+          </div>
         </div>
       </div>
-      <!-- Hidden field used by JS prompt builder -->
+
       <input type="hidden" id="languageSelect" value="English" />
 
       <div class="slider-value" style="margin-top:-4px;">
@@ -1437,6 +1214,7 @@
           <input id="intensitySlider" type="range" min="1" max="4" value="2" />
           <div id="intensityLabel" class="slider-value">Cool / casual</div>
         </div>
+
         <div class="col">
           <div class="slider-label">
             Paragraphs <span id="paraCountLabel">(4)</span>
@@ -1449,41 +1227,74 @@
       </div>
 
       <div class="toggles">
-        <label>
-          <input id="includeSlang" type="checkbox" checked />
-          Include slang
-        </label>
-        <label>
-          <input id="softSwears" type="checkbox" />
-          Allow swearing
-        </label>
+        <label><input id="includeSlang" type="checkbox" checked /> Include slang</label>
+        <label><input id="softSwears" type="checkbox" /> Allow swearing</label>
       </div>
 
       <div class="button-row">
         <button id="generateBtn" class="btn-primary">Generate Rant</button>
+        <button id="rewriteBtn" class="btn-secondary">Rewrite</button>
         <button id="shuffleBtn" class="btn-secondary">Shuffle</button>
         <button id="uniqueBtn" class="btn-secondary">Make Unique</button>
+
         <button id="copyBtn" class="btn-secondary">
-          Copy
-          <span id="copyFlash" class="copy-flash">Copied!</span>
+          Copy <span id="copyFlash" class="copy-flash">Copied!</span>
         </button>
-        <button id="saveRantBtn" class="btn-secondary">
-          Save Rant
-          <span class="save-icon"></span>
-        </button>
+
+        <button id="saveRantBtn" class="btn-secondary">Save Rant ⭐</button>
         <button id="viewSavedBtn" class="btn-secondary">View Saved Rants</button>
       </div>
     </div>
 
     <div class="ad-box">Ad Placeholder — Middle Banner</div>
 
-    <!-- OUTPUT -->
+    <!-- OUTPUT PANEL -->
     <div class="panel">
       <label for="output">Generated Rant Script</label>
       <textarea
         id="output"
         placeholder="Your rant will appear here. You can edit it before copying or saving..."
       ></textarea>
+    </div>
+    <!-- API SETTINGS PANEL -->
+    <div class="panel">
+      <div id="apiHeader" class="api-header">
+        <span>Groq API Key</span>
+        <span id="apiChevron">▼</span>
+      </div>
+
+      <div id="apiBody" class="api-body">
+        <label for="apiKeyInput">Your Groq API key</label>
+
+        <div class="api-row">
+          <input
+            id="apiKeyInput"
+            type="password"
+            placeholder="Paste your Groq API key here"
+          />
+
+          <button id="toggleKeyBtn" class="btn-secondary api-eye-btn" type="button"></button>
+
+          <button id="saveKeyBtn" class="btn-secondary" type="button">Save</button>
+          <button id="clearKeyBtn" class="btn-secondary" type="button">Clear</button>
+        </div>
+
+        <div id="apiStatus" class="api-status">No API key saved yet.</div>
+
+        <div class="api-help">
+          This app uses <strong>Groq</strong> to generate your rant scripts.<br />
+          Your API key is stored only in your browser's local storage.<br /><br />
+          Create a free key here:
+        </div>
+
+        <a
+          class="groq-link-btn"
+          href="https://console.groq.com/keys"
+          target="_blank"
+        >
+          👉 Get your Groq API key
+        </a>
+      </div>
     </div>
 
     <div class="ad-box">Ad Placeholder — Footer Banner</div>
@@ -1494,13 +1305,14 @@
     <div class="cookie-text">
       This site uses cookies to keep things running, remember your settings, and help support ads.
     </div>
+
     <div class="cookie-actions">
       <button id="cookiePrefsBtn" class="cookie-link-btn">Cookie Preferences</button>
       <button id="cookieAcceptAllBtn" class="cookie-accept-btn">Accept</button>
     </div>
   </div>
 
-  <!-- FOOTER CONTACT -->
+  <!-- FOOTER -->
   <div class="footer">
     <span>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
@@ -1512,824 +1324,96 @@
     <a href="mailto:contact@viral-script-ai.com">contact@viral-script-ai.com</a>
   </div>
 
+  <!-- BEGIN JAVASCRIPT -->
   <script>
     /* THEME TOGGLE */
-    const themeBtn = document.getElementById("themeModeBtn");
+    const themeBtn = document.getElementById("themeToggle");
+
     function systemPrefersDark() {
       return window.matchMedia("(prefers-color-scheme: dark)").matches;
     }
+
     function applyTheme(mode) {
       document.body.classList.remove("light", "dark");
       document.body.classList.add(mode);
       localStorage.setItem("fsg-theme", mode);
-      themeBtn.textContent = mode === "dark" ? "🌙 Dark" : "☀️ Light";
+      themeBtn.textContent = mode === "dark" ? "☀️ Light" : "🌙 Dark";
     }
+
     const savedTheme = localStorage.getItem("fsg-theme");
     if (savedTheme) applyTheme(savedTheme);
     else applyTheme(systemPrefersDark() ? "dark" : "light");
+
     themeBtn.addEventListener("click", () => {
-      const newMode = document.body.classList.contains("dark")
-        ? "light"
-        : "dark";
+      const newMode = document.body.classList.contains("dark") ? "light" : "dark";
       applyTheme(newMode);
-      updateEyeIcon();
     });
 
     /* HOW TO USE MODAL */
-    const howBtn = document.getElementById("howToBtn");
-    const howModal = document.getElementById("howModal");
+    const howBtn = document.getElementById("howToUseBtn");
+    const howModal = document.getElementById("howToUseModal");
     const howClose = document.getElementById("howClose");
 
-    function openHow() {
-      howModal.classList.add("open");
-    }
-    function closeHow() {
-      howModal.classList.remove("open");
-    }
-    howBtn.addEventListener("click", openHow);
-    howClose.addEventListener("click", closeHow);
+    howBtn.addEventListener("click", () => howModal.classList.add("open"));
+    howClose.addEventListener("click", () => howModal.classList.remove("open"));
+
     howModal.addEventListener("click", (e) => {
-      if (e.target === howModal) closeHow();
+      if (e.target === howModal) howModal.classList.remove("open");
     });
+
 
     /* TERMS OF SERVICE MODAL */
     const tosBtn = document.getElementById("tosBtn");
     const tosModal = document.getElementById("tosModal");
     const tosClose = document.getElementById("tosClose");
 
-    function openTos() {
-      tosModal.classList.add("open");
-    }
-    function closeTos() {
-      tosModal.classList.remove("open");
-    }
+    tosBtn?.addEventListener("click", () => tosModal.classList.add("open"));
+    tosClose?.addEventListener("click", () => tosModal.classList.remove("open"));
 
-    tosBtn.addEventListener("click", openTos);
-    tosClose.addEventListener("click", closeTos);
     tosModal.addEventListener("click", (e) => {
-      if (e.target === tosModal) closeTos();
+      if (e.target === tosModal) tosModal.classList.remove("open");
     });
+
 
     /* PRIVACY POLICY MODAL */
     const privacyBtn = document.getElementById("privacyBtn");
     const privacyModal = document.getElementById("privacyModal");
     const privacyClose = document.getElementById("privacyClose");
 
-    function openPrivacy() {
-      privacyModal.classList.add("open");
-    }
-    function closePrivacy() {
-      privacyModal.classList.remove("open");
-    }
+    privacyBtn?.addEventListener("click", () => privacyModal.classList.add("open"));
+    privacyClose?.addEventListener("click", () => privacyModal.classList.remove("open"));
 
-    privacyBtn.addEventListener("click", openPrivacy);
-    privacyClose.addEventListener("click", closePrivacy);
     privacyModal.addEventListener("click", (e) => {
-      if (e.target === privacyModal) closePrivacy();
+      if (e.target === privacyModal) privacyModal.classList.remove("open");
     });
+
 
     /* COOKIE PREFERENCES MODAL */
     const cookieModal = document.getElementById("cookieModal");
     const cookieClose = document.getElementById("cookieClose");
+    const cookiePrefsBtn = document.getElementById("cookiePrefsBtn");
+
+    cookiePrefsBtn.addEventListener("click", () => {
+      cookieModal.classList.add("open");
+    });
+
+    cookieClose.addEventListener("click", () => {
+      cookieModal.classList.remove("open");
+    });
+
+    cookieModal.addEventListener("click", (e) => {
+      if (e.target === cookieModal) cookieModal.classList.remove("open");
+    });
+
+    const cookieAcceptAllBtn = document.getElementById("cookieAcceptAllBtn");
     const cookieAnalytics = document.getElementById("cookieAnalytics");
     const cookieAds = document.getElementById("cookieAds");
-    const cookieSaveBtn = document.getElementById("cookieSaveBtn");
 
-    function openCookieModal() {
-      cookieModal.classList.add("open");
-    }
-    function closeCookieModal() {
-      cookieModal.classList.remove("open");
-    }
-
-    cookieClose.addEventListener("click", closeCookieModal);
-    cookieModal.addEventListener("click", (e) => {
-      if (e.target === cookieModal) closeCookieModal();
-    });
-
-    /* SAVED RANTS MODAL */
-    const savedModal = document.getElementById("savedModal");
-    const savedClose = document.getElementById("savedClose");
-    const savedList = document.getElementById("savedList");
-    const clearSavedBtn = document.getElementById("clearSavedBtn");
-    const saveRantBtn = document.getElementById("saveRantBtn");
-    const viewSavedBtn = document.getElementById("viewSavedBtn");
-    const SAVED_KEY = "fsg-saved-rants";
-
-    function openSaved() {
-      savedModal.classList.add("open");
-      renderSavedRants();
-    }
-    function closeSaved() {
-      savedModal.classList.remove("open");
-    }
-
-    savedClose.addEventListener("click", closeSaved);
-    savedModal.addEventListener("click", (e) => {
-      if (e.target === savedModal) closeSaved();
-    });
-
-    function getSavedRants() {
-      try {
-        const raw = localStorage.getItem(SAVED_KEY);
-        return raw ? JSON.parse(raw) : [];
-      } catch {
-        return [];
-      }
-    }
-    function setSavedRants(arr) {
-      localStorage.setItem(SAVED_KEY, JSON.stringify(arr));
-    }
-
-    // Export a single rant to CSV (index,text)
-    function exportRantToCsv(text) {
-      if (!text || !text.trim()) return;
-      const lines = text.split(/\n{2,}|\r\n{2,}/).map(l => l.trim()).filter(Boolean);
-
-      let csv = "index,text\n";
-      lines.forEach((line, idx) => {
-        const safe = line.replace(/"/g, '""');
-        csv += `${idx + 1},"${safe}"\n`;
-      });
-
-      const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      const ts = new Date().toISOString().slice(0,19).replace(/[:T]/g,"-");
-      a.href = url;
-      a.download = `rant-${ts}.csv`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-    }
-
-    function renderSavedRants() {
-      const arr = getSavedRants();
-      if (!arr.length) {
-        savedList.textContent = "No saved rants yet.";
-        return;
-      }
-      savedList.innerHTML = "";
-      arr.forEach((txt) => {
-        const wrap = document.createElement("div");
-        wrap.className = "saved-item";
-        const textDiv = document.createElement("div");
-        textDiv.className = "saved-item-text";
-        textDiv.textContent = txt.length > 600 ? txt.slice(0, 600) + "..." : txt;
-        const actions = document.createElement("div");
-        actions.className = "saved-item-actions";
-
-        const exportBtn = document.createElement("button");
-        exportBtn.className = "btn-secondary";
-        exportBtn.textContent = "Export CSV";
-        exportBtn.onclick = () => exportRantToCsv(txt);
-
-        actions.appendChild(exportBtn);
-        wrap.appendChild(textDiv);
-        wrap.appendChild(actions);
-        savedList.appendChild(wrap);
-      });
-    }
-
-    saveRantBtn.addEventListener("click", () => {
-      const txt = (outputEl.value || "").trim();
-      if (!txt) return;
-      const arr = getSavedRants();
-      arr.unshift(txt);
-      // Limit to last 50 rants
-      setSavedRants(arr.slice(0, 50));
-      showStatus("Rant saved locally.", "ok");
-    });
-
-    viewSavedBtn.addEventListener("click", openSaved);
-
-    clearSavedBtn.addEventListener("click", () => {
-      setSavedRants([]);
-      renderSavedRants();
-    });
-
-    /* GROQ API MODAL */
-    const apiModal = document.getElementById("apiModal");
-    const apiCloseBtn = document.getElementById("apiCloseBtn");
-    const apiKeyInput = document.getElementById("apiKeyInput");
-    const apiStatus = document.getElementById("apiStatus");
-    const saveKeyBtn = document.getElementById("saveKeyBtn");
-    const clearKeyBtn = document.getElementById("clearKeyBtn");
-    const toggleKeyBtn = document.getElementById("toggleKeyBtn");
-
-    function showStatus(text, type) {
-      if (!apiStatus) return;
-      apiStatus.textContent = text;
-      apiStatus.className = "api-status " + (type || "");
-    }
-    function getApiKey() {
-      return localStorage.getItem("fsg-user-api-key") || "";
-    }
-
-    // SVGs for light & dark mode (eye icons)
-    const LIGHT_EYE =
-      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0003 3C17.3924 3 21.8784 6.87976 22.8189 12C21.8784 17.1202 17.3924 21 12.0003 21C6.60812 21 2.12215 17.1202 1.18164 12C2.12215 6.87976 6.60812 3 12.0003 3ZM12.0003 19C16.2359 19 19.8603 16.052 20.7777 12C19.8603 7.94803 16.2359 5 12.0003 5C7.7646 5 4.14022 7.94803 3.22278 12C4.14022 16.052 7.7646 19 12.0003 19ZM12.0003 16.5C9.51498 16.5 7.50026 14.4853 7.50026 12C7.50026 9.51472 9.51498 7.5 12.0003 7.5C14.4855 7.5 16.5003 9.51472 16.5003 12C16.5003 14.4853 14.4855 16.5 12.0003 16.5ZM12.0003 14.5C13.381 14.5 14.5003 13.3807 14.5003 12C14.5003 10.6193 13.381 9.5 12.0003 9.5C10.6196 9.5 9.50026 10.6193 9.50026 12C9.50026 13.3807 10.6196 14.5 12.0003 14.5Z"></path></svg>';
-
-    const LIGHT_EYE_OFF =
-      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.8827 19.2968C16.1814 20.3755 14.1638 21.0002 12.0003 21.0002C6.60812 21.0002 2.12215 17.1204 1.18164 12.0002C1.61832 9.62282 2.81932 7.5129 4.52047 5.93457L1.39366 2.80777L2.80788 1.39355L22.6069 21.1925L21.1927 22.6068L17.8827 19.2968ZM5.9356 7.3497C4.60673 8.56015 3.6378 10.1672 3.22278 12.0002C4.14022 16.0521 7.7646 19.0002 12.0003 19.0002C13.5997 19.0002 15.112 18.5798 16.4243 17.8384L14.396 15.8101C13.7023 16.2472 12.8808 16.5002 12.0003 16.5002C9.51498 16.5002 7.50026 14.4854 7.50026 12.0002C7.50026 11.1196 7.75317 10.2981 8.19031 9.60442L5.9356 7.3497ZM12.9139 14.328L9.67246 11.0866C9.5613 11.3696 9.50026 11.6777 9.50026 12.0002C9.50026 13.3809 10.6196 14.5002 12.0003 14.5002C12.3227 14.5002 12.6309 14.4391 12.9139 14.328ZM20.8068 16.5925L19.376 15.1617C20.0319 14.2268 20.5154 13.1586 20.7777 12.0002C19.8603 7.94818 16.2359 5.00016 12.0003 5.00016C11.1544 5.00016 10.3329 5.11773 9.55249 5.33818L7.97446 3.76015C9.22127 3.26959 10.5793 3.00016 12.0003 3.00016C17.3924 3.00016 21.8784 6.87992 22.8189 12.0002C22.5067 13.6998 21.8038 15.2628 20.8068 16.5925ZM11.7229 7.50857C11.8146 7.50299 11.9071 7.50016 12.0003 7.50016C14.4855 7.50016 16.5003 9.51488 16.5003 12.0002C16.5003 12.0933 16.4974 12.1858 16.4919 12.2775L11.7229 7.50857Z"></path></svg>';
-
-    const DARK_EYE =
-      '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /></svg>';
-
-    const DARK_EYE_OFF =
-      '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" /></svg>';
-
-    function updateEyeIcon() {
-      const isDark = document.body.classList.contains("dark");
-      const isVisible = apiKeyInput.type === "text";
-      if (isDark) {
-        toggleKeyBtn.innerHTML = isVisible ? DARK_EYE_OFF : DARK_EYE;
-      } else {
-        toggleKeyBtn.innerHTML = isVisible ? LIGHT_EYE_OFF : LIGHT_EYE;
-      }
-    }
-
-    // initialize API key field
-    apiKeyInput.value = getApiKey();
-    apiKeyInput.type = "password";
-    updateEyeIcon();
-
-    toggleKeyBtn.addEventListener("click", () => {
-      apiKeyInput.type = apiKeyInput.type === "password" ? "text" : "password";
-      updateEyeIcon();
-    });
-
-    function openApiModal(force = false) {
-      apiModal.classList.add("open");
-      apiModal.dataset.force = force ? "1" : "0";
-      // If no key saved, hide close button (can't skip onboarding)
-      if (!getApiKey() && force) {
-        apiCloseBtn.style.display = "none";
-      } else {
-        apiCloseBtn.style.display = "inline-flex";
-      }
-      showStatus(getApiKey() ? "API key loaded from your browser." : "No API key saved yet.", getApiKey() ? "ok" : "err");
-      apiKeyInput.value = getApiKey();
-      apiKeyInput.type = "password";
-      updateEyeIcon();
-    }
-
-    function closeApiModal() {
-      const force = apiModal.dataset.force === "1";
-      if (force && !getApiKey()) {
-        // cannot close if forced and no key
-        return;
-      }
-      apiModal.classList.remove("open");
-    }
-
-    apiCloseBtn.addEventListener("click", closeApiModal);
-    apiModal.addEventListener("click", (e) => {
-      if (e.target === apiModal) {
-        closeApiModal();
-      }
-    });
-
-    saveKeyBtn.addEventListener("click", () => {
-      const key = apiKeyInput.value.trim();
-      if (!key) {
-        showStatus("Please paste your Groq API key first.", "err");
-        return;
-      }
-      localStorage.setItem("fsg-user-api-key", key);
-      showStatus("API key saved in your browser.", "ok");
-      apiModal.dataset.force = "0";
-      apiCloseBtn.style.display = "inline-flex";
-      setTimeout(() => {
-        closeApiModal();
-      }, 300);
-    });
-
-    clearKeyBtn.addEventListener("click", () => {
-      localStorage.removeItem("fsg-user-api-key");
-      apiKeyInput.value = "";
-      apiKeyInput.type = "password";
-      updateEyeIcon();
-      showStatus("API key cleared from this browser.", "err");
-    });
-
-    // Auto-open on first visit if no key
-    window.addEventListener("load", () => {
-      if (!getApiKey()) {
-        openApiModal(true);
-      }
-    });
-
-    /* ESC TO CLOSE MODALS */
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") {
-        if (howModal.classList.contains("open")) closeHow();
-        if (tosModal.classList.contains("open")) closeTos();
-        if (privacyModal.classList.contains("open")) closePrivacy();
-        if (cookieModal.classList.contains("open")) closeCookieModal();
-        if (savedModal.classList.contains("open")) closeSaved();
-        if (apiModal.classList.contains("open")) {
-          // Only allow ESC if not forced
-          if (apiModal.dataset.force !== "1" || getApiKey()) {
-            closeApiModal();
-          }
-        }
-      }
-    });
-
-    /* HOME BUTTON TOAST */
-    const homeBtn = document.getElementById("homeBtn");
-    const homeToast = document.getElementById("homeToast");
-    let homeToastTimeout = null;
-
-    homeBtn.addEventListener("click", () => {
-      if (homeToastTimeout) clearTimeout(homeToastTimeout);
-      homeToast.classList.add("show");
-      homeToastTimeout = setTimeout(() => {
-        homeToast.classList.remove("show");
-      }, 2000);
-    });
-
-    /* SETTINGS BUTTON => open Groq API modal */
-    const settingsBtn = document.getElementById("settingsBtn");
-    if (settingsBtn) {
-      settingsBtn.addEventListener("click", () => {
-        openApiModal(false);
-      });
-    }
-
-    /* SLIDERS */
-    const intensitySlider = document.getElementById("intensitySlider");
-    const paragraphSlider = document.getElementById("paragraphSlider");
-    const intensityLabel = document.getElementById("intensityLabel");
-    const paraCountLabel = document.getElementById("paraCountLabel");
-    const similaritySlider = document.getElementById("similaritySlider");
-    const similarityLabel = document.getElementById("similarityLabel");
-
-    function updateIntensityLabel() {
-      const v = Number(intensitySlider.value);
-      intensityLabel.textContent =
-        v === 1
-          ? "Very chill"
-          : v === 2
-          ? "Cool / casual"
-          : v === 3
-          ? "Heated rant"
-          : "Full meltdown";
-    }
-    function updateParagraphLabel() {
-      const v = Number(paragraphSlider.value);
-      paraCountLabel.textContent = `(${v})`;
-    }
-    function updateSimilarityLabel() {
-      const v = Number(similaritySlider.value);
-      similarityLabel.textContent =
-        v === 1
-          ? "Very similar (same concept, fresh wording)"
-          : v === 2
-          ? "Balanced"
-          : "More different (same concept, new story)";
-    }
-
-    intensitySlider.addEventListener("input", updateIntensityLabel);
-    paragraphSlider.addEventListener("input", updateParagraphLabel);
-    similaritySlider.addEventListener("input", updateSimilarityLabel);
-
-    updateIntensityLabel();
-    updateParagraphLabel();
-    updateSimilarityLabel();
-
-    /* PROMPT BUILDER + AI CALL */
-    const topicInput = document.getElementById("topicInput");
-    const pasteInput = document.getElementById("pasteInput");
-    const narratorSelect = document.getElementById("narratorSelect");
-    const introSelect = document.getElementById("introSelect");
-    const customIntroInput = document.getElementById("customIntroInput");
-    const includeSlang = document.getElementById("includeSlang");
-    const softSwears = document.getElementById("softSwears");
-    const outputEl = document.getElementById("output");
-    const languageValueInput = document.getElementById("languageSelect");
-
-    /* VSUB STYLE LANGUAGE DROPDOWN JS */
-    const languageDropdown = document.getElementById("languageDropdown");
-    const languageMenu = document.getElementById("languageMenu");
-    const languageSelectedLabel = document.getElementById("languageSelected");
-    const languageSearch = document.getElementById("languageSearch");
-    const languageOptionsEl = document.getElementById("languageOptions");
-
-    const LANGUAGES = [
-      "English",
-      "Spanish",
-      "Portuguese",
-      "French",
-      "German",
-      "Italian",
-      "Hindi",
-      "Chinese",
-      "Japanese",
-      "Korean",
-      "Indonesian",
-      "Filipino",
-      "Turkish",
-      "Arabic",
-      "Dutch",
-      "Swedish",
-      "Danish",
-      "Slovak",
-      "Greek",
-      "Finnish",
-      "Croatian",
-      "Malay",
-      "Tamil",
-      "Ukrainian",
-      "Romanian",
-      "Bulgarian"
-    ];
-
-    function renderLanguageOptions(selected) {
-      languageOptionsEl.innerHTML = "";
-      LANGUAGES.forEach((lang) => {
-        const btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "cd-option" + (lang === selected ? " selected" : "");
-        btn.textContent = lang;
-        btn.dataset.value = lang;
-        btn.addEventListener("click", () => {
-          languageValueInput.value = lang;
-          languageSelectedLabel.textContent = lang;
-          languageMenu.classList.remove("open");
-          languageSearch.value = "";
-          renderLanguageOptions(lang);
-        });
-        languageOptionsEl.appendChild(btn);
-      });
-    }
-
-    renderLanguageOptions(languageValueInput.value || "English");
-
-    languageDropdown.addEventListener("click", () => {
-      const isOpen = languageMenu.classList.toggle("open");
-      if (isOpen) {
-        languageSearch.focus();
-      }
-    });
-
-    languageSearch.addEventListener("input", () => {
-      const q = languageSearch.value.trim().toLowerCase();
-      const options = languageOptionsEl.querySelectorAll(".cd-option");
-      options.forEach((opt) => {
-        const txt = opt.textContent.toLowerCase();
-        opt.style.display = txt.includes(q) ? "block" : "none";
-      });
-    });
-
-    document.addEventListener("click", (e) => {
-      if (
-        !languageDropdown.contains(e.target) &&
-        !languageMenu.contains(e.target)
-      ) {
-        languageMenu.classList.remove("open");
-      }
-    });
-
-    function getLanguageValue() {
-      return languageValueInput.value || "English";
-    }
-
-    function buildPrompt(mode) {
-      const topic = topicInput.value.trim();
-      const pasted = pasteInput.value.trim();
-      const intensity = Number(intensitySlider.value);
-      const paragraphCount = Number(paragraphSlider.value);
-      const narrator = narratorSelect.value;
-      const slang = includeSlang.checked;
-      const soft = softSwears.checked;
-      const introChoice = introSelect.value;
-      const customIntro = customIntroInput.value.trim();
-      const currentOutput = outputEl.value.trim();
-      const similarity = Number(similaritySlider.value);
-      const language = getLanguageValue();
-
-      const narrators = {
-        male: "a male Roblox-style rant narrator",
-        neutral: "a gender-neutral narrator",
-        female: "a female narrator with a slightly sassy tone",
-      };
-
-      const intensities = [
-        "very chill, low-energy commentary",
-        "casual but energetic rant tone",
-        "heated rant with more frustration",
-        "full meltdown, dramatic but still PG-13",
-      ];
-
-      // OPENING LINE
-      let openingBlock = "";
-      const openingList = [
-        "I'm starting to realize...",
-        "Tell me why this keeps happening...",
-        "Bro, don't even get me started...",
-        "Lately I've been noticing...",
-        "You ever notice how...",
-        "Honestly, at this point...",
-        "Ain't no way this just happened...",
-        "Throwback to [year], when something wild happened...",
-        "Where are these popular memes now? First up,"
-      ];
-
-      if (introChoice === "custom" && customIntro) {
-        openingBlock = `
-OPENING LINE (CUSTOM):
-- The first characters of the rant MUST be exactly:
-"${customIntro}"
-- Do NOT translate or modify this line.
-- Continue the rant in ${language} after this line.`;
-      } else if (introChoice === "throwback") {
-        openingBlock = `
-OPENING LINE (THROWBACK STYLE):
-- Write a natural throwback-style opening.
-- Choose a realistic year between 2010–2023.
-- Reference a viral meme/trend/event from that era.
-- Write this opening directly in ${language}.`;
-      } else if (introChoice === "random") {
-        openingBlock = `
-OPENING LINE (RANDOM):
-- Choose one natural-sounding opening line.
-- You may use similar forms to:
-"${openingList.join('" , "')}"
-
-- Translate the chosen line naturally into ${language}
-  (unless the language is English).`;
-      } else {
-        // Template intro
-        openingBlock = `
-OPENING LINE (TEMPLATE):
-- The very first characters of your output MUST be exactly:
-"${introChoice}"
-- Do NOT rewrite, translate, or change this template.
-- Continue the rest of the rant in ${language}.`;
-      }
-
-      // SWEARING
-      const swearsBlock = soft
-        ? `
-SWEARING:
-- Mild PG-13 swears allowed ("crap", "damn", "heck").
-- Translate swear intensity appropriately for ${language}.
-- No heavy profanity or slurs.`
-        : `
-SWEARING:
-- Do NOT use any swearing.
-- Keep the language fully clean.`;
-
-      // SIMILARITY
-      let similarityBlock = "";
-      if (pasted) {
-        if (similarity === 1) {
-          similarityBlock = `
-SIMILARITY LEVEL 1:
-- Keep the same structure & emotional beats.
-- Rewrite into fresh wording in ${language}.
-- Do NOT copy sentences from the pasted text.`;
-        } else if (similarity === 2) {
-          similarityBlock = `
-SIMILARITY LEVEL 2:
-- Maintain the same concept & vibe.
-- Add new pacing & examples.
-- Write completely in ${language}.`;
-        } else {
-          similarityBlock = `
-SIMILARITY LEVEL 3:
-- Use pasted script ONLY as inspiration.
-- Create new story details & pacing.
-- Write entirely in ${language}.`;
-        }
-      }
-
-      // LANGUAGE BLOCK
-      const languageBlock = `
-LANGUAGE:
-- Write the FULL rant in: ${language}.
-- Do NOT translate the user's Custom Intro (if used).
-- If no custom intro is used, generate the opening naturally in ${language}.
-- Maintain slang, tone, pacing, narrator style, and emotional energy — but adapted naturally to ${language}.
-- Avoid robotic literal translation. Make it sound like a native speaker wrote the rant.`;
-
-      const baseInstructions = `
-You are writing a viral-style rant script for a short-form video (TikTok / YouTube Shorts) over Roblox or meme gameplay.
-
-Rules:
-* Aim for high-quality storytelling.
-* Use a strong opening line, then flow straight into the rant.
-* Tone: fast-paced, natural, like someone venting to the camera.
-* Style: short sentences, humor, irony, rhythm, and strong hooks.
-* Content: focus on something funny, relatable, or painfully true about the topic.
-* Build-up: gradually increase frustration or emotion.
-* Ending: finish with a funny or self-aware twist that feels satisfying.
-* If a script is pasted in, treat it as style and concept inspiration only.
-* No emojis, no hashtags, no AI disclaimers.`;
-
-      const styleBlock = `
-VOICE: ${narrators[narrator]}
-RANT MELTDOWN: ${intensities[intensity - 1]}
-PARAGRAPHS: write about ${paragraphCount} short paragraphs (each 1–3 sentences).
-SLANG: ${
-        slang
-          ? "Use slang naturally when it fits the topic (like a Roblox / TikTok storyteller)."
-          : "Use almost no slang. Keep it simple and clear."
-      }
-${swearsBlock}
-${openingBlock}
-${similarityBlock}
-${languageBlock}
-`;
-
-      const baseTopic =
-        topic || "a painfully relatable real-life situation or annoyance";
-
-      let task = "";
-
-      if (mode === "generate") {
-        if (pasted) {
-          task = `
-TASK: Generate a FULLY NEW rant in ${language}, based on the concept of the pasted rant.
-
-TOPIC:
-"${baseTopic}"
-
-PASTED SCRIPT (style inspiration only):
-"""${pasted}"""`;
-        } else {
-          task = `
-TASK: Write a completely original viral rant in ${language}.
-
-TOPIC:
-"${baseTopic}"`;
-        }
-      } else if (mode === "shuffle") {
-        const source = pasted || currentOutput || baseTopic;
-        task = `
-TASK: Create a different variation of the rant.
-
-- Keep topic the same.
-- Change pacing, examples, angle.
-- Write in ${language}.
-
-PREVIOUS VERSION:
-"""${source}"""`;
-      } else if (mode === "unique") {
-        const source = pasted || currentOutput || baseTopic;
-        task = `
-TASK: Make a more unique version of this rant.
-
-- Keep core topic.
-- New story details.
-- Fully in ${language}.
-
-SCRIPT:
-"""${source}"""`;
-      }
-
-      return baseInstructions + "\n" + styleBlock + "\n" + task;
-    }
-
-    async function callAI(prompt) {
-      const apiKey = getApiKey();
-
-      if (!apiKey) {
-        showStatus("Add your Groq API key first.", "err");
-        openApiModal(true);
-        throw new Error("Missing key");
-      }
-
-      showStatus("Contacting Groq…", "");
-
-      const res = await fetch(
-        "https://faceless-rant-proxy.bouncingstephen.workers.dev/",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ apiKey, prompt }),
-        }
-      );
-
-      const data = await res.json().catch(() => null);
-
-      if (!res.ok) {
-        let detail = "";
-        if (data && data.detail) {
-          detail =
-            typeof data.detail === "string"
-              ? data.detail
-              : JSON.stringify(data.detail);
-        }
-        showStatus(
-          `Error ${res.status} – ${detail || "see console"}`,
-          "err"
-        );
-        console.error("AI error", data);
-        throw new Error("AI request failed");
-      }
-
-      showStatus("AI response received.", "ok");
-
-      return data?.choices?.[0]?.message?.content || "(No response)";
-    }
-
-    const generateBtn = document.getElementById("generateBtn");
-    const shuffleBtn = document.getElementById("shuffleBtn");
-    const uniqueBtn = document.getElementById("uniqueBtn");
-    const copyBtn = document.getElementById("copyBtn");
-    const copyFlash = document.getElementById("copyFlash");
-
-    async function run(mode) {
-      try {
-        if (!getApiKey()) {
-          openApiModal(true);
-          return;
-        }
-        const prompt = buildPrompt(mode);
-        const text = await callAI(prompt);
-        outputEl.value = text;
-      } catch (err) {
-        console.error(err);
-      }
-    }
-
-    generateBtn.onclick = () => run("generate");
-    shuffleBtn.onclick = () => run("shuffle");
-    uniqueBtn.onclick = () => run("unique");
-
-    copyBtn.onclick = () => {
-      const txt = outputEl.value || "";
-      if (!txt.trim()) return;
-      navigator.clipboard.writeText(txt).then(
-        () => {
-          copyFlash.classList.add("visible");
-          copyBtn.disabled = true;
-          setTimeout(() => {
-            copyFlash.classList.remove("visible");
-            copyBtn.disabled = false;
-          }, 1200);
-        },
-        () => {}
-      );
-    };
-
-    /* SHARE PILL LOGIC */
-    const sharePills = document.querySelectorAll(".share-pill");
-    sharePills.forEach((pill) => {
-      pill.addEventListener("click", () => {
-        const network = pill.dataset.network;
-        const url = encodeURIComponent(window.location.href);
-        const text = encodeURIComponent("Roblox Rant Generator – make viral rant scripts in seconds.");
-        let shareUrl = "";
-
-        switch (network) {
-          case "facebook":
-            shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-            break;
-          case "pinterest":
-            shareUrl = `https://pinterest.com/pin/create/button/?url=${url}&description=${text}`;
-            break;
-          case "reddit":
-            shareUrl = `https://www.reddit.com/submit?url=${url}&title=${text}`;
-            break;
-          case "copy":
-            navigator.clipboard.writeText(window.location.href).then(
-              () => {
-                const label = pill.querySelector(".share-pill-text");
-                if (!label) return;
-                const original = label.textContent;
-                pill.classList.add("copied");
-                label.textContent = "Copied!";
-                setTimeout(() => {
-                  label.textContent = original;
-                  pill.classList.remove("copied");
-                }, 1200);
-              },
-              () => {}
-            );
-            return; // don't open new window
-        }
-
-        if (shareUrl) {
-          window.open(shareUrl, "_blank", "noopener,noreferrer");
-        }
-      });
-    });
-
-    /* COOKIE CONSENT LOGIC */
-    const cookieBanner = document.getElementById("cookieBanner");
-    const cookieAcceptAllBtn = document.getElementById("cookieAcceptAllBtn");
-    const cookiePrefsBtn = document.getElementById("cookiePrefsBtn");
     const COOKIE_KEY = "fsg-cookie-consent";
 
     function getCookiePrefs() {
       try {
-        const raw = localStorage.getItem(COOKIE_KEY);
-        return raw ? JSON.parse(raw) : null;
+        return JSON.parse(localStorage.getItem(COOKIE_KEY));
       } catch {
         return null;
       }
@@ -2339,55 +1423,492 @@ SCRIPT:
       localStorage.setItem(COOKIE_KEY, JSON.stringify(prefs));
     }
 
-    function applyCookieUIFromPrefs(prefs) {
-      cookieAnalytics.checked = !!prefs.analytics;
-      cookieAds.checked = !!prefs.ads;
-    }
-
-    function maybeShowCookieBanner() {
+    function applyCookiePrefs() {
       const prefs = getCookiePrefs();
-      if (!prefs) {
-        cookieBanner.classList.add("show");
-      } else {
-        applyCookieUIFromPrefs(prefs);
+      if (prefs) {
+        cookieAnalytics.checked = prefs.analytics;
+        cookieAds.checked = prefs.ads;
       }
     }
 
     cookieAcceptAllBtn.addEventListener("click", () => {
-      const prefs = {
+      saveCookiePrefs({
         necessary: true,
         analytics: true,
         ads: true,
         timestamp: Date.now(),
-      };
-      saveCookiePrefs(prefs);
-      applyCookieUIFromPrefs(prefs);
-      cookieBanner.classList.remove("show");
+      });
+      document.getElementById("cookieBanner").classList.remove("show");
     });
 
-    cookiePrefsBtn.addEventListener("click", () => {
-      const prefs = getCookiePrefs() || {
-        necessary: true,
-        analytics: false,
-        ads: false,
-      };
-      applyCookieUIFromPrefs(prefs);
-      openCookieModal();
-    });
-
-    cookieSaveBtn.addEventListener("click", () => {
-      const prefs = {
+    document.getElementById("cookieSaveBtn").addEventListener("click", () => {
+      saveCookiePrefs({
         necessary: true,
         analytics: cookieAnalytics.checked,
         ads: cookieAds.checked,
         timestamp: Date.now(),
-      };
-      saveCookiePrefs(prefs);
-      cookieBanner.classList.remove("show");
-      closeCookieModal();
+      });
+      cookieModal.classList.remove("open");
+      document.getElementById("cookieBanner").classList.remove("show");
     });
 
+    function maybeShowCookieBanner() {
+      if (!getCookiePrefs()) {
+        document.getElementById("cookieBanner").classList.add("show");
+      } else applyCookiePrefs();
+    }
+
     maybeShowCookieBanner();
+    /* SAVED RANTS MODAL */
+    const savedBtn = document.getElementById("viewSavedBtn");
+    const savedModal = document.getElementById("savedModal");
+    const savedClose = document.getElementById("savedClose");
+    const savedList = document.getElementById("savedList");
+    const clearSavedBtn = document.getElementById("clearSavedBtn");
+
+    const SAVED_KEY = "fsg-saved-rants";
+
+    function loadSavedRants() {
+      const json = localStorage.getItem(SAVED_KEY);
+      if (!json) {
+        savedList.innerHTML = "No saved rants yet.";
+        return;
+      }
+      const arr = JSON.parse(json);
+      if (!arr.length) {
+        savedList.innerHTML = "No saved rants yet.";
+        return;
+      }
+
+      savedList.innerHTML = arr
+        .map(
+          (r) => `
+        <div class="history-item">
+          <div class="history-item-timestamp">${new Date(
+            r.timestamp
+          ).toLocaleString()}</div>
+
+          <div class="history-item-text">${r.text
+            .replace(/\n/g, "<br>")}</div>
+
+          <button class="btn-secondary history-copy-btn" onclick="navigator.clipboard.writeText(\`${r.text.replace(
+            /`/g,
+            "\\`"
+          )}\`)">Copy</button>
+        </div>`
+        )
+        .join("");
+    }
+
+    savedBtn.addEventListener("click", () => {
+      loadSavedRants();
+      savedModal.classList.add("open");
+    });
+
+    savedClose.addEventListener("click", () => savedModal.classList.remove("open"));
+
+    clearSavedBtn.addEventListener("click", () => {
+      localStorage.removeItem(SAVED_KEY);
+      loadSavedRants();
+    });
+
+    savedModal.addEventListener("click", (e) => {
+      if (e.target === savedModal) savedModal.classList.remove("open");
+    });
+
+    /* HOME BUTTON TOAST MESSAGE */
+    const homeToast = document.getElementById("homeToast");
+    document.querySelector(".home-btn").addEventListener("click", (e) => {
+      e.preventDefault();
+      homeToast.classList.add("show");
+      setTimeout(() => homeToast.classList.remove("show"), 2000);
+    });
+
+    /* OPEN SETTINGS MODAL */
+    const settingsBtn = document.getElementById("settingsBtn");
+    const settingsModal = document.getElementById("tosModal"); // reusing TOS modal as settings?
+    // If you have a separate settings modal, replace with correct ID.
+
+    settingsBtn.addEventListener("click", () => {
+      tosModal.classList.add("open");
+    });
+
+    /* NAVIGATION BUTTONS FOR TERMS & PRIVACY */
+    const legalRow = document.querySelector(".legal-row");
+    if (legalRow) {
+      legalRow.addEventListener("click", (e) => {
+        if (e.target.matches('[data-open="tos"]')) tosModal.classList.add("open");
+        if (e.target.matches('[data-open="privacy"]'))
+          privacyModal.classList.add("open");
+      });
+    }
+
+    /* LANGUAGE DROPDOWN LOGIC */
+    const LANGUAGE_LIST = [
+      "English",
+      "Spanish",
+      "German",
+      "French",
+      "Italian",
+      "Polish",
+      "Portuguese",
+      "Dutch",
+      "Turkish",
+      "Swedish",
+      "Norwegian",
+      "Finnish",
+      "Danish",
+      "Romanian",
+      "Czech",
+      "Hungarian",
+      "Slovak",
+      "Bulgarian",
+      "Greek",
+      "Russian",
+      "Ukrainian",
+      "Arabic",
+      "Hindi",
+      "Bengali",
+      "Urdu",
+      "Tamil",
+      "Telugu",
+      "Japanese",
+      "Korean",
+      "Chinese (Simplified)",
+      "Chinese (Traditional)",
+    ];
+
+    const langDropdownBtn = document.getElementById("languageDropdown");
+    const langMenu = document.getElementById("languageMenu");
+    const langSearch = document.getElementById("languageSearch");
+    const langOptions = document.getElementById("languageOptions");
+    const hiddenLangSelect = document.getElementById("languageSelect");
+    const langSelectedLabel = document.getElementById("languageSelected");
+
+    function renderLanguages(filter = "") {
+      const searchLower = filter.toLowerCase();
+      langOptions.innerHTML = LANGUAGE_LIST.filter((lang) =>
+        lang.toLowerCase().includes(searchLower)
+      )
+        .map(
+          (lang) => `
+        <div
+          class="cd-option"
+          data-lang="${lang}"
+        >
+          ${lang}
+        </div>`
+        )
+        .join("");
+    }
+
+    renderLanguages();
+
+    langDropdownBtn.addEventListener("click", () => {
+      langMenu.style.display =
+        langMenu.style.display === "block" ? "none" : "block";
+    });
+
+    langSearch.addEventListener("input", () => {
+      renderLanguages(langSearch.value);
+    });
+
+    langOptions.addEventListener("click", (e) => {
+      const opt = e.target.closest(".cd-option");
+      if (!opt) return;
+
+      const selectedLang = opt.dataset.lang;
+      hiddenLangSelect.value = selectedLang;
+      langSelectedLabel.textContent = selectedLang;
+
+      langMenu.style.display = "none";
+    });
+
+    document.addEventListener("click", (e) => {
+      if (
+        !langDropdownBtn.contains(e.target) &&
+        !langMenu.contains(e.target)
+      ) {
+        langMenu.style.display = "none";
+      }
+    });
+
+    /* SLIDERS */
+    const intensitySlider = document.getElementById("intensitySlider");
+    const paraSlider = document.getElementById("paragraphSlider");
+    const intensityLabel = document.getElementById("intensityLabel");
+    const paraCountLabel = document.getElementById("paraCountLabel");
+    const similaritySlider = document.getElementById("similaritySlider");
+    const similarityLabel = document.getElementById("similarityLabel");
+
+    function updateIntensityLabel() {
+      const map = {
+        1: "Chill",
+        2: "Cool / casual",
+        3: "Heated",
+        4: "Meltdown",
+      };
+      intensityLabel.textContent = map[intensitySlider.value] || "Cool / casual";
+    }
+    intensitySlider.addEventListener("input", updateIntensityLabel);
+    updateIntensityLabel();
+
+    paraSlider.addEventListener("input", () => {
+      paraCountLabel.textContent = `(${paraSlider.value})`;
+    });
+
+    similaritySlider.addEventListener("input", () => {
+      const labels = {
+        1: "Very Similar",
+        2: "Balanced",
+        3: "More Different",
+      };
+      similarityLabel.textContent = labels[similaritySlider.value];
+    });
+
+    /* COPY BUTTON */
+    const copyBtn = document.getElementById("copyBtn");
+    const copyFlash = document.getElementById("copyFlash");
+
+    copyBtn.addEventListener("click", () => {
+      const text = document.getElementById("output").value;
+      navigator.clipboard.writeText(text);
+      copyFlash.classList.add("show");
+      setTimeout(() => copyFlash.classList.remove("show"), 1000);
+    });
+    /* SAVE RANT */
+    const saveRantBtn = document.getElementById("saveRantBtn");
+
+    saveRantBtn.addEventListener("click", () => {
+      const text = document.getElementById("output").value.trim();
+      if (!text) return alert("Nothing to save!");
+
+      const old = JSON.parse(localStorage.getItem(SAVED_KEY) || "[]");
+
+      old.push({
+        text,
+        timestamp: Date.now(),
+      });
+
+      localStorage.setItem(SAVED_KEY, JSON.stringify(old));
+      alert("Saved!");
+    });
+
+    /* SHARE PILL BUTTONS */
+    const shareButtons = document.querySelectorAll(".share-pill");
+
+    shareButtons.forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        const net = btn.dataset.network;
+        const url = encodeURIComponent(window.location.href);
+
+        if (net === "copy") {
+          await navigator.clipboard.writeText(window.location.href);
+          btn.classList.add("copied");
+          setTimeout(() => btn.classList.remove("copied"), 1200);
+          return;
+        }
+
+        const MAP = {
+          facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+          pinterest: `https://www.pinterest.com/pin/create/button/?url=${url}`,
+          instagram: "https://www.instagram.com/", // IG has no direct share URL
+          reddit: `https://reddit.com/submit?url=${url}`,
+        };
+
+        const shareUrl = MAP[net];
+        if (shareUrl) window.open(shareUrl, "_blank");
+      });
+    });
+
+    /* API KEY PANEL */
+    const apiHeader = document.getElementById("apiHeader");
+    const apiChevron = document.getElementById("apiChevron");
+    const apiBody = document.getElementById("apiBody");
+
+    apiHeader.addEventListener("click", () => {
+      apiBody.classList.toggle("open");
+      apiChevron.textContent = apiBody.classList.contains("open") ? "▲" : "▼";
+    });
+
+    /* GROQ API LOGIC */
+    const apiKeyInput = document.getElementById("apiKeyInput");
+    const saveKeyBtn = document.getElementById("saveKeyBtn");
+    const clearKeyBtn = document.getElementById("clearKeyBtn");
+    const apiStatus = document.getElementById("apiStatus");
+    const toggleKeyBtn = document.getElementById("toggleKeyBtn");
+
+    const API_KEY_LOCAL = "fsg-groq-key";
+
+    function loadApiKey() {
+      const key = localStorage.getItem(API_KEY_LOCAL);
+      if (key) {
+        apiKeyInput.value = key;
+        apiStatus.textContent = "API key loaded.";
+        apiStatus.className = "api-status ok";
+      } else {
+        apiStatus.textContent = "No API key saved yet.";
+        apiStatus.className = "api-status";
+      }
+    }
+
+    loadApiKey();
+
+    saveKeyBtn.addEventListener("click", () => {
+      localStorage.setItem(API_KEY_LOCAL, apiKeyInput.value.trim());
+      apiStatus.textContent = "Saved!";
+      apiStatus.className = "api-status ok";
+    });
+
+    clearKeyBtn.addEventListener("click", () => {
+      localStorage.removeItem(API_KEY_LOCAL);
+      apiKeyInput.value = "";
+      apiStatus.textContent = "Cleared.";
+      apiStatus.className = "api-status err";
+    });
+
+    toggleKeyBtn.addEventListener("click", () => {
+      const type = apiKeyInput.type === "password" ? "text" : "password";
+      apiKeyInput.type = type;
+      toggleKeyBtn.innerHTML =
+        type === "password"
+          ? `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 5c-7 0-11 7-11 7s4 7 11 7 11-7 11-7-4-7-11-7zm0 12a5 5 0 110-10 5 5 0 010 10z"/></svg>`
+          : `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 2l20 20M12 5c7 0 11 7 11 7s-1.1 1.9-3 3.8M6 6C3.9 8 1 12 1 12s4 7 11 7c2.4 0 4.4-.7 6-1.7"/></svg>`;
+    });
+
+    /* GENERATION LOGIC */
+    const generateBtn = document.getElementById("generateBtn");
+    const rewriteBtn = document.getElementById("rewriteBtn");
+    const shuffleBtn = document.getElementById("shuffleBtn");
+    const uniqueBtn = document.getElementById("uniqueBtn");
+    const outputEl = document.getElementById("output");
+
+    const introSelect = document.getElementById("introSelect");
+    const customIntroInput = document.getElementById("customIntroInput");
+    const topicInput = document.getElementById("topicInput");
+    const pasteInput = document.getElementById("pasteInput");
+    const narratorSelect = document.getElementById("narratorSelect");
+    const slangCheckbox = document.getElementById("includeSlang");
+    const swearsCheckbox = document.getElementById("softSwears");
+
+    async function callGroq(prompt) {
+      const key = localStorage.getItem(API_KEY_LOCAL);
+
+      if (!key) {
+        alert("No Groq API key found! Please enter one in the Groq API section.");
+        return "";
+      }
+
+      const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${key}`,
+        },
+        body: JSON.stringify({
+          model: "mixtral-8x7b-32768",
+          messages: [
+            {
+              role: "user",
+              content: prompt,
+            },
+          ],
+        }),
+      });
+
+      const data = await res.json();
+      return data.choices?.[0]?.message?.content || "";
+    }
+
+    function buildPrompt(mode = "generate") {
+      const introMode = introSelect.value;
+      const customIntro = customIntroInput.value.trim();
+
+      const topic = topicInput.value.trim();
+      const pasted = pasteInput.value.trim();
+      const narrator = narratorSelect.value;
+      const slang = slangCheckbox.checked ? "yes" : "no";
+      const swears = swearsCheckbox.checked ? "allow" : "no-swears";
+      const intensity = intensitySlider.value;
+      const paragraphs = paraSlider.value;
+      const lang = hiddenLangSelect.value;
+      const similarity = similaritySlider.value;
+
+      let opening = "";
+
+      if (introMode === "custom" && customIntro) {
+        opening = customIntro;
+      } else if (introMode === "throwback") {
+        opening = "Throwback to when";
+      } else if (introMode === "random") {
+        const intros = [
+          "Bro, let me be honest...",
+          "Honestly, this is wild...",
+          "Okay so boom...",
+          "Tell me why...",
+          "No because listen...",
+        ];
+        opening = intros[Math.floor(Math.random() * intros.length)];
+      } else {
+        opening = introMode;
+      }
+
+      let prompt = `
+You are a Roblox rant generator. Write a rant in ${lang}.
+Opening line: "${opening}"
+Topic: "${topic}"
+Narrator style: ${narrator}
+Intensity level: ${intensity}
+Paragraph count: ${paragraphs}
+Include slang: ${slang}
+Swearing: ${swears}
+Similarity level: ${similarity}
+`;
+
+      if (pasted && mode !== "generate") {
+        prompt += `Here is the user’s pasted rant to rewrite/shuffle/mutate:\n${pasted}\n`;
+      }
+
+      if (mode === "rewrite") prompt += "\nRewrite the rant in the same meaning, same vibe.";
+      if (mode === "shuffle")
+        prompt += "\nShuffle the structure, reorder sentences, but keep meaning.";
+      if (mode === "unique") prompt += "\nMake this rant more unique but same theme.";
+
+      prompt += "\nReturn ONLY the rant text. No disclaimers.";
+
+      return prompt;
+    }
+    async function runGeneration(mode = "generate") {
+      outputEl.value = "Generating rant...";
+      const prompt = buildPrompt(mode);
+      const result = await callGroq(prompt);
+      outputEl.value = result || "Error generating rant.";
+    }
+
+    generateBtn.addEventListener("click", () => runGeneration("generate"));
+    rewriteBtn.addEventListener("click", () => runGeneration("rewrite"));
+    shuffleBtn.addEventListener("click", () => runGeneration("shuffle"));
+    uniqueBtn.addEventListener("click", () => runGeneration("unique"));
+
+    /* MAKE LANGUAGE DROPDOWN MORE SMOOTH */
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        langMenu.style.display = "none";
+      }
+    });
+
+    /* OPTIONAL IMPROVEMENT: CLOSE DROPDOWN ON SCROLL */
+    window.addEventListener("scroll", () => {
+      langMenu.style.display = "none";
+    });
+
+    /* CLOSE API PANEL ON OUTSIDE CLICK */
+    document.addEventListener("click", (e) => {
+      if (!apiHeader.contains(e.target) && !apiBody.contains(e.target)) {
+        apiBody.classList.remove("open");
+        apiChevron.textContent = "▼";
+      }
+    });
   </script>
 </body>
 </html>
