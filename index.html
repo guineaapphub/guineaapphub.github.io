@@ -215,16 +215,18 @@
       margin-bottom: 16px;
     }
 
-    /* Share bar – Toolshelf-style: label fixed, pills scroll horizontally */
+    /* Share bar – centered inline label + pills (Option B) */
     .share-bar {
       max-width: 900px;
       margin: 0 auto 16px;
       display: flex;
       align-items: center;
-      gap: 14px;
-      justify-content: flex-start;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
       padding: 0 4px;
       font-size: 13px;
+      text-align: center;
     }
 
     .share-label {
@@ -235,16 +237,11 @@
 
     .share-pills {
       display: flex;
-      flex: 1 1 auto;
+      flex: 0 0 auto;
       gap: 10px;
-      justify-content: flex-start;
-      overflow-x: auto;
+      justify-content: center;
       padding: 4px 0;
-      scrollbar-width: none; /* Firefox: hide scrollbar */
-      -ms-overflow-style: none; /* IE / Edge */
-    }
-    .share-pills::-webkit-scrollbar {
-      display: none; /* Chrome / Safari: hide scrollbar */
+      flex-wrap: wrap;
     }
 
     .share-pill {
@@ -442,27 +439,7 @@
       margin-top: 10px;
     }
 
-    /* API section */
-    .api-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 14px;
-    }
-    .api-header span:last-child {
-      font-size: 18px;
-    }
-
-    .api-body {
-      margin-top: 10px;
-      display: none;
-    }
-    .api-body.open {
-      display: block;
-    }
-
+    /* API section styles reused inside modal */
     .api-row {
       display: flex;
       flex-wrap: wrap;
@@ -525,7 +502,7 @@
       transform: translateY(-1px);
     }
 
-    /* Modal (How to Use + Terms of Service + Privacy + Cookie Preferences + Saved Rants) */
+    /* Modal (How to Use + Terms of Service + Privacy + Cookie Preferences + API) */
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -712,29 +689,6 @@
     .cookie-link-btn:hover {
       box-shadow: 0 0 6px var(--primary-glow);
       transform: translateY(-1px);
-    }
-
-    /* Saved rants list */
-    .saved-item {
-      border-radius: 8px;
-      border: 1px solid var(--border-light);
-      padding: 8px 10px;
-      margin-bottom: 8px;
-      font-size: 12px;
-      display: flex;
-      justify-content: space-between;
-      gap: 8px;
-    }
-    body.dark .saved-item {
-      border-color: var(--border-dark);
-    }
-    .saved-item-text {
-      white-space: pre-wrap;
-      flex: 1;
-    }
-    .saved-item-actions button {
-      font-size: 11px;
-      padding: 4px 8px;
     }
 
     /* Footer contact */
@@ -1023,11 +977,11 @@
           </li>
           <li>
             Edit the script directly in the box if you want, then hit
-            <strong>Copy</strong> or <strong>Save Rant</strong>.
+            <strong>Copy</strong>.
           </li>
           <li>
-            Make sure you’ve added your <strong>Groq API key</strong> in the API section
-            so the AI can work.
+            Make sure you’ve added your <strong>Groq API key</strong> using the Settings
+            (gear icon) so the AI can work.
           </li>
         </ol>
         <div class="modal-tip">
@@ -1168,7 +1122,7 @@
           If you add a <strong>Groq API key</strong> in the app, it is stored
           <strong>only in your own browser’s local storage</strong>. It is never sent to
           us for storage. You can clear it at any time using the “Clear” button in the
-          API section or by clearing your browser data.
+          API settings or by clearing your browser data.
         </p>
 
         <p class="tos-section-title">3. Cookies and ads</p>
@@ -1270,20 +1224,39 @@
     </div>
   </div>
 
-  <!-- SAVED RANTS MODAL -->
-  <div id="savedModal" class="modal-overlay">
+  <!-- GROQ API MODAL -->
+  <div id="apiModal" class="modal-overlay">
     <div class="modal">
       <div class="modal-header">
-        <div class="modal-title">Saved Rants</div>
-        <button id="savedClose" class="modal-close">Close</button>
+        <div class="modal-title">Groq API Key</div>
+        <button id="apiClose" class="modal-close">Close</button>
       </div>
       <div class="modal-body">
-        <div id="savedList" class="tos-small">
-          No saved rants yet.
+        <label for="apiKeyInput">Your Groq API key</label>
+        <div class="api-row">
+          <input
+            id="apiKeyInput"
+            type="password"
+            placeholder="Paste your Groq API key here"
+          />
+          <button id="toggleKeyBtn" class="btn-secondary api-eye-btn" type="button"></button>
+          <button id="saveKeyBtn" class="btn-secondary" type="button">Save Key</button>
+          <button id="clearKeyBtn" class="btn-secondary" type="button">Clear</button>
         </div>
-        <div style="margin-top: 10px; display:flex; justify-content:flex-end; gap:8px;">
-          <button id="clearSavedBtn" class="btn-secondary" style="font-size:12px;">Clear All</button>
+
+        <div id="apiStatus" class="api-status">No API key saved yet.</div>
+
+        <div class="api-help">
+          This app uses <strong>Groq</strong> to generate your rant scripts (high-quality, GPT-4-style storytelling).<br />
+          Your API key is stored only in your browser (local storage).<br />
+          You can create a free key here:
         </div>
+
+        <a
+          class="groq-link-btn"
+          href="https://console.groq.com/keys"
+          target="_blank"
+        >👉 Get your Groq API key</a>
       </div>
     </div>
   </div>
@@ -1294,7 +1267,7 @@
       Type Your Theme. Create Your Rant. Bye-Bye Noob.
     </div>
 
-    <!-- SHARE BAR (Toolshelf-style, B1 behaviour) -->
+    <!-- SHARE BAR (Option B) -->
     <div class="share-bar">
       <span class="share-label">Share This Free Tool:</span>
       <div class="share-pills">
@@ -1305,10 +1278,6 @@
         <button class="share-pill" data-network="pinterest" type="button">
           <span class="share-pill-icon">P</span>
           <span class="share-pill-text">Share on Pinterest</span>
-        </button>
-        <button class="share-pill" data-network="instagram" type="button">
-          <span class="share-pill-icon">IG</span>
-          <span class="share-pill-text">Share on Instagram</span>
         </button>
         <button class="share-pill" data-network="reddit" type="button">
           <span class="share-pill-icon">R</span>
@@ -1435,15 +1404,12 @@
 
       <div class="button-row">
         <button id="generateBtn" class="btn-primary">Generate Rant</button>
-        <button id="rewriteBtn" class="btn-secondary">Rewrite</button>
         <button id="shuffleBtn" class="btn-secondary">Shuffle</button>
         <button id="uniqueBtn" class="btn-secondary">Make Unique</button>
         <button id="copyBtn" class="btn-secondary">
           Copy
           <span id="copyFlash" class="copy-flash">Copied!</span>
         </button>
-        <button id="saveRantBtn" class="btn-secondary">Save Rant ⭐</button>
-        <button id="viewSavedBtn" class="btn-secondary">View Saved Rants</button>
       </div>
     </div>
 
@@ -1454,44 +1420,8 @@
       <label for="output">Generated Rant Script</label>
       <textarea
         id="output"
-        placeholder="Your rant will appear here. You can edit it before copying or saving..."
+        placeholder="Your rant will appear here. You can edit it before copying..."
       ></textarea>
-    </div>
-
-    <!-- API SETTINGS (Settings button scrolls here) -->
-    <div class="panel">
-      <div id="apiHeader" class="api-header">
-        <span>Groq API Key</span>
-        <span id="apiChevron">▼</span>
-      </div>
-
-      <div id="apiBody" class="api-body">
-        <label for="apiKeyInput">Your Groq API key</label>
-        <div class="api-row">
-          <input
-            id="apiKeyInput"
-            type="password"
-            placeholder="Paste your Groq API key here"
-          />
-          <button id="toggleKeyBtn" class="btn-secondary api-eye-btn" type="button"></button>
-          <button id="saveKeyBtn" class="btn-secondary" type="button">Save</button>
-          <button id="clearKeyBtn" class="btn-secondary" type="button">Clear</button>
-        </div>
-
-        <div id="apiStatus" class="api-status">No API key saved yet.</div>
-
-        <div class="api-help">
-          This app uses <strong>Groq</strong> to generate your rant scripts (high-quality, GPT-4-style storytelling).<br />
-          Your API key is stored only in your browser (local storage).<br />
-          You can create a free key here:
-        </div>
-
-        <a
-          class="groq-link-btn"
-          href="https://console.groq.com/keys"
-          target="_blank"
-        >👉 Get your Groq API key</a>
-      </div>
     </div>
 
     <div class="ad-box">Ad Placeholder — Footer Banner</div>
@@ -1615,106 +1545,20 @@
       if (e.target === cookieModal) closeCookieModal();
     });
 
-    /* SAVED RANTS MODAL */
-    const savedModal = document.getElementById("savedModal");
-    const savedClose = document.getElementById("savedClose");
-    const savedList = document.getElementById("savedList");
-    const clearSavedBtn = document.getElementById("clearSavedBtn");
-    const saveRantBtn = document.getElementById("saveRantBtn");
-    const viewSavedBtn = document.getElementById("viewSavedBtn");
-    const SAVED_KEY = "fsg-saved-rants";
+    /* GROQ API MODAL */
+    const apiModal = document.getElementById("apiModal");
+    const apiClose = document.getElementById("apiClose");
 
-    function openSaved() {
-      savedModal.classList.add("open");
-      renderSavedRants();
+    function openApiModal() {
+      apiModal.classList.add("open");
     }
-    function closeSaved() {
-      savedModal.classList.remove("open");
+    function closeApiModal() {
+      apiModal.classList.remove("open");
     }
 
-    savedClose.addEventListener("click", closeSaved);
-    savedModal.addEventListener("click", (e) => {
-      if (e.target === savedModal) closeSaved();
-    });
-
-    function getSavedRants() {
-      try {
-        const raw = localStorage.getItem(SAVED_KEY);
-        return raw ? JSON.parse(raw) : [];
-      } catch {
-        return [];
-      }
-    }
-    function setSavedRants(arr) {
-      localStorage.setItem(SAVED_KEY, JSON.stringify(arr));
-    }
-
-    // Export a single rant to CSV (index,text)
-    function exportRantToCsv(text) {
-      if (!text || !text.trim()) return;
-      const lines = text.split(/\n{2,}|\r\n{2,}/).map(l => l.trim()).filter(Boolean);
-
-      let csv = "index,text\n";
-      lines.forEach((line, idx) => {
-        const safe = line.replace(/"/g, '""');
-        csv += `${idx + 1},"${safe}"\n`;
-      });
-
-      const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      const ts = new Date().toISOString().slice(0,19).replace(/[:T]/g,"-");
-      a.href = url;
-      a.download = `rant-${ts}.csv`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-    }
-
-    function renderSavedRants() {
-      const arr = getSavedRants();
-      if (!arr.length) {
-        savedList.textContent = "No saved rants yet.";
-        return;
-      }
-      savedList.innerHTML = "";
-      arr.forEach((txt) => {
-        const wrap = document.createElement("div");
-        wrap.className = "saved-item";
-        const textDiv = document.createElement("div");
-        textDiv.className = "saved-item-text";
-        textDiv.textContent = txt.length > 600 ? txt.slice(0, 600) + "..." : txt;
-        const actions = document.createElement("div");
-        actions.className = "saved-item-actions";
-
-        const exportBtn = document.createElement("button");
-        exportBtn.className = "btn-secondary";
-        exportBtn.textContent = "Export CSV";
-        exportBtn.onclick = () => exportRantToCsv(txt);
-
-        actions.appendChild(exportBtn);
-        wrap.appendChild(textDiv);
-        wrap.appendChild(actions);
-        savedList.appendChild(wrap);
-      });
-    }
-
-    saveRantBtn.addEventListener("click", () => {
-      const txt = (outputEl.value || "").trim();
-      if (!txt) return;
-      const arr = getSavedRants();
-      arr.unshift(txt);
-      // Limit to last 50 rants
-      setSavedRants(arr.slice(0, 50));
-      showStatus("Rant saved locally.", "ok");
-    });
-
-    viewSavedBtn.addEventListener("click", openSaved);
-
-    clearSavedBtn.addEventListener("click", () => {
-      setSavedRants([]);
-      renderSavedRants();
+    apiClose.addEventListener("click", closeApiModal);
+    apiModal.addEventListener("click", (e) => {
+      if (e.target === apiModal) closeApiModal();
     });
 
     /* ESC TO CLOSE MODALS */
@@ -1724,7 +1568,7 @@
         closeTos();
         closePrivacy();
         closeCookieModal();
-        closeSaved();
+        closeApiModal();
       }
     });
 
@@ -1741,21 +1585,11 @@
       }, 2000);
     });
 
-    /* SETTINGS BUTTON => open Groq panel and scroll */
+    /* SETTINGS BUTTON => open Groq modal */
     const settingsBtn = document.getElementById("settingsBtn");
-    const apiHeader = document.getElementById("apiHeader");
-    const apiBody = document.getElementById("apiBody");
-    const apiChevron = document.getElementById("apiChevron");
-
     if (settingsBtn) {
       settingsBtn.addEventListener("click", () => {
-        if (apiBody && !apiBody.classList.contains("open")) {
-          apiBody.classList.add("open");
-          if (apiChevron) apiChevron.textContent = "▲";
-        }
-        if (apiHeader) {
-          apiHeader.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
+        openApiModal();
       });
     }
 
@@ -1799,12 +1633,6 @@
     updateIntensityLabel();
     updateParagraphLabel();
     updateSimilarityLabel();
-
-    /* COLLAPSIBLE API PANEL */
-    apiHeader.addEventListener("click", () => {
-      const open = apiBody.classList.toggle("open");
-      apiChevron.textContent = open ? "▲" : "▼";
-    });
 
     /* API KEY STORAGE (Groq only) */
     const apiKeyInput = document.getElementById("apiKeyInput");
@@ -2138,17 +1966,6 @@ TASK: Write a completely original viral rant in ${language}.
 TOPIC:
 "${baseTopic}"`;
         }
-      } else if (mode === "rewrite") {
-        const source = pasted || currentOutput || baseTopic;
-        task = `
-TASK: Rewrite the following rant into a stronger version.
-
-- Maintain the idea & tone.
-- Rewrite entirely in ${language}.
-- Keep any Custom Intro line unchanged.
-
-TEXT:
-"""${source}"""`;
       } else if (mode === "shuffle") {
         const source = pasted || currentOutput || baseTopic;
         task = `
@@ -2181,6 +1998,7 @@ SCRIPT:
 
       if (!apiKey) {
         showStatus("Add your Groq API key first.", "err");
+        openApiModal();
         throw new Error("Missing key");
       }
 
@@ -2219,7 +2037,6 @@ SCRIPT:
     }
 
     const generateBtn = document.getElementById("generateBtn");
-    const rewriteBtn = document.getElementById("rewriteBtn");
     const shuffleBtn = document.getElementById("shuffleBtn");
     const uniqueBtn = document.getElementById("uniqueBtn");
     const copyBtn = document.getElementById("copyBtn");
@@ -2236,7 +2053,6 @@ SCRIPT:
     }
 
     generateBtn.onclick = () => run("generate");
-    rewriteBtn.onclick = () => run("rewrite");
     shuffleBtn.onclick = () => run("shuffle");
     uniqueBtn.onclick = () => run("unique");
 
@@ -2256,7 +2072,7 @@ SCRIPT:
       );
     };
 
-    /* SHARE PILL LOGIC (Toolshelf-style) */
+    /* SHARE PILL LOGIC */
     const sharePills = document.querySelectorAll(".share-pill");
     sharePills.forEach((pill) => {
       pill.addEventListener("click", () => {
@@ -2271,10 +2087,6 @@ SCRIPT:
             break;
           case "pinterest":
             shareUrl = `https://pinterest.com/pin/create/button/?url=${url}&description=${text}`;
-            break;
-          case "instagram":
-            // No direct share URL – just open Instagram so user can paste link.
-            shareUrl = `https://www.instagram.com/`;
             break;
           case "reddit":
             shareUrl = `https://www.reddit.com/submit?url=${url}&title=${text}`;
