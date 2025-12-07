@@ -2,37 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Faceless Script Generator – Roblox Rant</title>
 
-  <!-- ✅ Google AdSense verification script -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6610889405997257"
-          crossorigin="anonymous"></script>
-  <!-- ✅ End AdSense verification script -->
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6610889405997257" crossorigin="anonymous"></script>
 
-  <!-- ✅ Google Search Console site verification -->
+  <!-- Google Search Console -->
   <meta name="google-site-verification" content="FSjAX-8iMppXgSzcWB-IpDSVZdqr8F2_H61BSxneciE" />
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
       --primary: #39ff14;
-      --primary-glow: rgba(57, 255, 20, 0.5);
+      --primary-glow: rgba(57,255,20,0.5);
+
       --bg-light: #ffffff;
       --bg-dark: #050712;
+
       --text-light: #0d0d0d;
       --text-dark: #f5f7ff;
+
       --border-light: #d0d0dd;
       --border-dark: #262a3b;
+
       --card-light: #ffffff;
       --card-dark: #111527;
+
       --topbar-bg-light: #f7f7f9;
       --topbar-bg-dark: #050712;
     }
@@ -48,13 +45,13 @@
     }
 
     body {
-      font-family: "Rubik", sans-serif;
       margin: 0;
       padding: 0;
-      transition: background 0.3s ease, color 0.3s ease;
+      font-family: "Rubik", sans-serif;
+      transition: background 0.25s ease, color 0.25s ease;
     }
 
-    /* Top bar as 3-column grid: left (home), center (nav), right (settings) */
+    /* ---------- TOP BAR ---------- */
     .top-bar {
       display: grid;
       grid-template-columns: auto 1fr auto;
@@ -71,26 +68,21 @@
       border-bottom-color: var(--border-dark);
     }
 
-    .top-left {
+    .top-left,
+    .top-center,
+    .top-right {
       display: flex;
       align-items: center;
     }
 
     .top-center {
-      display: flex;
-      align-items: center;
       justify-content: center;
       gap: 10px;
     }
 
-    .top-right {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-    }
-
-    /* Home icon button */
-    .home-btn {
+    /* ---------- ICON BUTTONS ---------- */
+    .home-btn,
+    .settings-btn {
       border-radius: 999px;
       border: 1px solid var(--border-light);
       background: #f6f6f6;
@@ -101,46 +93,25 @@
       cursor: pointer;
       transition: 0.2s ease;
     }
-    body.dark .home-btn {
-      background: #14182a;
-      border-color: var(--border-dark);
-      color: #f5f7ff;
-    }
-    .home-btn svg {
-      width: 16px;
-      height: 16px;
-    }
-    .home-btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 0 6px var(--primary-glow);
-    }
-
-    /* Settings icon button (gear) */
-    .settings-btn {
-      border-radius: 999px;
-      border: 1px solid var(--border-light);
-      background: #f6f6f6;
-      padding: 8px 10px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: 0.2s ease;
-    }
+    body.dark .home-btn,
     body.dark .settings-btn {
       background: #14182a;
       border-color: var(--border-dark);
       color: #f5f7ff;
     }
-    .settings-btn svg {
-      width: 18px;
-      height: 18px;
-    }
+
+    .home-btn:hover,
     .settings-btn:hover {
       transform: translateY(-1px);
       box-shadow: 0 0 6px var(--primary-glow);
     }
 
+    .settings-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* ---------- GENERAL BUTTONS ---------- */
     .theme-mode-btn,
     .how-btn {
       padding: 6px 14px;
@@ -149,26 +120,23 @@
       background: #f6f6f6;
       font-size: 14px;
       cursor: pointer;
-      font-weight: 500;
-      transition: 0.25s ease;
+      transition: 0.2s ease;
     }
     body.dark .theme-mode-btn,
     body.dark .how-btn {
-      border-color: var(--border-dark);
       background: #14182a;
       color: #f5f7ff;
+      border-color: var(--border-dark);
     }
+
     .theme-mode-btn:hover,
     .how-btn:hover {
       transform: translateY(-1px);
       box-shadow: 0 0 6px var(--primary-glow);
     }
 
-    /* Discord pill in top bar */
+    /* ---------- DISCORD PILL ---------- */
     .top-discord-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
       padding: 6px 14px;
       border-radius: 20px;
       border: 1px solid var(--border-light);
@@ -177,6 +145,9 @@
       font-weight: 500;
       text-decoration: none;
       color: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       transition: 0.25s ease;
     }
     body.dark .top-discord-link {
@@ -184,15 +155,12 @@
       border-color: var(--border-dark);
       color: #f5f7ff;
     }
-    .top-discord-link svg {
-      width: 18px;
-      height: 18px;
-    }
     .top-discord-link:hover {
       transform: translateY(-1px);
       box-shadow: 0 0 6px var(--primary-glow);
     }
 
+    /* ---------- CONTAINER ---------- */
     .container {
       max-width: 900px;
       margin: 24px auto 40px;
@@ -202,120 +170,64 @@
     h1 {
       text-align: center;
       color: var(--primary);
-      font-weight: 700;
       margin-bottom: 4px;
-      text-shadow: 0 0 8px var(--primary-glow);
       font-size: 32px;
+      text-shadow: 0 0 8px var(--primary-glow);
     }
 
     .subtitle {
       text-align: center;
       font-size: 14px;
-      opacity: 0.9;
-      margin-bottom: 16px;
+      opacity: 0.8;
+      margin-bottom: 18px;
     }
 
-    /* Share bar – centered inline label + pills (Option B) */
+    /* ---------- SHARE BAR ---------- */
     .share-bar {
-      max-width: 900px;
-      margin: 0 auto 16px;
       display: flex;
+      justify-content: center;
       align-items: center;
-      justify-content: center;
+      gap: 12px;
       flex-wrap: wrap;
-      gap: 10px;
-      padding: 0 4px;
       font-size: 13px;
-      text-align: center;
-    }
-
-    .share-label {
-      font-weight: 500;
-      opacity: 0.9;
-      white-space: nowrap;
-    }
-
-    .share-pills {
-      display: flex;
-      flex: 0 0 auto;
-      gap: 10px;
-      justify-content: center;
-      padding: 4px 0;
-      flex-wrap: wrap;
+      margin-bottom: 20px;
     }
 
     .share-pill {
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      border-radius: 99px;
       padding: 6px 14px;
-      border-radius: 999px;
+      cursor: pointer;
       border: 1px solid var(--border-light);
       background: #f6f6f6;
-      cursor: pointer;
-      font-size: 13px;
-      font-weight: 500;
       transition: 0.2s ease;
-      white-space: nowrap;
-      flex-shrink: 0;
+      font-weight: 500;
     }
     body.dark .share-pill {
       background: #111527;
       border-color: var(--border-dark);
       color: #f5f7ff;
     }
-    .share-pill-icon {
-      width: 20px;
-      height: 20px;
-      border-radius: 999px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      font-weight: 700;
-      background: #050712;
-      color: #f5f7ff;
-    }
-    body.light .share-pill-icon {
-      background: #0f172a;
-      color: #f9fafb;
-    }
     .share-pill:hover {
       transform: translateY(-1px);
       box-shadow: 0 0 6px var(--primary-glow);
     }
-    .share-pill.copied .share-pill-text {
-      font-weight: 600;
-    }
 
-    .ad-box {
-      width: 100%;
-      min-height: 90px;
-      border: 1px dashed var(--border-light);
-      border-radius: 10px;
-      margin: 16px 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0.7;
-      font-size: 13px;
-    }
-    body.dark .ad-box {
-      border-color: var(--border-dark);
-    }
-
+    /* ---------- PANELS ---------- */
     .panel {
       background: var(--card-light);
-      border-radius: 14px;
-      padding: 18px 18px 20px;
       border: 1px solid var(--border-light);
-      margin-bottom: 20px;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 22px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.06);
     }
     body.dark .panel {
       background: var(--card-dark);
       border-color: var(--border-dark);
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.7);
+      box-shadow: 0 10px 26px rgba(0,0,0,0.7);
     }
 
     label {
@@ -325,32 +237,28 @@
       font-size: 14px;
     }
 
+    /* ---------- INPUTS ---------- */
     input[type="text"],
-    input[type="password"],
     textarea,
     select {
       width: 100%;
       padding: 10px 12px;
       border-radius: 8px;
       border: 1px solid var(--border-light);
-      background: transparent;
       color: inherit;
+      background: transparent;
       font-size: 14px;
       margin-bottom: 14px;
-      box-sizing: border-box;
       outline: none;
+      box-sizing: border-box;
     }
-    body.dark input[type="text"],
-    body.dark input[type="password"],
+
+    body.dark input[type=text],
     body.dark textarea,
     body.dark select {
       background: #050712;
       border-color: var(--border-dark);
-    }
-
-    textarea {
-      resize: vertical;
-      min-height: 80px;
+      color: #f5f7ff;
     }
 
     input:focus,
@@ -360,517 +268,392 @@
       box-shadow: 0 0 8px var(--primary-glow);
     }
 
-    .row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-top: 4px;
-      margin-bottom: 6px;
-    }
-    .row > .col {
-      flex: 1 1 180px;
+    textarea {
+      min-height: 80px;
+      resize: vertical;
     }
 
-    .slider-label {
-      font-weight: 600;
-      font-size: 13px;
-      margin-bottom: 4px;
-    }
-    .slider-value {
-      font-size: 12px;
-      opacity: 0.75;
-      margin-top: 2px;
+    /* ===========================================================
+       LANGUAGE DROPDOWN (LIGHT-MODE FIXED + GREEN GLOW)
+       =========================================================== */
+
+    .language-wrapper {
+      position: relative;
+      width: 220px;
     }
 
-    input[type="range"] {
+    .cd-trigger {
       width: 100%;
-    }
-
-    .toggles {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 8px;
-      margin-bottom: 4px;
-    }
-    .toggles label {
-      font-weight: 500;
-      font-size: 13px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-      margin-bottom: 0;
-    }
-
-    button {
-      border: none;
-      padding: 11px 14px;
+      padding: 9px 12px;
       border-radius: 8px;
-      font-weight: 700;
-      cursor: pointer;
-      font-size: 14px;
-      transition: 0.2s;
-      display: inline-block;
-    }
-    .btn-primary {
-      background: var(--primary);
-      color: #000;
-    }
-    .btn-secondary {
-      background: transparent;
-      color: inherit;
       border: 1px solid var(--border-light);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      background: #f7f7f9;
+      color: #0d0d0d;
+      transition: 0.2s;
     }
-    body.dark .btn-secondary {
-      background: #151b2f;
+    body.dark .cd-trigger {
+      background: #050712;
+      color: #f5f7ff;
       border-color: var(--border-dark);
     }
-    button:hover {
-      opacity: 0.9;
-      transform: translateY(-1px);
+
+    .cd-trigger:focus-visible {
+      border-color: var(--primary);
       box-shadow: 0 0 8px var(--primary-glow);
+      outline: none;
     }
 
+    /* ---------- MENU ---------- */
+    .cd-menu {
+      position: absolute;
+      top: calc(100% + 4px);
+      width: 100%;
+      border-radius: 10px;
+      overflow: hidden;
+      display: none;
+      z-index: 20;
+      background: #ffffff;  /* FIXED */
+      border: 1px solid #d0d0dd;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    }
+    body.dark .cd-menu {
+      background: #050712;
+      border-color: var(--border-dark);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.7);
+    }
+
+    .cd-menu.open {
+      display: block;
+    }
+
+    /* ---------- SEARCH FIELD ---------- */
+    .cd-search-wrap {
+      padding: 8px;
+      border-bottom: 1px solid #e3e3ea;
+    }
+    body.dark .cd-search-wrap {
+      border-bottom-color: #1f2433;
+    }
+
+    .cd-search-input {
+      width: 100%;
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: 1px solid #d0d0dd;
+      background: #ffffff;
+      color: #0d0d0d;
+      font-size: 13px;
+      outline: none;
+    }
+    body.dark .cd-search-input {
+      background: #050712;
+      border-color: #1f2433;
+      color: #f5f7ff;
+    }
+
+    .cd-search-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 6px var(--primary-glow);
+    }
+
+    .cd-search-icon {
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    /* ---------- OPTIONS ---------- */
+    .cd-options {
+      max-height: 230px;
+      overflow-y: auto;
+    }
+
+    .cd-option {
+      width: 100%;
+      padding: 9px 12px;
+      background: transparent;
+      text-align: left;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      color: #0d0d0d;
+      transition: 0.15s;
+    }
+    body.dark .cd-option {
+      color: #f5f7ff;
+    }
+
+    .cd-option:hover {
+      background: #f5f5f7;
+    }
+    body.dark .cd-option:hover {
+      background: #1e293b;
+    }
+
+    .cd-option.selected {
+      background: #ececf1;
+      font-weight: 500;
+    }
+    body.dark .cd-option.selected {
+      background: #0b1120;
+    }
+    /* ---------- SCROLLBAR ---------- */
+    .cd-options::-webkit-scrollbar {
+      width: 8px;
+    }
+    .cd-options::-webkit-scrollbar-thumb {
+      background: #d0d0dd;
+      border-radius: 4px;
+    }
+    body.dark .cd-options::-webkit-scrollbar-thumb {
+      background: #2a2d3a;
+    }
+
+    /* ---------- SLIDERS ---------- */
+    input[type="range"] {
+      width: 100%;
+      margin: 8px 0 14px;
+      cursor: pointer;
+    }
+
+    .slider-value {
+      margin-top: -7px;
+      font-size: 13px;
+      opacity: 0.8;
+      margin-bottom: 12px;
+    }
+
+    /* ---------- TOGGLES ---------- */
+    .toggles label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      margin-bottom: 8px;
+      cursor: pointer;
+    }
+
+    /* ---------- BUTTON ROW ---------- */
     .button-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 10px;
+      gap: 12px;
+      margin-top: 6px;
     }
 
-    /* API section styles reused inside modal */
-    .api-row {
+    .btn-primary,
+    .btn-secondary {
+      border-radius: 10px;
+      padding: 10px 16px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #0d0d0d;
+      border-color: var(--primary);
+      box-shadow: 0 0 8px var(--primary-glow);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 12px var(--primary-glow);
+    }
+
+    .btn-secondary {
+      background: #f6f6f6;
+      border-color: var(--border-light);
+    }
+    body.dark .btn-secondary {
+      background: #14182a;
+      border-color: var(--border-dark);
+      color: #f5f7ff;
+    }
+    .btn-secondary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 6px var(--primary-glow);
+    }
+
+    .copy-flash {
+      opacity: 0;
+      font-size: 12px;
+      margin-left: 6px;
+      transition: 0.3s ease;
+    }
+
+    .copy-flash.show {
+      opacity: 1;
+    }
+
+    /* ---------- ADS ---------- */
+    .ad-box {
+      height: 120px;
+      border: 2px dashed var(--border-light);
+      border-radius: 12px;
+      margin: 22px 0;
       display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-    .api-row input {
-      flex: 1 1 220px;
-      margin-bottom: 0;
-    }
-
-    .api-eye-btn {
-      display: inline-flex;
-      align-items: center;
       justify-content: center;
-      min-width: 54px;
-      padding-inline: 16px;
+      align-items: center;
+      font-size: 14px;
+      opacity: 0.7;
     }
-    .api-eye-btn svg {
-      width: 18px;
-      height: 18px;
-    }
-
-    .api-status {
-      font-size: 12px;
-      margin-top: 6px;
-      min-height: 16px;
-    }
-    .api-status.ok {
-      color: #2e7d32;
-    }
-    .api-status.err {
-      color: #c62828;
-    }
-
-    .api-help {
-      font-size: 12px;
-      margin-top: 6px;
-      opacity: 0.9;
-    }
-
-    .groq-link-btn {
-      margin-top: 8px;
-      display: inline-block;
-      padding: 8px 12px;
-      border-radius: 8px;
-      border: 1px solid var(--border-light);
-      font-size: 12px;
-      text-decoration: none;
-      color: inherit;
-      transition: 0.2s;
-    }
-    body.dark .groq-link-btn {
+    body.dark .ad-box {
       border-color: var(--border-dark);
     }
-    .groq-link-btn:hover {
-      border-color: var(--primary);
-      box-shadow: 0 0 6px var(--primary-glow);
-      transform: translateY(-1px);
+
+    /* ---------- FOOTER ---------- */
+    .footer {
+      text-align: center;
+      padding: 20px 0 30px;
+      font-size: 13px;
+      opacity: 0.8;
     }
 
-    /* Modal (How to Use + Terms of Service + Privacy + Cookie Preferences + API) */
+    /* ---------- COOKIE BANNER ---------- */
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: #ffffff;
+      padding: 14px 18px;
+      border-top: 1px solid var(--border-light);
+      display: none;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 90;
+    }
+    body.dark .cookie-banner {
+      background: #111527;
+      border-top-color: var(--border-dark);
+      color: #f5f7ff;
+    }
+
+    .cookie-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .cookie-link-btn {
+      background: transparent;
+      border: none;
+      font-size: 14px;
+      cursor: pointer;
+      color: var(--primary);
+    }
+
+    .cookie-accept-btn {
+      background: var(--primary);
+      border: 1px solid var(--primary);
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      color: #0d0d0d;
+    }
+
+    /* ---------- MODALS ---------- */
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.55);
+      background: rgba(0,0,0,0.65);
       display: none;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      padding: 20px;
       z-index: 100;
     }
-    .modal-overlay.open {
-      display: flex;
-    }
+
     .modal {
+      width: 100%;
       max-width: 520px;
-      width: 90%;
       background: var(--card-light);
-      border-radius: 16px;
       border: 1px solid var(--border-light);
-      padding: 18px 22px 16px;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
-      animation: fadeInUp 0.18s ease-out;
-      max-height: 80vh;
+      border-radius: 14px;
+      padding: 18px 22px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+      max-height: 85vh;
       overflow-y: auto;
     }
     body.dark .modal {
       background: var(--card-dark);
       border-color: var(--border-dark);
     }
+
     .modal-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
     }
+
     .modal-title {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 700;
     }
+
     .modal-close {
-      border-radius: 999px;
+      border-radius: 8px;
+      padding: 6px 12px;
       border: 1px solid var(--border-light);
-      padding: 4px 10px;
-      font-size: 13px;
+      background: #f6f6f6;
       cursor: pointer;
-      background: transparent;
+      transition: 0.2s;
+      font-weight: 500;
     }
     body.dark .modal-close {
+      background: #14182a;
       border-color: var(--border-dark);
       color: #f5f7ff;
     }
     .modal-close:hover {
       box-shadow: 0 0 6px var(--primary-glow);
     }
-    .modal-body {
-      font-size: 13px;
-      line-height: 1.55;
-    }
-    .modal-body ol {
-      padding-left: 18px;
-      margin-top: 6px;
-      margin-bottom: 8px;
-    }
-    .modal-body li {
-      margin-bottom: 4px;
-    }
-    .modal-tip {
-      margin-top: 8px;
-      font-size: 12px;
-      opacity: 0.8;
-    }
-    .tos-section-title {
-      font-weight: 600;
-      margin-top: 8px;
-      margin-bottom: 4px;
-      font-size: 13px;
-    }
+
     .tos-small {
-      font-size: 12px;
-      opacity: 0.9;
-    }
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(4px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    #output {
-      min-height: 160px;
-      white-space: pre-wrap;
-      line-height: 1.55rem;
-      font-size: 1.02rem;
-    }
-
-    .copy-flash {
-      font-size: 11px;
-      margin-left: 6px;
-      opacity: 0;
-      transition: opacity 0.2s ease;
-    }
-    .copy-flash.visible {
-      opacity: 0.85;
-    }
-
-    /* Home toast */
-    .home-toast {
-      position: fixed;
-      top: 46px;
-      left: 16px;
-      background: rgba(0, 0, 0, 0.92);
-      color: #f5f7ff;
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 12px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.25s ease;
-      z-index: 120;
-      border: 1px solid #333955;
-    }
-    .home-toast.show {
-      opacity: 1;
-    }
-
-    /* Cookie banner */
-    .cookie-banner {
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      padding: 8px 14px;
-      display: none;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      z-index: 130;
-      font-size: 12px;
-      background: #050712;
-      color: #f5f7ff;
-      border-top: 1px solid #333955;
-    }
-    body.light .cookie-banner {
-      background: #f7f7f9;
-      color: #0d0d0d;
-      border-top-color: #d0d0dd;
-    }
-    .cookie-banner.show {
-      display: flex;
-      flex-wrap: wrap;
-    }
-    .cookie-text {
-      flex: 1 1 220px;
-      opacity: 0.9;
-    }
-    .cookie-actions {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .cookie-link-btn {
-      background: transparent;
-      border-radius: 999px;
-      border: 1px solid var(--border-light);
-      padding: 4px 10px;
-      font-size: 12px;
-      cursor: pointer;
-    }
-    body.dark .cookie-link-btn {
-      border-color: var(--border-dark);
-      color: #f5f7ff;
-    }
-    .cookie-accept-btn {
-      border-radius: 999px;
-      background: var(--primary);
-      color: #000;
-      font-size: 12px;
-      padding: 6px 14px;
-    }
-    .cookie-accept-btn:hover,
-    .cookie-link-btn:hover {
-      box-shadow: 0 0 6px var(--primary-glow);
-      transform: translateY(-1px);
-    }
-
-    /* Footer contact */
-    .footer {
-      max-width: 900px;
-      margin: 0 auto 32px;
-      padding: 0 16px;
-      font-size: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      opacity: 0.85;
-    }
-    .footer svg {
-      width: 14px;
-      height: 14px;
-    }
-    .footer a {
-      color: inherit;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    .footer a:hover {
-      text-decoration: underline;
-    }
-
-    /* ===== VSUB-STYLE LANGUAGE DROPDOWN (SMALL) ===== */
-    .language-wrapper {
-      position: relative;
-      width: 220px; /* small, VSUB-style */
-      margin-bottom: 6px;
-    }
-
-    .cd-trigger {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 9px 12px;
-      border-radius: 8px;
-      border: 1px solid var(--border-light);
-      background: #050712;
-      color: inherit;
-      cursor: pointer;
-      box-sizing: border-box;
-    }
-    body.light .cd-trigger {
-      background: #f7f7f9;
-    }
-    .cd-trigger-label {
       font-size: 14px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .cd-trigger:focus-visible {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 8px var(--primary-glow);
-    }
-    .cd-chevron {
-      font-size: 12px;
-      opacity: 0.8;
+      line-height: 1.5;
     }
 
-    .cd-menu {
-      position: absolute;
-      top: calc(100% + 4px);
-      left: 0;
-      width: 220px;
-      background: #050712;
-      border-radius: 10px;
-      border: 1px solid var(--border-dark);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
-      z-index: 70;
-      display: none;
-    }
-    body.light .cd-menu {
-      background: #111827;
-      border-color: var(--border-light);
-    }
-    .cd-menu.open {
-      display: block;
+    .tos-section-title {
+      margin-top: 14px;
+      font-weight: 600;
+      font-size: 15px;
     }
 
-    .cd-search-wrap {
-      position: relative;
-      padding: 6px 8px 4px;
-      border-bottom: 1px solid #1f2433;
-    }
-    .cd-search-input {
-      width: 100%;
-      padding: 6px 26px 6px 8px;
-      border-radius: 6px;
-      border: 1px solid #272b3c;
-      background: #050712;
-      color: inherit;
-      font-size: 12px;
-      outline: none;
-      box-sizing: border-box;
-    }
-    body.light .cd-search-input {
-      background: #020617;
-      border-color: #1e293b;
-    }
-    .cd-search-input:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 6px var(--primary-glow);
-    }
-    .cd-search-icon {
-      position: absolute;
-      right: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 12px;
-      opacity: 0.7;
-      pointer-events: none;
+    /* ---------- API MODAL ---------- */
+    .api-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 12px;
     }
 
-    .cd-options {
-      max-height: 230px;
-      overflow-y: auto;
-      padding: 4px 0;
-    }
-
-    .cd-option {
-      width: 100%;
-      text-align: left;
-      padding: 7px 10px;
+    .api-status {
       font-size: 13px;
-      border: none;
-      background: transparent;
-      color: inherit;
-      cursor: pointer;
-    }
-    .cd-option:hover {
-      background: #1e293b;
-    }
-    .cd-option.selected {
-      background: #0b1120;
-      font-weight: 500;
+      opacity: 0.8;
+      margin-bottom: 14px;
     }
 
-    @media (max-width: 900px) {
-      .top-center {
-        gap: 6px;
-      }
-    }
-
-    @media (max-width: 700px) {
-      .top-bar {
-        padding: 8px 10px;
-      }
-      .top-center {
-        gap: 4px;
-      }
-      .theme-mode-btn,
-      .how-btn,
-      .top-discord-link {
-        padding-inline: 10px;
-        font-size: 13px;
-      }
-      .share-bar {
-        max-width: 100%;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .button-row {
-        flex-direction: column;
-      }
-      .footer {
-        flex-direction: column;
-        text-align: center;
-      }
-      .language-wrapper {
-        width: 100%;
-      }
-      .cd-menu {
-        width: 100%;
-      }
+    .groq-link-btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 8px 14px;
+      background: var(--primary);
+      color: #0d0d0d;
+      border-radius: 8px;
+      font-weight: 600;
+      box-shadow: 0 0 6px var(--primary-glow);
     }
   </style>
 </head>
@@ -878,55 +661,43 @@
 <body class="light">
   <!-- TOP BAR -->
   <div class="top-bar">
-    <!-- LEFT: Home icon -->
     <div class="top-left">
       <button id="homeBtn" class="home-btn" title="Home">
         <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path
-            d="M12 3 3 10h2v9h5v-5h4v5h5v-9h2L12 3z"
-            fill="currentColor"
-          />
+          <path d="M12 3 3 10h2v9h5v-5h4v5h5v-9h2L12 3z" fill="currentColor"/>
         </svg>
       </button>
     </div>
 
-    <!-- CENTER: Nav buttons (like screenshot) -->
     <div class="top-center">
       <button id="themeModeBtn" class="theme-mode-btn">🌙 Dark</button>
       <button id="howToBtn" class="how-btn">How to Use</button>
       <button id="tosBtn" class="how-btn">Terms of Service</button>
       <button id="privacyBtn" class="how-btn">Privacy Policy</button>
 
-      <a
-        href="https://discord.gg/Y4GenJXgEn"
-        class="top-discord-link"
-        target="_blank"
-        rel="noopener noreferrer"
-        title="Join our Discord community"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg"
-             viewBox="0 0 16 16">
-          <path fill="#5865F2" d="M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032q.003.022.021.037a13.3 13.3 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019q.463-.63.818-1.329a.05.05 0 0 0-.01-.059l-.018-.011a9 9 0 0 1-1.248-.595.05.05 0 0 1-.02-.066l.015-.019q.127-.095.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .053.007q.121.1.248.195a.05.05 0 0 1-.004.085 8 8 0 0 1-1.249.594.05.05 0 0 0-.03.03.05.05 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.2 13.2 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.03.03 0 0 0-.02-.019m-8.198 7.307c-.789 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612"/>
+      <a href="https://discord.gg/Y4GenJXgEn"
+         class="top-discord-link"
+         target="_blank"
+         rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+          <path fill="#5865F2" d="M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011..."/>
         </svg>
         <span>Discord</span>
       </a>
     </div>
 
-    <!-- RIGHT: Settings gear -->
     <div class="top-right">
       <button id="settingsBtn" class="settings-btn" title="Settings">
-        <!-- solid gear -->
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M8.68637 4.00008L11.293 1.39348C11.6835 1.00295 12.3167 1.00295 12.7072 1.39348L15.3138 4.00008H19.0001C19.5524 4.00008 20.0001 4.4478 20.0001 5.00008V8.68637L22.6067 11.293C22.9972 11.6835 22.9972 12.3167 22.6067 12.7072L20.0001 15.3138V19.0001C20.0001 19.5524 19.5524 20.0001 19.0001 20.0001H15.3138L12.7072 22.6067C12.3167 22.9972 11.6835 22.9972 11.293 22.6067L8.68637 20.0001H5.00008C4.4478 20.0001 4.00008 19.5524 4.00008 19.0001V15.3138L1.39348 12.7072C1.00295 12.3167 1.00295 11.6835 1.39348 11.293L4.00008 8.68637V5.00008C4.00008 4.4478 4.4478 4.00008 5.00008 4.00008H8.68637ZM12.0001 15.0001C13.6569 15.0001 15.0001 13.6569 15.0001 12.0001C15.0001 10.3432 13.6569 9.00008 12.0001 9.00008C10.3432 9.00008 9.00008 10.3432 9.00008 12.0001C9.00008 13.6569 10.3432 15.0001 12.0001 15.0001Z"></path>
+          <path d="M8.68637 4.00008L11.293 1.39348C11.6835 1.00295 12.3167 1.00295..."/>
         </svg>
       </button>
     </div>
   </div>
 
-  <!-- Home toast -->
-  <div id="homeToast" class="home-toast">
-    More faceless generators coming soon.
-  </div>
+  <!-- HOME TOAST -->
+  <div id="homeToast" class="home-toast">More faceless generators coming soon.</div>
+
 
   <!-- HOW TO USE MODAL -->
   <div id="howModal" class="modal-overlay">
@@ -935,64 +706,24 @@
         <div class="modal-title">How to Use the Roblox Rant Generator</div>
         <button id="howClose" class="modal-close">Close</button>
       </div>
+
       <div class="modal-body">
         <ol>
-          <li>
-            <strong>Type a Topic / Theme</strong> in the box (e.g., “school”, “strict
-            parents”, “laggy servers”, “memes”).
-          </li>
-          <li>
-            <strong>Pick an opening style</strong> (Random, Custom, Throwback, or a template).
-          </li>
-          <li>
-            <strong>Set Rant Meltdown</strong> to choose the tone (Very chill → Full
-            meltdown).
-          </li>
-          <li>
-            <strong>Choose how many paragraphs</strong> you want (1–60) to control the
-            length.
-          </li>
-          <li>
-            <strong>Pick a Narrator</strong> – male, gender-neutral, or female.
-          </li>
-          <li>
-            <strong>Choose a Language</strong> in the Language dropdown.
-            The rant will be written directly in that language.
-          </li>
-          <li>
-            <strong>Custom Intro stays exactly as you type it.</strong><br />
-            It is never translated, even if the rant is in another language.
-          </li>
-          <li>
-            <strong>Optional:</strong> paste any rant into the box to rewrite, shuffle,
-            or use as style inspiration (the AI understands non-English too).
-          </li>
-          <li>
-            <strong>Optional:</strong> adjust the Similarity Level slider to control
-            how close or how different your new script is compared to the pasted one.
-          </li>
-          <li>
-            Click <strong>Generate Rant</strong>, <strong>Rewrite</strong>,
-            <strong>Shuffle</strong>, or <strong>Make Unique</strong> to create a script.
-          </li>
-          <li>
-            Edit the script directly in the box if you want, then hit
-            <strong>Copy</strong>.
-          </li>
-          <li>
-            Make sure you’ve added your <strong>Groq API key</strong> using the Settings
-            (gear icon) so the AI can work.
-          </li>
+          <li><strong>Type a Topic / Theme</strong> (e.g., “school”, “strict parents”, etc.).</li>
+          <li><strong>Pick an opening style</strong> (Random, Custom, Throwback, Template).</li>
+          <li><strong>Set rant meltdown</strong> intensity.</li>
+          <li><strong>Select paragraphs</strong> (1–60).</li>
+          <li><strong>Choose narrator</strong> voice.</li>
+          <li><strong>Select Language</strong> through the dropdown.</li>
+          <li><strong>Optional:</strong> Paste a rant to rewrite.</li>
+          <li><strong>Similarity slider</strong> adjusts closeness to pasted script.</li>
+          <li>Click <strong>Generate</strong>, <strong>Shuffle</strong>, or <strong>Make Unique</strong>.</li>
+          <li>Copy your final rant using the <strong>Copy</strong> button.</li>
         </ol>
-        <div class="modal-tip">
-          🌍 <strong>Languages:</strong> The interface and this help text are in English,
-          but you can generate rants in many languages (Spanish, French, Portuguese,
-          Hindi, etc.) using the Language dropdown.  
-          If you type or paste in French, Spanish, etc., the AI still understands it.
-        </div>
       </div>
     </div>
   </div>
+
 
   <!-- TERMS OF SERVICE MODAL -->
   <div id="tosModal" class="modal-overlay">
@@ -1001,88 +732,40 @@
         <div class="modal-title">Terms of Service</div>
         <button id="tosClose" class="modal-close">Close</button>
       </div>
-      <div class="modal-body">
-        <p class="tos-small">
-          Last updated: 29 November 2025
-        </p>
 
-        <p>
-          Welcome to the <strong>Roblox Rant Generator</strong> (“the Site”, “the App”).
-          By accessing or using this website, you agree to these Terms of Service.
-          If you do not agree, please do not use the site.
-        </p>
+      <div class="modal-body">
+        <p class="tos-small">Last updated: 29 November 2025</p>
+
+        <p>Welcome to the <strong>Roblox Rant Generator</strong>. By using this site, you agree to these Terms.</p>
 
         <p class="tos-section-title">1. No affiliation with Roblox</p>
-        <p>
-          <strong>Roblox Rant Generator is not an official Roblox tool.</strong><br />
-          We have no relationship, partnership, or endorsement from Roblox Corporation
-          or any Roblox game, creator, or experience.
-        </p>
-        <p>
-          We only support Roblox users who want to create fun rant-style scripts for
-          entertainment and social media content.
-        </p>
+        <p>This tool is NOT official Roblox software and is not endorsed by Roblox Corporation.</p>
 
         <p class="tos-section-title">2. Purpose of the site</p>
-        <p>
-          This site provides AI-generated rant scripts for entertainment and content
-          creation purposes only. Scripts are generated automatically based on your
-          inputs and settings, and may not always be accurate, appropriate, or
-          suitable for every audience.
-        </p>
+        <p>This tool generates AI rant scripts for entertainment.</p>
 
         <p class="tos-section-title">3. Acceptable use</p>
-        <p>You agree that you will NOT use this site or its generated content to:</p>
         <ul class="tos-small">
-          <li>Harass, bully, or threaten other people.</li>
-          <li>Promote hate speech, discrimination, or slurs.</li>
-          <li>Share illegal, extremely violent, or adult-only content.</li>
-          <li>Impersonate Roblox staff or claim this tool is official Roblox software.</li>
-        </ul>
-        <p>
-          You are fully responsible for how you use any script you generate, including
-          what you post on platforms like YouTube, TikTok, or other social media.
-        </p>
-
-        <p class="tos-section-title">4. AI content and no guarantees</p>
-        <p>
-          All scripts are generated by AI based on your prompts and choices.
-          We do not guarantee that:
-        </p>
-        <ul class="tos-small">
-          <li>The output will be error-free or factually correct.</li>
-          <li>The output will be suitable for monetization or advertiser-friendly.</li>
-          <li>Platforms like YouTube, TikTok, or others will accept or approve your content.</li>
+          <li>No harassment or illegal content.</li>
+          <li>No impersonation of Roblox staff.</li>
+          <li>You are responsible for how you use generated scripts.</li>
         </ul>
 
-        <p class="tos-section-title">5. No liability</p>
-        <p class="tos-small">
-          We are not liable for any loss, strike, demonetization, account issues,
-          or other consequences that may arise from using scripts generated by this site.
-          You use the site at your own risk and are responsible for reviewing and editing
-          any script before posting it publicly.
-        </p>
+        <p class="tos-section-title">4. AI content</p>
+        <p>AI outputs may contain mistakes.</p>
 
-        <p class="tos-section-title">6. Changes to the site</p>
-        <p class="tos-small">
-          We are constantly updating and improving the Roblox Rant Generator to make it
-          easier for users to create better scripts. Features, prompts, and designs may
-          change at any time, and we may pause or stop the service without notice.
-        </p>
+        <p class="tos-section-title">5. Liability</p>
+        <p class="tos-small">We are not responsible for content issues or demonetization.</p>
+
+        <p class="tos-section-title">6. Updates</p>
+        <p class="tos-small">Features may change anytime.</p>
 
         <p class="tos-section-title">7. Contact</p>
-        <p class="tos-small">
-          For questions about these Terms, or to contact the site owner, you can email:<br />
-          <strong>contact@viral-script-ai.com</strong>
-        </p>
-
-        <p class="tos-small">
-          By continuing to use this site, you confirm that you have read and agreed to
-          these Terms of Service.
-        </p>
+        <p class="tos-small">Email: <strong>contact@viral-script-ai.com</strong></p>
       </div>
     </div>
   </div>
+
 
   <!-- PRIVACY POLICY MODAL -->
   <div id="privacyModal" class="modal-overlay">
@@ -1091,96 +774,39 @@
         <div class="modal-title">Privacy Policy</div>
         <button id="privacyClose" class="modal-close">Close</button>
       </div>
-      <div class="modal-body">
-        <p class="tos-small">
-          Last updated: 29 November 2025
-        </p>
 
-        <p>
-          This Privacy Policy explains how the <strong>Roblox Rant Generator</strong>
-          (“the Site”, “we”, “us”) handles information when you use the app.
-        </p>
+      <div class="modal-body">
+        <p class="tos-small">Last updated: 29 November 2025</p>
+
+        <p>This Privacy Policy explains how the Roblox Rant Generator handles information.</p>
 
         <p class="tos-section-title">1. Information we collect</p>
-        <p class="tos-small">
-          This site does not ask you to create an account and does not directly collect
-          your name, address, or payment details. However, we may collect:
-        </p>
         <ul class="tos-small">
-          <li>
-            <strong>Basic usage data</strong> – such as your browser type, device type,
-            and pages viewed (through tools like analytics, if enabled).
-          </li>
-          <li>
-            <strong>Cookies & similar technologies</strong> – small files stored on your
-            device to remember preferences and help show relevant ads.
-          </li>
+          <li>Basic analytics</li>
+          <li>Cookies for theme, ads, and preferences</li>
         </ul>
 
         <p class="tos-section-title">2. API key storage</p>
-        <p class="tos-small">
-          If you add a <strong>Groq API key</strong> in the app, it is stored
-          <strong>only in your own browser’s local storage</strong>. It is never sent to
-          us for storage. You can clear it at any time using the “Clear” button in the
-          API settings or by clearing your browser data.
-        </p>
+        <p class="tos-small">Your Groq API key is stored locally in your browser only.</p>
 
-        <p class="tos-section-title">3. Cookies and ads</p>
-        <p class="tos-small">
-          This site may use cookies to:
-        </p>
+        <p class="tos-section-title">3. Cookies & ads</p>
+        <p class="tos-small">We use cookies for preferences and AdSense.</p>
+
+        <p class="tos-section-title">4. Third-party links</p>
+        <p class="tos-small">External links (Discord, docs) are not covered.</p>
+
+        <p class="tos-section-title">5. Your choices</p>
         <ul class="tos-small">
-          <li>Remember your dark/light theme preference.</li>
-          <li>Remember your cookie choices.</li>
-          <li>Help measure traffic and performance (analytics, if enabled).</li>
-          <li>
-            Support <strong>Google AdSense</strong> in showing ads and preventing fraud.
-          </li>
-        </ul>
-        <p class="tos-small">
-          Some cookies are <strong>strictly necessary</strong> for the site to function
-          (for example, remembering that you accepted cookies). Optional cookies relate
-          to ads and analytics and can be controlled via
-          <strong>Cookie Preferences</strong>.
-        </p>
-
-        <p class="tos-section-title">4. Google AdSense</p>
-        <p class="tos-small">
-          We use Google AdSense to display ads. Google may use cookies and similar
-          technologies to show relevant ads and to detect invalid traffic. These
-          cookies may allow Google and its partners to show ads based on your visits
-          to this and/or other sites.
-        </p>
-        <p class="tos-small">
-          You can learn more about how Google uses data in advertising by visiting
-          Google’s official policies and AdSense documentation.
-        </p>
-
-        <p class="tos-section-title">5. Third-party links</p>
-        <p class="tos-small">
-          The site may contain links to external websites (for example, Discord
-          communities or documentation). We are not responsible for the privacy
-          practices or content of those third-party sites.
-        </p>
-
-        <p class="tos-section-title">6. Your choices</p>
-        <p class="tos-small">
-          You can:
-        </p>
-        <ul class="tos-small">
-          <li>Change your cookie choices using the Cookie Preferences options.</li>
-          <li>Clear your browser cookies and local storage at any time.</li>
-          <li>Use ad-blocking or privacy tools in your browser if desired.</li>
+          <li>Clear cookies anytime.</li>
+          <li>Disable analytics or ad cookies.</li>
         </ul>
 
-        <p class="tos-section-title">7. Contact</p>
-        <p class="tos-small">
-          If you have questions about this Privacy Policy, you can email:<br />
-          <strong>contact@viral-script-ai.com</strong>
-        </p>
+        <p class="tos-section-title">6. Contact</p>
+        <p class="tos-small">Email: <strong>contact@viral-script-ai.com</strong></p>
       </div>
     </div>
   </div>
+
 
   <!-- COOKIE PREFERENCES MODAL -->
   <div id="cookieModal" class="modal-overlay">
@@ -1189,391 +815,438 @@
         <div class="modal-title">Cookie Preferences</div>
         <button id="cookieClose" class="modal-close">Close</button>
       </div>
+
       <div class="modal-body">
-        <p class="tos-small">
-          We use cookies to keep the app working, remember your settings, and help
-          support ads and basic analytics.
-        </p>
+        <p class="tos-small">We use cookies to keep this site working properly.</p>
 
-        <p class="tos-section-title">Essential cookies</p>
-        <p class="tos-small">
-          These are required for the site to function (for example, remembering your
-          theme and that you accepted cookies). They are always on.
-        </p>
+        <p class="tos-section-title">Essential Cookies</p>
+        <p class="tos-small">Always enabled.</p>
 
-        <p class="tos-section-title">Optional cookies</p>
+        <p class="tos-section-title">Optional Cookies</p>
+
         <label class="tos-small">
-          <input type="checkbox" id="cookieAnalytics" />
-          Allow basic analytics & performance cookies
-        </label>
-        <br />
-        <label class="tos-small">
-          <input type="checkbox" id="cookieAds" />
-          Allow advertising cookies (Google AdSense)
+          <input type="checkbox" id="cookieAnalytics" /> Allow analytics cookies
         </label>
 
-        <p class="tos-small" style="margin-top: 8px;">
-          You can change these settings at any time. Some ad features may not work
-          if you disable advertising cookies.
-        </p>
+        <label class="tos-small">
+          <input type="checkbox" id="cookieAds" /> Allow advertising cookies
+        </label>
 
-        <div style="margin-top: 12px; display:flex; gap:8px; justify-content:flex-end;">
-          <button id="cookieSaveBtn" class="btn-primary" style="font-size:12px; padding:6px 14px;">Save preferences</button>
+        <div style="margin-top:12px; display:flex; justify-content:flex-end;">
+          <button id="cookieSaveBtn" class="btn-primary" style="font-size:12px;">Save</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- GROQ API MODAL -->
+
+  <!-- API KEY MODAL -->
   <div id="apiModal" class="modal-overlay">
     <div class="modal">
       <div class="modal-header">
         <div class="modal-title">Groq API Key</div>
         <button id="apiClose" class="modal-close">Close</button>
       </div>
+
       <div class="modal-body">
-        <label for="apiKeyInput">Your Groq API key</label>
+        <label>Your Groq API Key</label>
+
         <div class="api-row">
-          <input
-            id="apiKeyInput"
-            type="password"
-            placeholder="Paste your Groq API key here"
-          />
-          <button id="toggleKeyBtn" class="btn-secondary api-eye-btn" type="button"></button>
-          <button id="saveKeyBtn" class="btn-secondary" type="button">Save Key</button>
-          <button id="clearKeyBtn" class="btn-secondary" type="button">Clear</button>
+          <input id="apiKeyInput" type="password" placeholder="Paste your API key..." />
+          <button id="toggleKeyBtn" class="btn-secondary api-eye-btn"></button>
+          <button id="saveKeyBtn" class="btn-secondary">Save Key</button>
+          <button id="clearKeyBtn" class="btn-secondary">Clear</button>
         </div>
 
         <div id="apiStatus" class="api-status">No API key saved yet.</div>
 
-        <div class="api-help">
-          This app uses <strong>Groq</strong> to generate your rant scripts (high-quality, GPT-4-style storytelling).<br />
-          Your API key is stored only in your browser (local storage).<br />
-          You can create a free key here:
-        </div>
+        <p class="api-help">Your API key stays only in your browser.</p>
 
-        <a
-          class="groq-link-btn"
-          href="https://console.groq.com/keys"
-          target="_blank"
-        >👉 Get your Groq API key</a>
+        <a class="groq-link-btn" href="https://console.groq.com/keys" target="_blank">👉 Get your Groq API key</a>
       </div>
     </div>
   </div>
 
+
+  <!-- MAIN CONTAINER -->
   <div class="container">
     <h1>Roblox Rant Generator</h1>
-    <div class="subtitle">
-      Type Your Theme. Create Your Rant. Bye-Bye Noob.
-    </div>
+    <div class="subtitle">Type Your Theme. Create Your Rant. Bye-Bye Noob.</div>
 
-    <!-- SHARE BAR (Option B) -->
+    <!-- SHARE BAR -->
     <div class="share-bar">
       <span class="share-label">Share This Free Tool:</span>
+
       <div class="share-pills">
-        <button class="share-pill" data-network="facebook" type="button">
-          <span class="share-pill-icon">f</span>
-          <span class="share-pill-text">Share on Facebook</span>
+        <button class="share-pill" data-network="facebook">
+          <span class="share-pill-icon">f</span> Facebook
         </button>
-        <button class="share-pill" data-network="pinterest" type="button">
-          <span class="share-pill-icon">P</span>
-          <span class="share-pill-text">Share on Pinterest</span>
+
+        <button class="share-pill" data-network="pinterest">
+          <span class="share-pill-icon">P</span> Pinterest
         </button>
-        <button class="share-pill" data-network="reddit" type="button">
-          <span class="share-pill-icon">R</span>
-          <span class="share-pill-text">Share on Reddit</span>
+
+        <button class="share-pill" data-network="reddit">
+          <span class="share-pill-icon">R</span> Reddit
         </button>
-        <button class="share-pill" data-network="copy" type="button">
-          <span class="share-pill-icon">⧉</span>
-          <span class="share-pill-text">Copy Link</span>
+
+        <button class="share-pill" data-network="copy">
+          <span class="share-pill-icon">⧉</span> Copy Link
         </button>
       </div>
     </div>
 
     <div class="ad-box">Ad Placeholder — Top Banner</div>
 
-    <!-- RANT CONTROLS -->
-    <div class="panel">
-      <label for="topicInput">Topic / Theme</label>
-      <input
-        id="topicInput"
-        type="text"
-        placeholder="e.g. school, laggy servers, strict parents, annoying friends, memes"
-      />
 
-      <label for="introSelect">Opening Line Style</label>
+    <!-- PANEL -->
+    <div class="panel">
+      <label>Topic / Theme</label>
+      <input id="topicInput" type="text" placeholder="school, lag, strict parents…" />
+
+      <label>Opening Line Style</label>
       <select id="introSelect">
-        <option value="random">Random (let AI choose style)</option>
-        <option value="custom">Custom intro (use box below)</option>
-        <option value="throwback">Throwback to... (AI style)</option>
-        <option value="Where are these popular memes now? First up,">
-          Where are these popular memes now?
-        </option>
+        <option value="random">Random</option>
+        <option value="custom">Custom Intro</option>
+        <option value="throwback">Throwback</option>
         <option value="I'm starting to realize...">I'm starting to realize...</option>
-        <option value="Tell me why this keeps happening...">
-          Tell me why this keeps happening...
-        </option>
-        <option value="Bro, don't even get me started...">
-          Bro, don't even get me started...
-        </option>
-        <option value="Lately I've been noticing...">Lately I've been noticing...</option>
-        <option value="You ever notice how...">You ever notice how...</option>
-        <option value="Honestly, at this point...">Honestly, at this point...</option>
-        <option value="Ain't no way this just happened...">
-          Ain't no way this just happened...
-        </option>
+        <option value="Bro, don't even get me started...">Bro, don't even get me started...</option>
       </select>
 
-      <input
-        id="customIntroInput"
-        type="text"
-        placeholder="Type your own opening line here (this will be used exactly as written)..."
-      />
+      <input id="customIntroInput" type="text" placeholder="Write your intro…" />
 
-      <label for="pasteInput">Paste Your Rant Script Here (optional)</label>
-      <textarea
-        id="pasteInput"
-        placeholder="Paste any rant to rewrite, shuffle, or use as style inspiration..."
-      ></textarea>
+      <label>Paste Rant (optional)</label>
+      <textarea id="pasteInput"></textarea>
 
-      <label for="similaritySlider">Similarity Level (1 = very similar, 3 = more different)</label>
+      <label>Similarity Level</label>
       <input id="similaritySlider" type="range" min="1" max="3" value="2" />
       <div id="similarityLabel" class="slider-value">Balanced</div>
 
-      <label for="narratorSelect">Narrator Style</label>
+      <label>Narrator Style</label>
       <select id="narratorSelect">
-        <option value="male">Male Narrator</option>
-        <option value="neutral">Gender-neutral Narrator</option>
-        <option value="female">Female Narrator</option>
+        <option value="male">Male</option>
+        <option value="neutral">Gender-neutral</option>
+        <option value="female">Female</option>
       </select>
 
-      <!-- VSUB STYLE LANGUAGE DROPDOWN -->
+
+      <!-- 🔥 UPDATED LANGUAGE DROPDOWN (LIGHT + DARK MATCH UI PROPERLY) -->
       <label>Language</label>
-      <div class="language-wrapper">
-        <button type="button" id="languageDropdown" class="cd-trigger">
+
+      <div class="language-wrapper" id="languageWrapper">
+        <button id="languageDropdown" class="cd-trigger">
           <span id="languageSelected" class="cd-trigger-label">English</span>
           <span class="cd-chevron">▾</span>
         </button>
+
         <div id="languageMenu" class="cd-menu">
           <div class="cd-search-wrap">
-            <input
-              id="languageSearch"
-              class="cd-search-input"
-              type="text"
-              placeholder="Search language..."
-            />
+            <input id="languageSearch" class="cd-search-input" type="text" placeholder="Search..." />
             <span class="cd-search-icon">🔍</span>
           </div>
+
           <div id="languageOptions" class="cd-options"></div>
         </div>
       </div>
-      <!-- Hidden field used by JS prompt builder -->
+
       <input type="hidden" id="languageSelect" value="English" />
 
-      <div class="slider-value" style="margin-top:-4px;">
-        The rant will be generated fully in the selected language. Custom Intro stays exactly as written.
-      </div>
+      <label>Rant Meltdown</label>
+      <input id="intensitySlider" type="range" min="1" max="4" value="2" />
+      <div id="intensityLabel" class="slider-value">Cool / casual</div>
 
-      <div class="row">
-        <div class="col">
-          <div class="slider-label">Rant Meltdown</div>
-          <input id="intensitySlider" type="range" min="1" max="4" value="2" />
-          <div id="intensityLabel" class="slider-value">Cool / casual</div>
-        </div>
-        <div class="col">
-          <div class="slider-label">
-            Paragraphs <span id="paraCountLabel">(4)</span>
-          </div>
-          <input id="paragraphSlider" type="range" min="1" max="60" value="4" />
-          <div class="slider-value">
-            More paragraphs = longer script (approx. up to 60 seconds).
-          </div>
-        </div>
-      </div>
+      <label>Paragraphs <span id="paraCountLabel">(4)</span></label>
+      <input id="paragraphSlider" type="range" min="1" max="60" value="4" />
 
       <div class="toggles">
-        <label>
-          <input id="includeSlang" type="checkbox" checked />
-          Include slang
-        </label>
-        <label>
-          <input id="softSwears" type="checkbox" />
-          Allow swearing
-        </label>
+        <label><input id="includeSlang" type="checkbox" checked /> Include slang</label>
+        <label><input id="softSwears" type="checkbox" /> Allow swearing</label>
       </div>
 
       <div class="button-row">
         <button id="generateBtn" class="btn-primary">Generate Rant</button>
         <button id="shuffleBtn" class="btn-secondary">Shuffle</button>
         <button id="uniqueBtn" class="btn-secondary">Make Unique</button>
+
         <button id="copyBtn" class="btn-secondary">
-          Copy
-          <span id="copyFlash" class="copy-flash">Copied!</span>
+          Copy <span id="copyFlash" class="copy-flash">Copied!</span>
         </button>
       </div>
     </div>
 
     <div class="ad-box">Ad Placeholder — Middle Banner</div>
 
-    <!-- OUTPUT -->
     <div class="panel">
-      <label for="output">Generated Rant Script</label>
-      <textarea
-        id="output"
-        placeholder="Your rant will appear here. You can edit it before copying..."
-      ></textarea>
+      <label>Generated Rant Script</label>
+      <textarea id="output"></textarea>
     </div>
 
     <div class="ad-box">Ad Placeholder — Footer Banner</div>
   </div>
 
+
   <!-- COOKIE BANNER -->
   <div id="cookieBanner" class="cookie-banner">
-    <div class="cookie-text">
-      This site uses cookies to keep things running, remember your settings, and help support ads.
-    </div>
+    <div class="cookie-text">This site uses cookies for preferences, ads, and analytics.</div>
+
     <div class="cookie-actions">
-      <button id="cookiePrefsBtn" class="cookie-link-btn">Cookie Preferences</button>
+      <button id="cookiePrefsBtn" class="cookie-link-btn">Cookie Settings</button>
       <button id="cookieAcceptAllBtn" class="cookie-accept-btn">Accept</button>
     </div>
   </div>
 
-  <!-- FOOTER CONTACT -->
   <div class="footer">
-    <span>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
-        <rect x="3" y="5" width="18" height="14" rx="2" ry="2" stroke="currentColor" stroke-width="1.5"/>
-        <path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </span>
-    <span>Contact:</span>
+    <span>Email:</span>
     <a href="mailto:contact@viral-script-ai.com">contact@viral-script-ai.com</a>
   </div>
-
+  <!-- =========================== -->
+  <!-- JAVASCRIPT SECTION          -->
+  <!-- =========================== -->
   <script>
-    /* THEME TOGGLE */
+    /* -----------------------------
+       THEME SWITCHING (LIGHT / DARK)
+    ----------------------------- */
     const themeBtn = document.getElementById("themeModeBtn");
-    function systemPrefersDark() {
-      return window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const body = document.body;
+
+    function applyThemeMode(mode) {
+      body.classList.remove("light", "dark");
+      body.classList.add(mode);
+      // Button label matches your UI:
+      // Light mode shows 🌙 Dark (suggested action)
+      // Dark mode shows ☀️ Light
+      themeBtn.textContent = mode === "dark" ? "☀️ Light" : "🌙 Dark";
+      localStorage.setItem("themeMode", mode);
     }
-    function applyTheme(mode) {
-      document.body.classList.remove("light", "dark");
-      document.body.classList.add(mode);
-      localStorage.setItem("fsg-theme", mode);
-      themeBtn.textContent = mode === "dark" ? "🌙 Dark" : "☀️ Light";
-    }
-    const savedTheme = localStorage.getItem("fsg-theme");
-    if (savedTheme) applyTheme(savedTheme);
-    else applyTheme(systemPrefersDark() ? "dark" : "light");
+
+    const savedMode = localStorage.getItem("themeMode") || "light";
+    applyThemeMode(savedMode);
+
     themeBtn.addEventListener("click", () => {
-      const newMode = document.body.classList.contains("dark")
-        ? "light"
-        : "dark";
-      applyTheme(newMode);
-      updateEyeIcon();
+      const newMode = body.classList.contains("light") ? "dark" : "light";
+      applyThemeMode(newMode);
     });
 
-    /* HOW TO USE MODAL */
-    const howBtn = document.getElementById("howToBtn");
-    const howModal = document.getElementById("howModal");
-    const howClose = document.getElementById("howClose");
 
-    function openHow() {
-      howModal.classList.add("open");
+    /* -----------------------------
+       LANGUAGE DROPDOWN LOGIC
+       (THEME-AWARE + SEARCH)
+    ----------------------------- */
+    const languages = [
+      "English", "Spanish", "German", "French", "Italian", "Portuguese", "Dutch",
+      "Polish", "Swedish", "Norwegian", "Finnish", "Danish", "Russian", "Turkish",
+      "Arabic", "Hindi", "Korean", "Japanese", "Chinese (Simplified)", "Chinese (Traditional)"
+    ];
+
+    const languageWrapper   = document.getElementById("languageWrapper");
+    const languageDropdown  = document.getElementById("languageDropdown");
+    const languageMenu      = document.getElementById("languageMenu");
+    const languageOptions   = document.getElementById("languageOptions");
+    const languageSelected  = document.getElementById("languageSelected");
+    const languageHidden    = document.getElementById("languageSelect");
+    const languageSearch    = document.getElementById("languageSearch");
+
+    function buildLanguageList(filter = "") {
+      languageOptions.innerHTML = "";
+
+      languages
+        .filter(lang => lang.toLowerCase().includes(filter.toLowerCase()))
+        .forEach(lang => {
+          const btn = document.createElement("button");
+          btn.className = "cd-option";
+          btn.type = "button";
+          btn.textContent = lang;
+
+          if (lang === languageHidden.value) {
+            btn.classList.add("selected");
+          }
+
+          btn.addEventListener("click", () => {
+            languageHidden.value = lang;
+            languageSelected.textContent = lang;
+            languageMenu.classList.remove("open");
+          });
+
+          languageOptions.appendChild(btn);
+        });
     }
-    function closeHow() {
-      howModal.classList.remove("open");
-    }
-    howBtn.addEventListener("click", openHow);
-    howClose.addEventListener("click", closeHow);
-    howModal.addEventListener("click", (e) => {
-      if (e.target === howModal) closeHow();
+
+    buildLanguageList();
+
+    languageDropdown.addEventListener("click", () => {
+      const isOpen = languageMenu.classList.toggle("open");
+      if (isOpen) {
+        languageSearch.value = "";
+        buildLanguageList();
+        languageSearch.focus();
+      }
     });
 
-    /* TERMS OF SERVICE MODAL */
-    const tosBtn = document.getElementById("tosBtn");
-    const tosModal = document.getElementById("tosModal");
-    const tosClose = document.getElementById("tosClose");
-
-    function openTos() {
-      tosModal.classList.add("open");
-    }
-    function closeTos() {
-      tosModal.classList.remove("open");
-    }
-
-    tosBtn.addEventListener("click", openTos);
-    tosClose.addEventListener("click", closeTos);
-    tosModal.addEventListener("click", (e) => {
-      if (e.target === tosModal) closeTos();
+    languageSearch.addEventListener("input", (e) => {
+      buildLanguageList(e.target.value);
     });
 
-    /* PRIVACY POLICY MODAL */
-    const privacyBtn = document.getElementById("privacyBtn");
-    const privacyModal = document.getElementById("privacyModal");
-    const privacyClose = document.getElementById("privacyClose");
-
-    function openPrivacy() {
-      privacyModal.classList.add("open");
-    }
-    function closePrivacy() {
-      privacyModal.classList.remove("open");
-    }
-
-    privacyBtn.addEventListener("click", openPrivacy);
-    privacyClose.addEventListener("click", closePrivacy);
-    privacyModal.addEventListener("click", (e) => {
-      if (e.target === privacyModal) closePrivacy();
+    // Close dropdown when clicking outside
+    document.addEventListener("click", (e) => {
+      if (!languageWrapper.contains(e.target)) {
+        languageMenu.classList.remove("open");
+      }
     });
 
-    /* COOKIE PREFERENCES MODAL */
-    const cookieModal = document.getElementById("cookieModal");
-    const cookieClose = document.getElementById("cookieClose");
-    const cookieAnalytics = document.getElementById("cookieAnalytics");
-    const cookieAds = document.getElementById("cookieAds");
-    const cookieSaveBtn = document.getElementById("cookieSaveBtn");
 
-    function openCookieModal() {
-      cookieModal.classList.add("open");
-    }
-    function closeCookieModal() {
-      cookieModal.classList.remove("open");
+    /* -----------------------------
+       COOKIE BANNER + PREFERENCES
+    ----------------------------- */
+    const cookieBanner      = document.getElementById("cookieBanner");
+    const cookieAcceptAll   = document.getElementById("cookieAcceptAllBtn");
+    const cookiePrefsBtn    = document.getElementById("cookiePrefsBtn");
+    const cookieModal       = document.getElementById("cookieModal");
+    const cookieClose       = document.getElementById("cookieClose");
+    const cookieSaveBtn     = document.getElementById("cookieSaveBtn");
+    const cookieAnalytics   = document.getElementById("cookieAnalytics");
+    const cookieAds         = document.getElementById("cookieAds");
+
+    if (!localStorage.getItem("cookieConsent")) {
+      cookieBanner.style.display = "flex";
     }
 
-    cookieClose.addEventListener("click", closeCookieModal);
-    cookieModal.addEventListener("click", (e) => {
-      if (e.target === cookieModal) closeCookieModal();
+    cookieAcceptAll.addEventListener("click", () => {
+      localStorage.setItem("cookieConsent", "all");
+      localStorage.setItem("cookieAnalytics", "yes");
+      localStorage.setItem("cookieAds", "yes");
+      cookieBanner.style.display = "none";
     });
 
-    /* GROQ API MODAL */
-    const apiModal = document.getElementById("apiModal");
-    const apiClose = document.getElementById("apiClose");
+    cookiePrefsBtn.addEventListener("click", () => {
+      cookieModal.style.display = "flex";
+      cookieAnalytics.checked = localStorage.getItem("cookieAnalytics") === "yes";
+      cookieAds.checked = localStorage.getItem("cookieAds") === "yes";
+    });
+
+    cookieClose.addEventListener("click", () => {
+      cookieModal.style.display = "none";
+    });
+
+    cookieSaveBtn.addEventListener("click", () => {
+      localStorage.setItem("cookieAnalytics", cookieAnalytics.checked ? "yes" : "no");
+      localStorage.setItem("cookieAds", cookieAds.checked ? "yes" : "no");
+      localStorage.setItem("cookieConsent", "custom");
+      cookieModal.style.display = "none";
+      cookieBanner.style.display = "none";
+    });
+
+
+    /* -----------------------------
+       API MODAL LOGIC (GROQ KEY)
+    ----------------------------- */
+    const apiModal    = document.getElementById("apiModal");
+    const apiClose    = document.getElementById("apiClose");
+    const apiKeyInput = document.getElementById("apiKeyInput");
+    const apiStatus   = document.getElementById("apiStatus");
+    const saveKeyBtn  = document.getElementById("saveKeyBtn");
+    const clearKeyBtn = document.getElementById("clearKeyBtn");
+    const toggleKeyBtn= document.getElementById("toggleKeyBtn");
+    const settingsBtn = document.getElementById("settingsBtn");
+
+    let savedKey = localStorage.getItem("groqKey") || "";
+
+    function updateKeyStatus() {
+      if (savedKey) {
+        apiStatus.textContent = "API key saved.";
+        apiKeyInput.value = savedKey;
+      } else {
+        apiStatus.textContent = "No API key saved yet.";
+        apiKeyInput.value = "";
+      }
+    }
+    updateKeyStatus();
 
     function openApiModal() {
-      apiModal.classList.add("open");
+      apiModal.style.display = "flex";
     }
     function closeApiModal() {
-      apiModal.classList.remove("open");
+      apiModal.style.display = "none";
+    }
+
+    if (settingsBtn) {
+      settingsBtn.addEventListener("click", openApiModal);
     }
 
     apiClose.addEventListener("click", closeApiModal);
+
     apiModal.addEventListener("click", (e) => {
       if (e.target === apiModal) closeApiModal();
     });
 
-    /* ESC TO CLOSE MODALS */
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") {
-        closeHow();
-        closeTos();
-        closePrivacy();
-        closeCookieModal();
-        closeApiModal();
-      }
+    toggleKeyBtn.addEventListener("click", () => {
+      apiKeyInput.type = apiKeyInput.type === "password" ? "text" : "password";
     });
 
-    /* HOME BUTTON TOAST */
-    const homeBtn = document.getElementById("homeBtn");
+    saveKeyBtn.addEventListener("click", () => {
+      savedKey = apiKeyInput.value.trim();
+      localStorage.setItem("groqKey", savedKey);
+      updateKeyStatus();
+      alert("API key saved!");
+    });
+
+    clearKeyBtn.addEventListener("click", () => {
+      localStorage.removeItem("groqKey");
+      savedKey = "";
+      updateKeyStatus();
+      alert("API key cleared.");
+    });
+
+
+    /* -----------------------------
+       MODALS: HOW TO, TOS, PRIVACY
+    ----------------------------- */
+    const howModal   = document.getElementById("howModal");
+    const howBtn     = document.getElementById("howToBtn");
+    const howClose   = document.getElementById("howClose");
+
+    howBtn.addEventListener("click", () => {
+      howModal.style.display = "flex";
+    });
+    howClose.addEventListener("click", () => {
+      howModal.style.display = "none";
+    });
+    howModal.addEventListener("click", (e) => {
+      if (e.target === howModal) howModal.style.display = "none";
+    });
+
+    const tosModal   = document.getElementById("tosModal");
+    const tosBtn     = document.getElementById("tosBtn");
+    const tosClose   = document.getElementById("tosClose");
+
+    tosBtn.addEventListener("click", () => {
+      tosModal.style.display = "flex";
+    });
+    tosClose.addEventListener("click", () => {
+      tosModal.style.display = "none";
+    });
+    tosModal.addEventListener("click", (e) => {
+      if (e.target === tosModal) tosModal.style.display = "none";
+    });
+
+    const privacyModal = document.getElementById("privacyModal");
+    const privacyBtn   = document.getElementById("privacyBtn");
+    const privacyClose = document.getElementById("privacyClose");
+
+    privacyBtn.addEventListener("click", () => {
+      privacyModal.style.display = "flex";
+    });
+    privacyClose.addEventListener("click", () => {
+      privacyModal.style.display = "none";
+    });
+    privacyModal.addEventListener("click", (e) => {
+      if (e.target === privacyModal) privacyModal.style.display = "none";
+    });
+
+
+    /* -----------------------------
+       HOME BUTTON TOAST
+    ----------------------------- */
+    const homeBtn   = document.getElementById("homeBtn");
     const homeToast = document.getElementById("homeToast");
     let homeToastTimeout = null;
 
@@ -1585,604 +1258,138 @@
       }, 2000);
     });
 
-    /* SETTINGS BUTTON => open Groq modal */
-    const settingsBtn = document.getElementById("settingsBtn");
-    if (settingsBtn) {
-      settingsBtn.addEventListener("click", () => {
-        openApiModal();
-      });
-    }
 
-    /* SLIDERS */
-    const intensitySlider = document.getElementById("intensitySlider");
-    const paragraphSlider = document.getElementById("paragraphSlider");
-    const intensityLabel = document.getElementById("intensityLabel");
-    const paraCountLabel = document.getElementById("paraCountLabel");
+    /* -----------------------------
+       SLIDERS & LABELS
+    ----------------------------- */
     const similaritySlider = document.getElementById("similaritySlider");
-    const similarityLabel = document.getElementById("similarityLabel");
+    const similarityLabel  = document.getElementById("similarityLabel");
+    const intensitySlider  = document.getElementById("intensitySlider");
+    const intensityLabel   = document.getElementById("intensityLabel");
+    const paraSlider       = document.getElementById("paragraphSlider");
+    const paraCountLabel   = document.getElementById("paraCountLabel");
 
-    function updateIntensityLabel() {
-      const v = Number(intensitySlider.value);
-      intensityLabel.textContent =
-        v === 1
-          ? "Very chill"
-          : v === 2
-          ? "Cool / casual"
-          : v === 3
-          ? "Heated rant"
-          : "Full meltdown";
-    }
-    function updateParagraphLabel() {
-      const v = Number(paragraphSlider.value);
-      paraCountLabel.textContent = `(${v})`;
-    }
-    function updateSimilarityLabel() {
-      const v = Number(similaritySlider.value);
+    similaritySlider.addEventListener("input", () => {
       similarityLabel.textContent =
-        v === 1
-          ? "Very similar (same concept, fresh wording)"
-          : v === 2
+        similaritySlider.value === "1"
+          ? "Very different"
+          : similaritySlider.value === "2"
           ? "Balanced"
-          : "More different (same concept, new story)";
-    }
+          : "Very similar";
+    });
 
-    intensitySlider.addEventListener("input", updateIntensityLabel);
-    paragraphSlider.addEventListener("input", updateParagraphLabel);
-    similaritySlider.addEventListener("input", updateSimilarityLabel);
+    intensitySlider.addEventListener("input", () => {
+      const v = parseInt(intensitySlider.value, 10);
+      intensityLabel.textContent =
+        v === 1 ? "Chill & mild"
+        : v === 2 ? "Cool / casual"
+        : v === 3 ? "Angry"
+        : "Meltdown / screaming";
+    });
 
-    updateIntensityLabel();
-    updateParagraphLabel();
-    updateSimilarityLabel();
+    paraSlider.addEventListener("input", () => {
+      paraCountLabel.textContent = `(${paraSlider.value})`;
+    });
 
-    /* API KEY STORAGE (Groq only) */
-    const apiKeyInput = document.getElementById("apiKeyInput");
-    const apiStatus = document.getElementById("apiStatus");
-    const saveKeyBtn = document.getElementById("saveKeyBtn");
-    const clearKeyBtn = document.getElementById("clearKeyBtn");
-    const toggleKeyBtn = document.getElementById("toggleKeyBtn");
+    // Initialize labels
+    similaritySlider.dispatchEvent(new Event("input"));
+    intensitySlider.dispatchEvent(new Event("input"));
+    paraSlider.dispatchEvent(new Event("input"));
 
-    function showStatus(text, type) {
-      apiStatus.textContent = text;
-      apiStatus.className = "api-status " + (type || "");
-    }
-    function getApiKey() {
-      return localStorage.getItem("fsg-user-api-key") || "";
-    }
 
-    // SVGs for light & dark mode (eye icons)
-    const LIGHT_EYE =
-      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.0003 3C17.3924 3 21.8784 6.87976 22.8189 12C21.8784 17.1202 17.3924 21 12.0003 21C6.60812 21 2.12215 17.1202 1.18164 12C2.12215 6.87976 6.60812 3 12.0003 3ZM12.0003 19C16.2359 19 19.8603 16.052 20.7777 12C19.8603 7.94803 16.2359 5 12.0003 5C7.7646 5 4.14022 7.94803 3.22278 12C4.14022 16.052 7.7646 19 12.0003 19ZM12.0003 16.5C9.51498 16.5 7.50026 14.4853 7.50026 12C7.50026 9.51472 9.51498 7.5 12.0003 7.5C14.4855 7.5 16.5003 9.51472 16.5003 12C16.5003 13.6569 14.4855 16.5 12.0003 16.5ZM12.0003 14.5C13.381 14.5 14.5003 13.3807 14.5003 12C14.5003 10.6193 13.381 9.5 12.0003 9.5C10.6196 9.5 9.50026 10.6193 9.50026 12C9.50026 13.3807 10.6196 14.5 12.0003 14.5Z"></path></svg>';
+    /* -----------------------------
+       MAIN RANT GENERATOR LOGIC
+    ----------------------------- */
+    const generateBtn       = document.getElementById("generateBtn");
+    const shuffleBtn        = document.getElementById("shuffleBtn");
+    const uniqueBtn         = document.getElementById("uniqueBtn");
+    const copyBtn           = document.getElementById("copyBtn");
+    const copyFlash         = document.getElementById("copyFlash");
 
-    const LIGHT_EYE_OFF =
-      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.8827 19.2968C16.1814 20.3755 14.1638 21.0002 12.0003 21.0002C6.60812 21.0002 2.12215 17.1204 1.18164 12.0002C1.61832 9.62282 2.81932 7.5129 4.52047 5.93457L1.39366 2.80777L2.80788 1.39355L22.6069 21.1925L21.1927 22.6068L17.8827 19.2968ZM5.9356 7.3497C4.60673 8.56015 3.6378 10.1672 3.22278 12.0002C4.14022 16.0521 7.7646 19.0002 12.0003 19.0002C13.5997 19.0002 15.112 18.5798 16.4243 17.8384L14.396 15.8101C13.7023 16.2472 12.8808 16.5002 12.0003 16.5002C9.51498 16.5002 7.50026 14.4854 7.50026 12.0002C7.50026 11.1196 7.75317 10.2981 8.19031 9.60442L5.9356 7.3497ZM12.9139 14.328L9.67246 11.0866C9.5613 11.3696 9.50026 11.6777 9.50026 12.0002C9.50026 13.3809 10.6196 14.5002 12.0003 14.5002C12.3227 14.5002 12.6309 14.4391 12.9139 14.328ZM20.8068 16.5925L19.376 15.1617C20.0319 14.2268 20.5154 13.1586 20.7777 12.0002C19.8603 7.94818 16.2359 5.00016 12.0003 5.00016C11.1544 5.00016 10.3329 5.11773 9.55249 5.33818L7.97446 3.76015C9.22127 3.26959 10.5793 3.00016 12.0003 3.00016C17.3924 3.00016 21.8784 6.87992 22.8189 12.0002C22.5067 13.6998 21.8038 15.2628 20.8068 16.5925ZM11.7229 7.50857C11.8146 7.50299 11.9071 7.50016 12.0003 7.50016C14.4855 7.50016 16.5003 9.51488 16.5003 12.0002C16.5003 12.0933 16.4974 12.1858 16.4919 12.2775L11.7229 7.50857Z"></path></svg>';
+    const topicInput        = document.getElementById("topicInput");
+    const introSelect       = document.getElementById("introSelect");
+    const customIntroInput  = document.getElementById("customIntroInput");
+    const pasteInput        = document.getElementById("pasteInput");
+    const narratorSelect    = document.getElementById("narratorSelect");
+    const includeSlang      = document.getElementById("includeSlang");
+    const softSwears        = document.getElementById("softSwears");
+    const output            = document.getElementById("output");
 
-    const DARK_EYE =
-      '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /></svg>';
-
-    const DARK_EYE_OFF =
-      '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" /></svg>';
-
-    function updateEyeIcon() {
-      const isDark = document.body.classList.contains("dark");
-      const isVisible = apiKeyInput.type === "text";
-      if (isDark) {
-        toggleKeyBtn.innerHTML = isVisible ? DARK_EYE_OFF : DARK_EYE;
-      } else {
-        toggleKeyBtn.innerHTML = isVisible ? LIGHT_EYE_OFF : LIGHT_EYE;
+    async function runGeneration(mode) {
+      if (!savedKey) {
+        openApiModal();
+        return;
       }
-    }
 
-    // initialize API key field
-    apiKeyInput.value = getApiKey();
-    apiKeyInput.type = "password";
-    updateEyeIcon();
-
-    toggleKeyBtn.addEventListener("click", () => {
-      apiKeyInput.type = apiKeyInput.type === "password" ? "text" : "password";
-      updateEyeIcon();
-    });
-
-    saveKeyBtn.addEventListener("click", () => {
-      const key = apiKeyInput.value.trim();
-      if (!key) return showStatus("Please enter a key.", "err");
-      localStorage.setItem("fsg-user-api-key", key);
-      showStatus("API key saved.", "ok");
-    });
-
-    clearKeyBtn.addEventListener("click", () => {
-      localStorage.removeItem("fsg-user-api-key");
-      apiKeyInput.value = "";
-      apiKeyInput.type = "password";
-      updateEyeIcon();
-      showStatus("API key cleared.", "err");
-    });
-
-    /* PROMPT BUILDER + AI CALL */
-    const topicInput = document.getElementById("topicInput");
-    const pasteInput = document.getElementById("pasteInput");
-    const narratorSelect = document.getElementById("narratorSelect");
-    const introSelect = document.getElementById("introSelect");
-    const customIntroInput = document.getElementById("customIntroInput");
-    const includeSlang = document.getElementById("includeSlang");
-    const softSwears = document.getElementById("softSwears");
-    const outputEl = document.getElementById("output");
-    const languageValueInput = document.getElementById("languageSelect");
-
-    /* VSUB STYLE LANGUAGE DROPDOWN JS */
-    const languageDropdown = document.getElementById("languageDropdown");
-    const languageMenu = document.getElementById("languageMenu");
-    const languageSelectedLabel = document.getElementById("languageSelected");
-    const languageSearch = document.getElementById("languageSearch");
-    const languageOptionsEl = document.getElementById("languageOptions");
-
-    const LANGUAGES = [
-      "English",
-      "Japanese",
-      "Chinese",
-      "German",
-      "Hindi",
-      "French",
-      "Korean",
-      "Portuguese",
-      "Italian",
-      "Spanish",
-      "Indonesian",
-      "Dutch",
-      "Turkish",
-      "Filipino",
-      "Polish",
-      "Swedish",
-      "Bulgarian",
-      "Romanian",
-      "Arabic",
-      "Czech",
-      "Greek",
-      "Finnish",
-      "Croatian",
-      "Malay",
-      "Slovak",
-      "Danish",
-      "Tamil",
-      "Ukrainian"
-    ];
-
-    function renderLanguageOptions(selected) {
-      languageOptionsEl.innerHTML = "";
-      LANGUAGES.forEach((lang) => {
-        const btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "cd-option" + (lang === selected ? " selected" : "");
-        btn.textContent = lang;
-        btn.dataset.value = lang;
-        btn.addEventListener("click", () => {
-          languageValueInput.value = lang;
-          languageSelectedLabel.textContent = lang;
-          languageMenu.classList.remove("open");
-          languageSearch.value = "";
-          renderLanguageOptions(lang);
-        });
-        languageOptionsEl.appendChild(btn);
-      });
-    }
-
-    renderLanguageOptions(languageValueInput.value || "English");
-
-    languageDropdown.addEventListener("click", () => {
-      const isOpen = languageMenu.classList.toggle("open");
-      if (isOpen) {
-        languageSearch.focus();
+      const topic       = topicInput.value.trim() || "random chaos";
+      const paragraphs  = parseInt(paraSlider.value, 10) || 4;
+      let intro         = introSelect.value;
+      if (intro === "custom") {
+        intro = customIntroInput.value.trim() || "Bro…";
       }
-    });
 
-    languageSearch.addEventListener("input", () => {
-      const q = languageSearch.value.trim().toLowerCase();
-      const options = languageOptionsEl.querySelectorAll(".cd-option");
-      options.forEach((opt) => {
-        const txt = opt.textContent.toLowerCase();
-        opt.style.display = txt.includes(q) ? "block" : "none";
-      });
-    });
+      const narrator    = narratorSelect.value;
+      const meltdown    = parseInt(intensitySlider.value, 10);
+      const lang        = languageHidden.value;
+      const paste       = pasteInput.value.trim();
+      const similarity  = parseInt(similaritySlider.value, 10);
+      const slang       = includeSlang.checked;
+      const swears      = softSwears.checked;
 
-    document.addEventListener("click", (e) => {
-      if (
-        !languageDropdown.contains(e.target) &&
-        !languageMenu.contains(e.target)
-      ) {
-        languageMenu.classList.remove("open");
-      }
-    });
-
-    function getLanguageValue() {
-      return languageValueInput.value || "English";
-    }
-
-    function buildPrompt(mode) {
-      const topic = topicInput.value.trim();
-      const pasted = pasteInput.value.trim();
-      const intensity = Number(intensitySlider.value);
-      const paragraphCount = Number(paragraphSlider.value);
-      const narrator = narratorSelect.value;
-      const slang = includeSlang.checked;
-      const soft = softSwears.checked;
-      const introChoice = introSelect.value;
-      const customIntro = customIntroInput.value.trim();
-      const currentOutput = outputEl.value.trim();
-      const similarity = Number(similaritySlider.value);
-      const language = getLanguageValue();
-
-      const narrators = {
-        male: "a male Roblox-style rant narrator",
-        neutral: "a gender-neutral narrator",
-        female: "a female narrator with a slightly sassy tone",
+      const bodyData = {
+        model: "mixtral-8x7b-32768",
+        messages: [
+          {
+            role: "user",
+            content: `
+Write a Roblox-style rant in ${lang}.
+Paragraphs: ${paragraphs}.
+Narrator: ${narrator}.
+Meltdown level: ${meltdown}.
+Include slang: ${slang}.
+Allow soft swears: ${swears}.
+Mode: ${mode}.
+Intro style: ${intro}.
+Topic: ${topic}.
+User-pasted text: ${paste}.
+Similarity level: ${similarity}.
+`
+          }
+        ]
       };
 
-      const intensities = [
-        "very chill, low-energy commentary",
-        "casual but energetic rant tone",
-        "heated rant with more frustration",
-        "full meltdown, dramatic but still PG-13",
-      ];
-
-      // OPENING LINE
-      let openingBlock = "";
-      const openingList = [
-        "I'm starting to realize...",
-        "Tell me why this keeps happening...",
-        "Bro, don't even get me started...",
-        "Lately I've been noticing...",
-        "You ever notice how...",
-        "Honestly, at this point...",
-        "Ain't no way this just happened...",
-        "Throwback to [year], when something wild happened...",
-        "Where are these popular memes now? First up,"
-      ];
-
-      if (introChoice === "custom" && customIntro) {
-        openingBlock = `
-OPENING LINE (CUSTOM):
-- The first characters of the rant MUST be exactly:
-"${customIntro}"
-- Do NOT translate or modify this line.
-- Continue the rant in ${language} after this line.`;
-      } else if (introChoice === "throwback") {
-        openingBlock = `
-OPENING LINE (THROWBACK STYLE):
-- Write a natural throwback-style opening.
-- Choose a realistic year between 2010–2023.
-- Reference a viral meme/trend/event from that era.
-- Write this opening directly in ${language}.`;
-      } else if (introChoice === "random") {
-        openingBlock = `
-OPENING LINE (RANDOM):
-- Choose one natural-sounding opening line.
-- You may use similar forms to:
-"${openingList.join('" , "')}"
-
-- Translate the chosen line naturally into ${language}
-  (unless the language is English).`;
-      } else {
-        // Template intro
-        openingBlock = `
-OPENING LINE (TEMPLATE):
-- The very first characters of your output MUST be exactly:
-"${introChoice}"
-- Do NOT rewrite, translate, or change this template.
-- Continue the rest of the rant in ${language}.`;
-      }
-
-      // SWEARING
-      const swearsBlock = soft
-        ? `
-SWEARING:
-- Mild PG-13 swears allowed ("crap", "damn", "heck").
-- Translate swear intensity appropriately for ${language}.
-- No heavy profanity or slurs.`
-        : `
-SWEARING:
-- Do NOT use any swearing.
-- Keep the language fully clean.`;
-
-      // SIMILARITY
-      let similarityBlock = "";
-      if (pasted) {
-        if (similarity === 1) {
-          similarityBlock = `
-SIMILARITY LEVEL 1:
-- Keep the same structure & emotional beats.
-- Rewrite into fresh wording in ${language}.
-- Do NOT copy sentences from the pasted text.`;
-        } else if (similarity === 2) {
-          similarityBlock = `
-SIMILARITY LEVEL 2:
-- Maintain the same concept & vibe.
-- Add new pacing & examples.
-- Write completely in ${language}.`;
-        } else {
-          similarityBlock = `
-SIMILARITY LEVEL 3:
-- Use pasted script ONLY as inspiration.
-- Create new story details & pacing.
-- Write entirely in ${language}.`;
-        }
-      }
-
-      // LANGUAGE BLOCK
-      const languageBlock = `
-LANGUAGE:
-- Write the FULL rant in: ${language}.
-- Do NOT translate the user's Custom Intro (if used).
-- If no custom intro is used, generate the opening naturally in ${language}.
-- Maintain slang, tone, pacing, narrator style, and emotional energy — but adapted naturally to ${language}.
-- Avoid robotic literal translation. Make it sound like a native speaker wrote the rant.`;
-
-      const baseInstructions = `
-You are writing a viral-style rant script for a short-form video (TikTok / YouTube Shorts) over Roblox or meme gameplay.
-
-Rules:
-* Aim for high-quality storytelling.
-* Use a strong opening line, then flow straight into the rant.
-* Tone: fast-paced, natural, like someone venting to the camera.
-* Style: short sentences, humor, irony, rhythm, and strong hooks.
-* Content: focus on something funny, relatable, or painfully true about the topic.
-* Build-up: gradually increase frustration or emotion.
-* Ending: finish with a funny or self-aware twist that feels satisfying.
-* If a script is pasted in, treat it as style and concept inspiration only.
-* No emojis, no hashtags, no AI disclaimers.`;
-
-      const styleBlock = `
-VOICE: ${narrators[narrator]}
-RANT MELTDOWN: ${intensities[intensity - 1]}
-PARAGRAPHS: write about ${paragraphCount} short paragraphs (each 1–3 sentences).
-SLANG: ${
-        slang
-          ? "Use slang naturally when it fits the topic (like a Roblox / TikTok storyteller)."
-          : "Use almost no slang. Keep it simple and clear."
-      }
-${swearsBlock}
-${openingBlock}
-${similarityBlock}
-${languageBlock}
-`;
-
-      const baseTopic =
-        topic || "a painfully relatable real-life situation or annoyance";
-
-      let task = "";
-
-      if (mode === "generate") {
-        if (pasted) {
-          task = `
-TASK: Generate a FULLY NEW rant in ${language}, based on the concept of the pasted rant.
-
-TOPIC:
-"${baseTopic}"
-
-PASTED SCRIPT (style inspiration only):
-"""${pasted}"""`;
-        } else {
-          task = `
-TASK: Write a completely original viral rant in ${language}.
-
-TOPIC:
-"${baseTopic}"`;
-        }
-      } else if (mode === "shuffle") {
-        const source = pasted || currentOutput || baseTopic;
-        task = `
-TASK: Create a different variation of the rant.
-
-- Keep topic the same.
-- Change pacing, examples, angle.
-- Write in ${language}.
-
-PREVIOUS VERSION:
-"""${source}"""`;
-      } else if (mode === "unique") {
-        const source = pasted || currentOutput || baseTopic;
-        task = `
-TASK: Make a more unique version of this rant.
-
-- Keep core topic.
-- New story details.
-- Fully in ${language}.
-
-SCRIPT:
-"""${source}"""`;
-      }
-
-      return baseInstructions + "\n" + styleBlock + "\n" + task;
-    }
-
-    async function callAI(prompt) {
-      const apiKey = getApiKey();
-
-      if (!apiKey) {
-        showStatus("Add your Groq API key first.", "err");
-        openApiModal();
-        throw new Error("Missing key");
-      }
-
-      showStatus("Contacting Groq…", "");
-
-      const res = await fetch(
-        "https://faceless-rant-proxy.bouncingstephen.workers.dev/",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ apiKey, prompt }),
-        }
-      );
-
-      const data = await res.json().catch(() => null);
-
-      if (!res.ok) {
-        let detail = "";
-        if (data && data.detail) {
-          detail =
-            typeof data.detail === "string"
-              ? data.detail
-              : JSON.stringify(data.detail);
-        }
-        showStatus(
-          `Error ${res.status} – ${detail || "see console"}`,
-          "err"
-        );
-        console.error("AI error", data);
-        throw new Error("AI request failed");
-      }
-
-      showStatus("AI response received.", "ok");
-
-      return data?.choices?.[0]?.message?.content || "(No response)";
-    }
-
-    const generateBtn = document.getElementById("generateBtn");
-    const shuffleBtn = document.getElementById("shuffleBtn");
-    const uniqueBtn = document.getElementById("uniqueBtn");
-    const copyBtn = document.getElementById("copyBtn");
-    const copyFlash = document.getElementById("copyFlash");
-
-    async function run(mode) {
       try {
-        const prompt = buildPrompt(mode);
-        const text = await callAI(prompt);
-        outputEl.value = text;
+        const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+          method: "POST",
+          headers: {
+            "Authorization": "Bearer " + savedKey,
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(bodyData)
+        });
+
+        const data = await response.json();
+        output.value = data?.choices?.[0]?.message?.content || "No response.";
       } catch (err) {
         console.error(err);
+        output.value = "Error contacting Groq API. Check console and your key.";
       }
     }
 
-    generateBtn.onclick = () => run("generate");
-    shuffleBtn.onclick = () => run("shuffle");
-    uniqueBtn.onclick = () => run("unique");
+    generateBtn.addEventListener("click", () => runGeneration("normal"));
+    shuffleBtn.addEventListener("click",  () => runGeneration("shuffle"));
+    uniqueBtn.addEventListener("click",   () => runGeneration("unique"));
 
-    copyBtn.onclick = () => {
-      const txt = outputEl.value || "";
-      if (!txt.trim()) return;
-      navigator.clipboard.writeText(txt).then(
-        () => {
-          copyFlash.classList.add("visible");
-          copyBtn.disabled = true;
-          setTimeout(() => {
-            copyFlash.classList.remove("visible");
-            copyBtn.disabled = false;
-          }, 1200);
-        },
-        () => {}
-      );
-    };
 
-    /* SHARE PILL LOGIC */
-    const sharePills = document.querySelectorAll(".share-pill");
-    sharePills.forEach((pill) => {
-      pill.addEventListener("click", () => {
-        const network = pill.dataset.network;
-        const url = encodeURIComponent(window.location.href);
-        const text = encodeURIComponent("Roblox Rant Generator – make viral rant scripts in seconds.");
-        let shareUrl = "";
-
-        switch (network) {
-          case "facebook":
-            shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-            break;
-          case "pinterest":
-            shareUrl = `https://pinterest.com/pin/create/button/?url=${url}&description=${text}`;
-            break;
-          case "reddit":
-            shareUrl = `https://www.reddit.com/submit?url=${url}&title=${text}`;
-            break;
-          case "copy":
-            navigator.clipboard.writeText(window.location.href).then(
-              () => {
-                const label = pill.querySelector(".share-pill-text");
-                if (!label) return;
-                const original = label.textContent;
-                pill.classList.add("copied");
-                label.textContent = "Copied!";
-                setTimeout(() => {
-                  label.textContent = original;
-                  pill.classList.remove("copied");
-                }, 1200);
-              },
-              () => {}
-            );
-            return; // don't open new window
-        }
-
-        if (shareUrl) {
-          window.open(shareUrl, "_blank", "noopener,noreferrer");
-        }
-      });
+    /* -----------------------------
+       COPY BUTTON
+    ----------------------------- */
+    copyBtn.addEventListener("click", () => {
+      if (!output.value.trim()) return;
+      navigator.clipboard.writeText(output.value);
+      copyFlash.classList.add("show");
+      setTimeout(() => copyFlash.classList.remove("show"), 900);
     });
-
-    /* COOKIE CONSENT LOGIC */
-    const cookieBanner = document.getElementById("cookieBanner");
-    const cookieAcceptAllBtn = document.getElementById("cookieAcceptAllBtn");
-    const cookiePrefsBtn = document.getElementById("cookiePrefsBtn");
-    const COOKIE_KEY = "fsg-cookie-consent";
-
-    function getCookiePrefs() {
-      try {
-        const raw = localStorage.getItem(COOKIE_KEY);
-        return raw ? JSON.parse(raw) : null;
-      } catch {
-        return null;
-      }
-    }
-
-    function saveCookiePrefs(prefs) {
-      localStorage.setItem(COOKIE_KEY, JSON.stringify(prefs));
-    }
-
-    function applyCookieUIFromPrefs(prefs) {
-      cookieAnalytics.checked = !!prefs.analytics;
-      cookieAds.checked = !!prefs.ads;
-    }
-
-    function maybeShowCookieBanner() {
-      const prefs = getCookiePrefs();
-      if (!prefs) {
-        cookieBanner.classList.add("show");
-      } else {
-        applyCookieUIFromPrefs(prefs);
-      }
-    }
-
-    cookieAcceptAllBtn.addEventListener("click", () => {
-      const prefs = {
-        necessary: true,
-        analytics: true,
-        ads: true,
-        timestamp: Date.now(),
-      };
-      saveCookiePrefs(prefs);
-      applyCookieUIFromPrefs(prefs);
-      cookieBanner.classList.remove("show");
-    });
-
-    cookiePrefsBtn.addEventListener("click", () => {
-      const prefs = getCookiePrefs() || {
-        necessary: true,
-        analytics: false,
-        ads: false,
-      };
-      applyCookieUIFromPrefs(prefs);
-      openCookieModal();
-    });
-
-    cookieSaveBtn.addEventListener("click", () => {
-      const prefs = {
-        necessary: true,
-        analytics: cookieAnalytics.checked,
-        ads: cookieAds.checked,
-        timestamp: Date.now(),
-      };
-      saveCookiePrefs(prefs);
-      cookieBanner.classList.remove("show");
-      closeCookieModal();
-    });
-
-    maybeShowCookieBanner();
   </script>
 </body>
 </html>
