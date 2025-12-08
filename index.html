@@ -832,6 +832,38 @@
       background: #0b1120;
       font-weight: 500;
     }
+/* ==== PATCH: FIX LANGUAGE DROPDOWN FOR LIGHT MODE ==== */
+
+body.light .cd-menu {
+  background: #ffffff !important;
+  border-color: #d0d0dd !important;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12) !important;
+}
+
+body.light .cd-search-input {
+  background: #ffffff !important;
+  border-color: #d0d0dd !important;
+  color: #000 !important;
+}
+
+body.light .cd-search-wrap {
+  border-bottom-color: #e5e7eb !important;
+}
+
+body.light .cd-option {
+  background: #ffffff !important;
+  color: #000 !important;
+}
+
+body.light .cd-option:hover {
+  background: #f1f5f9 !important;
+}
+
+body.light .cd-option.selected {
+  background: #e2e8f0 !important;
+  color: #000 !important;
+  font-weight: 600;
+}
 
     @media (max-width: 900px) {
       .top-center {
